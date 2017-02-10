@@ -4,20 +4,20 @@ date: 2017-02-10 14:06:55
 tags: github博客
 ---
 1.环境配置
-安装 node.js : sudo apt install nodejs-legacy
-安装 npm ： sudo apt install npm
+安装 node.js : $sudo apt install nodejs-legacy
+安装 npm ： $sudo apt install npm
 安装 git
-安装 hexo ： sudo npm install hexo -g
+安装 hexo ： $sudo npm install hexo -g
 
 2.注册github帐号，并创建仓库（注意仓库必须以 “用户名.github.io”）
 
 3.初始化博客，命令行输入下列命令：
-git init
-git remote add origin "git url"
-git pull origing master
+$git init
+$git remote add origin "git url"
+$git pull origing master
 
-hexo init
-hexo s -g #预览
+$hexo init
+$hexo s -g #预览
 
 编辑根目录下的_config.yml 末尾添加下列代码:
   deploy:
@@ -25,9 +25,9 @@ hexo s -g #预览
   repository: https://github.com/AndWong/AndWong.github.io.git
   branch: master
 
-npm install hexo-deployer-git –save
-hexo clean
-hexo d -g #发布
+$npm install hexo-deployer-git --save
+$hexo clean
+$hexo d -g #发布
 
 4.访问 https://andwong.github.io/ #查看
 
@@ -35,6 +35,7 @@ hexo d -g #发布
 上述步骤执行完后master主支就有相应的内容,
 此时新建一个分支blog用于存放博客内容,
 新设备只需pull blog分支修改博客并push就行.
+如果$hexo d -g 失败可以尝试删除根目录下的.deploy_git目录再执行$hexo d -g
 
 ————–分割线————
 在_config.yml中修改:

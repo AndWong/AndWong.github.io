@@ -167,14 +167,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>1.环境配置<br>安装 node.js : sudo apt install nodejs-legacy<br>安装 npm ： sudo apt install npm<br>安装 git<br>安装 hexo ： sudo npm install hexo -g</p>
+                <p>1.环境配置<br>安装 node.js : $sudo apt install nodejs-legacy<br>安装 npm ： $sudo apt install npm<br>安装 git<br>安装 hexo ： $sudo npm install hexo -g</p>
 <p>2.注册github帐号，并创建仓库（注意仓库必须以 “用户名.github.io”）</p>
-<p>3.初始化博客，命令行输入下列命令：<br>git init<br>git remote add origin “git url”<br>git pull origing master</p>
-<p>hexo init<br>hexo s -g #预览</p>
+<p>3.初始化博客，命令行输入下列命令：<br>$git init<br>$git remote add origin “git url”<br>$git pull origing master</p>
+<p>$hexo init<br>$hexo s -g #预览</p>
 <p>编辑根目录下的_config.yml 末尾添加下列代码:<br>  deploy:<br>  type: git<br>  repository: <a href="https://github.com/AndWong/AndWong.github.io.git" target="_blank" rel="external">https://github.com/AndWong/AndWong.github.io.git</a><br>  branch: master</p>
-<p>npm install hexo-deployer-git –save<br>hexo clean<br>hexo d -g #发布</p>
+<p>$npm install hexo-deployer-git –save<br>$hexo clean<br>$hexo d -g #发布</p>
 <p>4.访问 <a href="https://andwong.github.io/" target="_blank" rel="external">https://andwong.github.io/</a> #查看</p>
-<p>「疑问 : 换台电脑后如何发布博客?」<br>上述步骤执行完后master主支就有相应的内容,<br>此时新建一个分支blog用于存放博客内容,<br>新设备只需pull blog分支修改博客并push就行.</p>
+<p>「疑问 : 换台电脑后如何发布博客?」<br>上述步骤执行完后master主支就有相应的内容,<br>此时新建一个分支blog用于存放博客内容,<br>新设备只需pull blog分支修改博客并push就行.<br>如果$hexo d -g 失败可以尝试删除根目录下的.deploy_git目录再执行$hexo d -g</p>
 <p>————–分割线————<br>在_config.yml中修改:<br>title: Wong Blog #修改页面标题<br>author: Wong #修改作者<br>theme: hexo-theme-aiki #修改主题样式</p>
 
 
@@ -185,7 +185,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/02/10/hello-world/" data-toggle="tooltip" data-placement="top" title="Hello World">&larr; Previous Post</a>
+                            <a href="/2017/02/10/Android设置全屏的几种方式/" data-toggle="tooltip" data-placement="top" title="Android设置全屏的几种方式">&larr; Previous Post</a>
                         </li>
                     
                     
