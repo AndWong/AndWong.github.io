@@ -13,11 +13,11 @@
 
     <title>
         
-          WebView 获取网页源码 - undefined
+          Android自定义圆形进度条 - undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2017/02/10/WebView-获取网页源码/">
+    <link rel="canonical" href="http://yoursite.com/2017/02/10/Android自定义圆形进度条/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,10 +141,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#WebView 获取网页源码" title="WebView 获取网页源码">WebView 获取网页源码</a>
+                          <a class="tag" href="/tags/#Android自定义圆形进度条" title="Android自定义圆形进度条">Android自定义圆形进度条</a>
                         
                     </div>
-                    <h1>WebView 获取网页源码</h1>
+                    <h1>Android自定义圆形进度条</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Wong on
@@ -167,44 +167,24 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Api-19以上获取源码的方式有修改，如下：<br>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {<br>    mWebView.evaluateJavascript(<br>            “(function() { return (‘<html>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</html>‘); })();”,<br>            new ValueCallback<string>() {<br>                @Override<br>                public void onReceiveValue(String html) {<br>                    Log.d(“HTML”, “whd &gt;&gt;html:” + html);<br>                    mHtmlSource = html;<br>                }<br>            });<br>} else {<br>   view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+” +<br>                “document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);<br>}</string></p>
-<p>Api-19以上获取源码的方式，如下：<br>Android： 在WebView中获取网页源码            </p>
-<ol>
-<li><p>使能javascript：<br>webView.getSettings().setJavaScriptEnabled(true);</p>
-</li>
-<li><p>编写本地接口<br>final class InJavaScriptLocalObj {<br> public void showSource(String html) {</p>
-<pre><code>Log.d(&quot;HTML&quot;, html);
-</code></pre><p> }<br>}</p>
-</li>
-<li><p>向网页暴露本地接口<br>webView.addJavascriptInterface(new InJavaScriptLocalObj(), “local_obj”);</p>
-</li>
-<li><p>编写自己的WebViewClient，并在onPageFinished中提取网页源码。<br>final class MyWebViewClient extends WebViewClient{<br> public boolean shouldOverrideUrlLoading(WebView view, String url) {    </p>
-<pre><code>view.loadUrl(url);    
-return true;    
-</code></pre><p> }<br> public void onPageStarted(WebView view, String url, Bitmap favicon) {</p>
-<pre><code>Log.d(&quot;WebView&quot;,&quot;onPageStarted&quot;); window.imagelistner.getImage(this.src)
-super.onPageStarted(view, url, favicon);
-</code></pre><p> }<br> public void onPageFinished(WebView view, String url) {</p>
-<pre><code>Log.d(&quot;WebView&quot;,&quot;onPageFinished &quot;);
-view.loadUrl(&quot;javascript:window.local_obj.showSource(&apos;&lt;head&gt;&apos;+&quot; +
-        &quot;document.getElementsByTagName(&apos;html&apos;)[0].innerHTML+&apos;&lt;/head&gt;&apos;);&quot;);
-super.onPageFinished(view, url);
-</code></pre><p> }<br>}</p>
-</li>
-</ol>
-<p>组合在一起的代码为：<br>package com.hi.briancol.htmlsource;</p>
-<p>import android.app.Activity;<br>import android.graphics.Bitmap;<br>import android.os.Bundle;<br>import android.util.Log;<br>import android.webkit.WebView;<br>import android.webkit.WebViewClient;</p>
-<p>public class HtmlSource extends Activity {<br>    private WebView webView;<br>    /<em>* Called when the activity is first created. </em>/<br>    @Override<br>    public void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.main);<br>        webView = (WebView)findViewById(R.id.webview);<br>        webView.getSettings().setJavaScriptEnabled(true);<br>        webView.addJavascriptInterface(new InJavaScriptLocalObj(), “local_obj”);<br>        webView.setWebViewClient(new MyWebViewClient());<br>        webView.loadUrl(“<a href="http://www.cnblogs.com/hibraincol/" target="_blank" rel="external">http://www.cnblogs.com/hibraincol/</a>“);<br>    }</p>
-<p>   final class MyWebViewClient extends WebViewClient{<br>        public boolean shouldOverrideUrlLoading(WebView view, String url) {<br>            view.loadUrl(url);<br>            return true;<br>        }<br>        public void onPageStarted(WebView view, String url, Bitmap favicon) {<br>            Log.d(“WebView”,”onPageStarted”);<br>            super.onPageStarted(view, url, favicon);<br>        }<br>        public void onPageFinished(WebView view, String url) {<br>            Log.d(“WebView”,”onPageFinished “);<br>            view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+” +<br>                    “document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);<br>            super.onPageFinished(view, url);<br>        }<br>    }</p>
-<pre><code>final class InJavaScriptLocalObj {
-    public void showSource(String html) {
-        Log.d(&quot;HTML&quot;, html);
-    }
-}
-</code></pre><p>}</p>
-<p>关键之处在于：<br>view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);</p>
-<p>运行，可以看到在showSource(String html)中打印了网页源码。</p>
+                <p>1.res目录下定义旋转动画 progress_circle：<br>&lt;?xml version=”1.0” encoding=”utf-8”?&gt;</p>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android" android:drawable="@drawable/icon_wifi_connect_gif" android:fromdegrees="0" android:pivotx="50%" android:pivoty="50%" android:todegrees="360"><br></rotate>
 
+<p>2.定义style：</p>
+<style name="mProgress_circle">
+    <item name="android:indeterminateDrawable">@drawable/progress_circle</item>
+    <item name="android:minWidth">25dp</item>
+    <item name="android:minHeight">25dp</item>
+    <item name="android:maxWidth">60dp</item>
+    <item name="android:maxHeight">60dp</item>
+</style>
+
+<p>3.控件中设置style</p>
+<progressbar android:id="@+id/pb001" style="@style/mProgress_circle" android:layout_width="15dp" android:layout_height="15dp" android:indeterminateduration="1200">
+
+
+<p>（图片资源）</p>
+</progressbar>
 
                 <hr>
 
@@ -212,13 +192,9 @@ super.onPageFinished(view, url);
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/02/10/Android动态修改某个控件大小/" data-toggle="tooltip" data-placement="top" title="Android动态修改某个控件大小">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/02/10/Android设置全屏的几种方式/" data-toggle="tooltip" data-placement="top" title="Android设置全屏的几种方式">Next Post &rarr;</a>
+                            <a href="/2017/02/10/EditText相关/" data-toggle="tooltip" data-placement="top" title="EditText相关">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
