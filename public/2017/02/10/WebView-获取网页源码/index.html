@@ -13,11 +13,11 @@
 
     <title>
         
-          Android设置全屏的几种方式 - undefined
+          WebView 获取网页源码 - undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2017/02/10/Android设置全屏的几种方式/">
+    <link rel="canonical" href="http://yoursite.com/2017/02/10/WebView-获取网页源码/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,10 +141,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#Android设置全屏的几种方式" title="Android设置全屏的几种方式">Android设置全屏的几种方式</a>
+                          <a class="tag" href="/tags/#WebView 获取网页源码" title="WebView 获取网页源码">WebView 获取网页源码</a>
                         
                     </div>
-                    <h1>Android设置全屏的几种方式</h1>
+                    <h1>WebView 获取网页源码</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Wong on
@@ -167,14 +167,43 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <ol>
-<li><p>将状态栏导航栏透明化，API19以上有效<br>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {<br> //透明状态栏<br> getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);<br> //透明导航栏<br> getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);<br>}</p>
+                <p>Api-19以上获取源码的方式有修改，如下：<br>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {<br>    mWebView.evaluateJavascript(<br>            “(function() { return (‘<html>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</html>‘); })();”,<br>            new ValueCallback<string>() {<br>                @Override<br>                public void onReceiveValue(String html) {<br>                    Log.d(“HTML”, “whd &gt;&gt;html:” + html);<br>                    mHtmlSource = html;<br>                }<br>            });<br>} else {<br>   view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+” +<br>                “document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);<br>}</string></p>
+<p>Api-19以上获取源码的方式，如下：<br>Android： 在WebView中获取网页源码            </p>
+<ol>
+<li><p>使能javascript：<br>webView.getSettings().setJavaScriptEnabled(true);</p>
 </li>
-<li><p>设置全屏参数<br>getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);</p>
+<li><p>编写本地接口<br>final class InJavaScriptLocalObj {<br> public void showSource(String html) {</p>
+<pre><code>Log.d(&quot;HTML&quot;, html);
+</code></pre><p> }<br>}</p>
 </li>
-<li><p>沉浸式<br>具体参照 ： <a href="http://blog.csdn.net/sinyu890807/article/details/51763825" target="_blank" rel="external">http://blog.csdn.net/sinyu890807/article/details/51763825</a><br>View decorView = getWindow().getDecorView();<br>int option = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;<br>decorView.setSystemUiVisibility(option);</p>
+<li><p>向网页暴露本地接口<br>webView.addJavascriptInterface(new InJavaScriptLocalObj(), “local_obj”);</p>
+</li>
+<li><p>编写自己的WebViewClient，并在onPageFinished中提取网页源码。<br>final class MyWebViewClient extends WebViewClient{<br> public boolean shouldOverrideUrlLoading(WebView view, String url) {    </p>
+<pre><code>view.loadUrl(url);    
+return true;    
+</code></pre><p> }<br> public void onPageStarted(WebView view, String url, Bitmap favicon) {</p>
+<pre><code>Log.d(&quot;WebView&quot;,&quot;onPageStarted&quot;); window.imagelistner.getImage(this.src)
+super.onPageStarted(view, url, favicon);
+</code></pre><p> }<br> public void onPageFinished(WebView view, String url) {</p>
+<pre><code>Log.d(&quot;WebView&quot;,&quot;onPageFinished &quot;);
+view.loadUrl(&quot;javascript:window.local_obj.showSource(&apos;&lt;head&gt;&apos;+&quot; +
+        &quot;document.getElementsByTagName(&apos;html&apos;)[0].innerHTML+&apos;&lt;/head&gt;&apos;);&quot;);
+super.onPageFinished(view, url);
+</code></pre><p> }<br>}</p>
 </li>
 </ol>
+<p>组合在一起的代码为：<br>package com.hi.briancol.htmlsource;</p>
+<p>import android.app.Activity;<br>import android.graphics.Bitmap;<br>import android.os.Bundle;<br>import android.util.Log;<br>import android.webkit.WebView;<br>import android.webkit.WebViewClient;</p>
+<p>public class HtmlSource extends Activity {<br>    private WebView webView;<br>    /<em>* Called when the activity is first created. </em>/<br>    @Override<br>    public void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.main);<br>        webView = (WebView)findViewById(R.id.webview);<br>        webView.getSettings().setJavaScriptEnabled(true);<br>        webView.addJavascriptInterface(new InJavaScriptLocalObj(), “local_obj”);<br>        webView.setWebViewClient(new MyWebViewClient());<br>        webView.loadUrl(“<a href="http://www.cnblogs.com/hibraincol/" target="_blank" rel="external">http://www.cnblogs.com/hibraincol/</a>“);<br>    }</p>
+<p>   final class MyWebViewClient extends WebViewClient{<br>        public boolean shouldOverrideUrlLoading(WebView view, String url) {<br>            view.loadUrl(url);<br>            return true;<br>        }<br>        public void onPageStarted(WebView view, String url, Bitmap favicon) {<br>            Log.d(“WebView”,”onPageStarted”);<br>            super.onPageStarted(view, url, favicon);<br>        }<br>        public void onPageFinished(WebView view, String url) {<br>            Log.d(“WebView”,”onPageFinished “);<br>            view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+” +<br>                    “document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);<br>            super.onPageFinished(view, url);<br>        }<br>    }</p>
+<pre><code>final class InJavaScriptLocalObj {
+    public void showSource(String html) {
+        Log.d(&quot;HTML&quot;, html);
+    }
+}
+</code></pre><p>}</p>
+<p>关键之处在于：<br>view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);</p>
+<p>运行，可以看到在showSource(String html)中打印了网页源码。</p>
 
 
                 <hr>
@@ -183,13 +212,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/02/10/WebView-获取网页源码/" data-toggle="tooltip" data-placement="top" title="WebView 获取网页源码">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/02/10/gitbub-blog/" data-toggle="tooltip" data-placement="top" title="Ubuntu下使用Hexo创建Gitbub博客">Next Post &rarr;</a>
+                            <a href="/2017/02/10/Android设置全屏的几种方式/" data-toggle="tooltip" data-placement="top" title="Android设置全屏的几种方式">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
