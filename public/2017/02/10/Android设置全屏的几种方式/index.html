@@ -13,11 +13,11 @@
 
     <title>
         
-          Hello World - undefined
+          Android设置全屏的几种方式 - undefined
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2017/02/10/hello-world/">
+    <link rel="canonical" href="http://yoursite.com/2017/02/10/Android设置全屏的几种方式/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,8 +141,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#Android设置全屏的几种方式" title="Android设置全屏的几种方式">Android设置全屏的几种方式</a>
+                        
                     </div>
-                    <h1>Hello World</h1>
+                    <h1>Android设置全屏的几种方式</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Wong on
@@ -165,15 +167,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+                <ol>
+<li><p>将状态栏导航栏透明化，API19以上有效<br>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {<br> //透明状态栏<br> getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);<br> //透明导航栏<br> getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);<br>}</p>
+</li>
+<li><p>设置全屏参数<br>getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);</p>
+</li>
+<li><p>沉浸式<br>具体参照 ： <a href="http://blog.csdn.net/sinyu890807/article/details/51763825" target="_blank" rel="external">http://blog.csdn.net/sinyu890807/article/details/51763825</a><br>View decorView = getWindow().getDecorView();<br>int option = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;<br>decorView.setSystemUiVisibility(option);</p>
+</li>
+</ol>
 
 
                 <hr>
@@ -182,13 +183,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/02/10/Android设置全屏的几种方式/" data-toggle="tooltip" data-placement="top" title="Android设置全屏的几种方式">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/02/10/gitbub-blog/" data-toggle="tooltip" data-placement="top" title="Ubuntu下使用Hexo创建Gitbub博客">Next Post &rarr;</a>
+                            <a href="/2017/02/10/hello-world/" data-toggle="tooltip" data-placement="top" title="Hello World">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
