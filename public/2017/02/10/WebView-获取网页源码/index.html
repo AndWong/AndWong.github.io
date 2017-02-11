@@ -6,16 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Api-19以上获取源码的方式有修改，如下：if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {    mWebView.evaluateJavascript(            “(function() { return (‘‘+document.getElementsByTagName(‘html’)[0].innerH">
+    <meta name="description" content="Android在WebView中获取网页源码  
+在Api-19以上获取源码的方式有修改，如下：  if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {    mWebView.evaluateJavascript(            “(function() {return (‘‘+document.getElements">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebView 获取网页源码">
 <meta property="og:url" content="http://yoursite.com/2017/02/10/WebView-获取网页源码/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
-<meta property="og:description" content="Api-19以上获取源码的方式有修改，如下：if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {    mWebView.evaluateJavascript(            “(function() { return (‘‘+document.getElementsByTagName(‘html’)[0].innerH">
-<meta property="og:updated_time" content="2017-02-11T13:36:41.121Z">
+<meta property="og:description" content="Android在WebView中获取网页源码  
+在Api-19以上获取源码的方式有修改，如下：  if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {    mWebView.evaluateJavascript(            “(function() {return (‘‘+document.getElements">
+<meta property="og:updated_time" content="2017-02-11T14:06:51.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebView 获取网页源码">
-<meta name="twitter:description" content="Api-19以上获取源码的方式有修改，如下：if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {    mWebView.evaluateJavascript(            “(function() { return (‘‘+document.getElementsByTagName(‘html’)[0].innerH">
+<meta name="twitter:description" content="Android在WebView中获取网页源码  
+在Api-19以上获取源码的方式有修改，如下：  if (Build.VERSION.SDK_INT &amp;gt;= Build.VERSION_CODES.KITKAT) {    mWebView.evaluateJavascript(            “(function() {return (‘‘+document.getElements">
     
     
         
@@ -166,8 +169,9 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Api-19以上获取源码的方式有修改，如下：<br>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {<br>    mWebView.evaluateJavascript(<br>            “(function() { return (‘<html>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</html>‘); })();”,<br>            new ValueCallback<string>() {<br>                @Override<br>                public void onReceiveValue(String html) {<br>                    Log.d(“HTML”, “whd &gt;&gt;html:” + html);<br>                    mHtmlSource = html;<br>                }<br>            });<br>} else {<br>   view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+” +<br>                “document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);<br>}</string></p>
-<p>Api-19以上获取源码的方式，如下：<br>Android： 在WebView中获取网页源码            </p>
+    <p>Android在WebView中获取网页源码  </p>
+<p>在Api-19以上获取源码的方式有修改，如下：<br>  if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {<br>    mWebView.evaluateJavascript(<br>            “(function() {return (‘<html>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</html>‘);})();”,<br>              new ValueCallback<string>() {<br>                @Override<br>                public void onReceiveValue(String html) {<br>                    Log.d(“HTML”, “whd &gt;&gt;html:” + html);<br>                }<br>            });<br>  }</string></p>
+<p>在Api-19以下获取源码的方式，如下：          </p>
 <ol>
 <li><p>使能javascript：<br>webView.getSettings().setJavaScriptEnabled(true);</p>
 </li>
@@ -188,21 +192,9 @@ super.onPageStarted(view, url, favicon);
 view.loadUrl(&quot;javascript:window.local_obj.showSource(&apos;&lt;head&gt;&apos;+&quot; +
         &quot;document.getElementsByTagName(&apos;html&apos;)[0].innerHTML+&apos;&lt;/head&gt;&apos;);&quot;);
 super.onPageFinished(view, url);
-</code></pre><p> }<br>}</p>
+</code></pre><p> }<br>}<br>关键之处在于：<br>view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);<br>运行，可以看到在showSource(String html)中打印了网页源码。</p>
 </li>
 </ol>
-<p>组合在一起的代码为：<br>package com.hi.briancol.htmlsource;</p>
-<p>import android.app.Activity;<br>import android.graphics.Bitmap;<br>import android.os.Bundle;<br>import android.util.Log;<br>import android.webkit.WebView;<br>import android.webkit.WebViewClient;</p>
-<p>public class HtmlSource extends Activity {<br>    private WebView webView;<br>    /<em>* Called when the activity is first created. </em>/<br>    @Override<br>    public void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.main);<br>        webView = (WebView)findViewById(R.id.webview);<br>        webView.getSettings().setJavaScriptEnabled(true);<br>        webView.addJavascriptInterface(new InJavaScriptLocalObj(), “local_obj”);<br>        webView.setWebViewClient(new MyWebViewClient());<br>        webView.loadUrl(“<a href="http://www.cnblogs.com/hibraincol/" target="_blank" rel="external">http://www.cnblogs.com/hibraincol/</a>“);<br>    }</p>
-<p>   final class MyWebViewClient extends WebViewClient{<br>        public boolean shouldOverrideUrlLoading(WebView view, String url) {<br>            view.loadUrl(url);<br>            return true;<br>        }<br>        public void onPageStarted(WebView view, String url, Bitmap favicon) {<br>            Log.d(“WebView”,”onPageStarted”);<br>            super.onPageStarted(view, url, favicon);<br>        }<br>        public void onPageFinished(WebView view, String url) {<br>            Log.d(“WebView”,”onPageFinished “);<br>            view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+” +<br>                    “document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);<br>            super.onPageFinished(view, url);<br>        }<br>    }</p>
-<pre><code>final class InJavaScriptLocalObj {
-    public void showSource(String html) {
-        Log.d(&quot;HTML&quot;, html);
-    }
-}
-</code></pre><p>}</p>
-<p>关键之处在于：<br>view.loadUrl(“javascript:window.local_obj.showSource(‘<head>‘+document.getElementsByTagName(‘html’)[0].innerHTML+’</head>‘);”);</p>
-<p>运行，可以看到在showSource(String html)中打印了网页源码。</p>
 
   </div>
 </article>
