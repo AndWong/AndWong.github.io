@@ -1,7 +1,7 @@
 ---
 title: Android动态修改某个控件大小
 date: 2017-01-10 20:05:15
-tags: Android动态修改某个控件大小
+tags: Android
 ---
 
 1. 动态修改Margin 和 大小

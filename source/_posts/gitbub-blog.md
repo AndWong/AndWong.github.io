@@ -1,7 +1,7 @@
 ---
 title: Ubuntu下使用Hexo创建Gitbub博客
 date: 2017-01-05 14:06:55
-tags: github博客
+tags: github
 ---
 1.环境配置
 安装 node.js : $sudo apt install nodejs-legacy

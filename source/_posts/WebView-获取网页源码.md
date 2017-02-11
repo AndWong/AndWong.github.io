@@ -1,7 +1,7 @@
 ---
 title: WebView 获取网页源码
 date: 2017-02-10 19:59:27
-tags: WebView 获取网页源码
+tags: Android
 ---
 Api-19以上获取源码的方式有修改，如下：
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

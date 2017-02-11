@@ -1,7 +1,7 @@
 ---
 title: Android设置全屏的几种方式
 date: 2017-02-10 19:39:20
-tags: Android设置全屏的几种方式
+tags: Android
 ---
 
 1. 将状态栏导航栏透明化，API19以上有效

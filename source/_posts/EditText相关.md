@@ -1,7 +1,7 @@
 ---
 title: EditText相关
 date: 2017-01-21 20:07:11
-tags: EditText相关
+tags: Android
 ---
 1.光标
 x_count.setCursorVisible(true); //设置光标
