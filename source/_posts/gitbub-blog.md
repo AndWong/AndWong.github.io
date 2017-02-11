@@ -1,12 +1,12 @@
 ---
 title: Ubuntu下使用Hexo创建Gitbub博客
-date: 2017-02-10 14:06:55
+date: 2017-01-05 14:06:55
 tags: github博客
 ---
 1.环境配置
 安装 node.js : $sudo apt install nodejs-legacy
 安装 npm ： $sudo apt install npm
-安装 git
+安装 git : $sudo apt-get install git
 安装 hexo ： $sudo npm install hexo -g
 
 2.注册github帐号，并创建仓库（注意仓库必须以 “用户名.github.io”）

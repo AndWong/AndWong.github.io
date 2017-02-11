@@ -29,6 +29,3 @@ tags: Android自定义圆形进度条
     android:layout_width="15dp"
     android:layout_height="15dp"
     android:indeterminateDuration="1200" />
-
-
-（图片资源）
