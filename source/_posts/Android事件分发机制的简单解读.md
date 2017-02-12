@@ -8,7 +8,7 @@ tags: Android
 首先ViewGroup有onInterceptTouchEvent，dispatchTouchEvent和onTouchEvent方法
 而View有dispatchTouchEvent和onTouchEvent方法。
 
-每一个事件都是从ViewGroup开始。
+每一个事件都是从ViewGroup开始，
 1.父控件ViewGroup先执行onInterceptTouchEvent（拦截），
   onInterceptTouchEvent若返回true表示拦截则由该ViewGroup的onTouchEvent处理，
   （其中onTouchEvent若返回true表示自身消费该事件，若onTouchEvent返回false则执行dispatchTouchEvent（向上反馈）给ViewGroup的父控件处理该onTouchEvent）
@@ -17,5 +17,3 @@ tags: Android
 2.当事件传递到View控件时，先执行onTouchEvent事件，
   其中onTouchEvent若返回true表示自身消费该事件，
   若onTouchEvent返回false则执行dispatchTouchEvent（向上反馈）给父控件处理该onTouchEvent。
-
-参考文章 ： http://blog.csdn.net/zhangke3016/article/details/54959569

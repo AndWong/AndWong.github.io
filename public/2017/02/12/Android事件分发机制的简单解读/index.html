@@ -8,20 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="本篇文章只是简单的终结Android中事件的分发机制便于记忆
 首先ViewGroup有onInterceptTouchEvent，dispatchTouchEvent和onTouchEvent方法而View有dispatchTouchEvent和onTouchEvent方法。
-每一个事件都是从ViewGroup开始。1.父控件ViewGroup先执行onInterceptTouchEvent（拦截">
+每一个事件都是从ViewGroup开始，1.父控件ViewGroup先执行onInterceptTouchEvent（拦截">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android事件分发机制的简单解读">
 <meta property="og:url" content="http://yoursite.com/2017/02/12/Android事件分发机制的简单解读/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
 <meta property="og:description" content="本篇文章只是简单的终结Android中事件的分发机制便于记忆
 首先ViewGroup有onInterceptTouchEvent，dispatchTouchEvent和onTouchEvent方法而View有dispatchTouchEvent和onTouchEvent方法。
-每一个事件都是从ViewGroup开始。1.父控件ViewGroup先执行onInterceptTouchEvent（拦截">
-<meta property="og:updated_time" content="2017-02-12T13:30:56.054Z">
+每一个事件都是从ViewGroup开始，1.父控件ViewGroup先执行onInterceptTouchEvent（拦截">
+<meta property="og:updated_time" content="2017-02-12T13:45:58.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android事件分发机制的简单解读">
 <meta name="twitter:description" content="本篇文章只是简单的终结Android中事件的分发机制便于记忆
 首先ViewGroup有onInterceptTouchEvent，dispatchTouchEvent和onTouchEvent方法而View有dispatchTouchEvent和onTouchEvent方法。
-每一个事件都是从ViewGroup开始。1.父控件ViewGroup先执行onInterceptTouchEvent（拦截">
+每一个事件都是从ViewGroup开始，1.父控件ViewGroup先执行onInterceptTouchEvent（拦截">
     
     
         
@@ -103,6 +103,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2017/02/12/Android中Handler的简单终结/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
         
         <li><a class="icon" href="/2017/02/11/WiFi-Portal检测/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
@@ -172,9 +174,8 @@
   <div class="content" itemprop="articleBody">
     <p>本篇文章只是简单的终结Android中事件的分发机制便于记忆</p>
 <p>首先ViewGroup有onInterceptTouchEvent，dispatchTouchEvent和onTouchEvent方法<br>而View有dispatchTouchEvent和onTouchEvent方法。</p>
-<p>每一个事件都是从ViewGroup开始。<br>1.父控件ViewGroup先执行onInterceptTouchEvent（拦截），<br>  onInterceptTouchEvent若返回true表示拦截则由该ViewGroup的onTouchEvent处理，<br>  （其中onTouchEvent若返回true表示自身消费该事件，若onTouchEvent返回false则执行dispatchTouchEvent（向上反馈）给ViewGroup的父控件处理该onTouchEvent）<br>  onInterceptTouchEvent若返回false表示不拦截则由该ViewGroup的dispatchTouchEvent（向下传递）给子控件（ViewGroup或View）处理。</p>
+<p>每一个事件都是从ViewGroup开始，<br>1.父控件ViewGroup先执行onInterceptTouchEvent（拦截），<br>  onInterceptTouchEvent若返回true表示拦截则由该ViewGroup的onTouchEvent处理，<br>  （其中onTouchEvent若返回true表示自身消费该事件，若onTouchEvent返回false则执行dispatchTouchEvent（向上反馈）给ViewGroup的父控件处理该onTouchEvent）<br>  onInterceptTouchEvent若返回false表示不拦截则由该ViewGroup的dispatchTouchEvent（向下传递）给子控件（ViewGroup或View）处理。</p>
 <p>2.当事件传递到View控件时，先执行onTouchEvent事件，<br>  其中onTouchEvent若返回true表示自身消费该事件，<br>  若onTouchEvent返回false则执行dispatchTouchEvent（向上反馈）给父控件处理该onTouchEvent。</p>
-<p>参考文章 ： <a href="http://blog.csdn.net/zhangke3016/article/details/54959569" target="_blank" rel="external">http://blog.csdn.net/zhangke3016/article/details/54959569</a></p>
 
   </div>
 </article>
