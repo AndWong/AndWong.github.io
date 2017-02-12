@@ -14,7 +14,7 @@ tags: github
 3.初始化博客，命令行输入下列命令：
 $git init
 $git remote add origin "git url"
-$git pull origing master
+$git pull origin master
 
 $hexo init
 $hexo s -g #预览
