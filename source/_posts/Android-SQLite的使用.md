@@ -10,8 +10,8 @@ Android SDK有一个抽象类SQLiteOpenHelper用于创建和升级数据库，
 所以继承SQLiteOpenHelper并实现其中的onCreate()和onUpgrade()即可创建和升级数据库。
 
 示例：
+```
 public class PskDBHelper extends SQLiteOpenHelper {
-
     /**
      * 构造方法，通常用这个就可以了
      *
@@ -38,6 +38,7 @@ public class PskDBHelper extends SQLiteOpenHelper {
 
     }
 }
+```
 
 2.使用
 通过调用 pskDBHelper.getReadableDatabase() 和 pskDBHelper.getWritableDatabase()来获取 SQLiteDatabase 对象。
@@ -48,33 +49,38 @@ public class PskDBHelper extends SQLiteOpenHelper {
 这里只简单示例用SQL语句操作的方法。
 
 (1)插入数据
+```
 public void insert(SQLiteDatabase db) {
     //插入数据SQL语句
     String insertSQL = "insert into psktable(ssid,bssid,psk) values('wong','20:6a:8a:68:81:ce','12345678')";
     //执行SQL语句
     db.execSQL(insertSQL);
 }
+```
 
 (2)删除数据
+```
 public void del(SQLiteDatabase db) {
     //删除SQL语句
     String sql = "delete from psktable where _id = 1";
     //执行SQL语句
     db.execSQL(sql);
 }
-
+```
 (3)更新数据
+```
 public void update(SQLiteDatabase db) {
     //修改SQL语句
     String sql = "update psktable set ssid = 'wong' where _id = 1";
     //执行SQL
     db.execSQL(sql);
 }
-
+```
 //在Android中查询数据是通过Cursor类来实现的，
 // 当我们使用SQLiteDatabase.query()方法时，
 // 会得到一个Cursor对象，Cursor指向的就是每一条数据
 (4)查询数据
+```
 public void search(SQLiteDatabase db) {
     //查询获得游标
     Cursor cursor = db.query("psktable", null, null, null, null, null, null);
@@ -94,3 +100,4 @@ public void search(SQLiteDatabase db) {
         }
     }
 }
+```

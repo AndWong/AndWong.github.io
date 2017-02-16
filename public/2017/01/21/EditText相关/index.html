@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1.光标x_count.setCursorVisible(true); //设置光标tx_count.setSelection(tx_count.length()); //设置光标位置
-2.自动弹窗软键盘tx_count.requestFocus();InputMethodManager imm = (InputMethodManager) tx_count.getContext().getSys">
+    <meta name="description" content="1.光标12tx_count.setCursorVisible(true); //设置光标tx_count.setSelection(tx_count.length()); //设置光标位置
+2.自动弹窗软键盘123tx_count.requestFocus();InputMethodManager imm = (InputMethodManager) tx_count.getContext().">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EditText相关">
 <meta property="og:url" content="http://yoursite.com/2017/01/21/EditText相关/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
-<meta property="og:description" content="1.光标x_count.setCursorVisible(true); //设置光标tx_count.setSelection(tx_count.length()); //设置光标位置
-2.自动弹窗软键盘tx_count.requestFocus();InputMethodManager imm = (InputMethodManager) tx_count.getContext().getSys">
-<meta property="og:updated_time" content="2017-02-11T13:36:36.305Z">
+<meta property="og:description" content="1.光标12tx_count.setCursorVisible(true); //设置光标tx_count.setSelection(tx_count.length()); //设置光标位置
+2.自动弹窗软键盘123tx_count.requestFocus();InputMethodManager imm = (InputMethodManager) tx_count.getContext().">
+<meta property="og:updated_time" content="2017-02-16T11:53:03.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EditText相关">
-<meta name="twitter:description" content="1.光标x_count.setCursorVisible(true); //设置光标tx_count.setSelection(tx_count.length()); //设置光标位置
-2.自动弹窗软键盘tx_count.requestFocus();InputMethodManager imm = (InputMethodManager) tx_count.getContext().getSys">
+<meta name="twitter:description" content="1.光标12tx_count.setCursorVisible(true); //设置光标tx_count.setSelection(tx_count.length()); //设置光标位置
+2.自动弹窗软键盘123tx_count.requestFocus();InputMethodManager imm = (InputMethodManager) tx_count.getContext().">
     
     
         
@@ -169,11 +169,11 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>1.光标<br>x_count.setCursorVisible(true); //设置光标<br>tx_count.setSelection(tx_count.length()); //设置光标位置</p>
-<p>2.自动弹窗软键盘<br>tx_count.requestFocus();<br>InputMethodManager imm = (InputMethodManager) tx_count.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);<br>imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);</p>
-<p>3.输入监听<br>tx_count.addTextChangedListener(new TextWatcher() {<br>    @Override<br>    public void beforeTextChanged(CharSequence s, int start, int count, int after) {<br>    }<br>    @Override<br>    public void onTextChanged(CharSequence s, int start, int before, int count) {<br>    }<br>    @Override<br>    public void afterTextChanged(Editable s) {<br>    }<br>});</p>
-<p>4.xml:<br>android:inputType=”phone” //输入类型<br>android:digits=”0123456789.” //只能输入数字和点<br>android:background=”@null” //背景为空<br>android:cursorVisible=”false” //不显示光标<br>android:maxLength=”5” //5个字符</p>
-<p>5.AndroidManifest.xml<br>android:windowSoftInputMode=”stateHidden|stateAlwaysHidden”  //不弹出软键盘<br>android:windowSoftInputMode=”stateVisible|stateAlwaysVisible”  //自动弹出软键盘</p>
+    <p>1.光标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tx_count.setCursorVisible(true); //设置光标</div><div class="line">tx_count.setSelection(tx_count.length()); //设置光标位置</div></pre></td></tr></table></figure></p>
+<p>2.自动弹窗软键盘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tx_count.requestFocus();</div><div class="line">InputMethodManager imm = (InputMethodManager) tx_count.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);</div></pre></td></tr></table></figure></p>
+<p>3.输入监听<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">tx_count.addTextChangedListener(new TextWatcher() &#123;</div><div class="line">    @Override</div><div class="line">    public void beforeTextChanged(CharSequence s, int start, int count, int after) &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void onTextChanged(CharSequence s, int start, int before, int count) &#123;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void afterTextChanged(Editable s) &#123;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>4.xml:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">android:inputType=&quot;phone&quot; //输入类型</div><div class="line">android:digits=&quot;0123456789.&quot; //只能输入数字和点</div><div class="line">android:background=&quot;@null&quot; //背景为空</div><div class="line">android:cursorVisible=&quot;false&quot; //不显示光标</div><div class="line">android:maxLength=&quot;5&quot; //5个字符</div></pre></td></tr></table></figure></p>
+<p>5.AndroidManifest.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">android:windowSoftInputMode=&quot;stateHidden|stateAlwaysHidden&quot;  //不弹出软键盘</div><div class="line">android:windowSoftInputMode=&quot;stateVisible|stateAlwaysVisible&quot;  //自动弹出软键盘</div></pre></td></tr></table></figure></p>
 
   </div>
 </article>

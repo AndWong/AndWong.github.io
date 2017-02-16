@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Wong`s Blog">
 <meta property="og:description" content="WiFi连接上一个开放热点，如何判断是否需要登录认证？
 首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是">
-<meta property="og:updated_time" content="2017-02-11T13:45:03.434Z">
+<meta property="og:updated_time" content="2017-02-16T11:50:10.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WiFi Portal检测">
 <meta name="twitter:description" content="WiFi连接上一个开放热点，如何判断是否需要登录认证？
@@ -172,55 +172,7 @@
     <p>WiFi连接上一个开放热点，如何判断是否需要登录认证？</p>
 <p>首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是 200 。这时，我们与服务器端商定一个请求链接http ://www.xx.com/genera_204，固定返回一个状态码 204。当网络状态发生变化时候，我们就去请求这个链接。如果我们的response携带的状态码是204说明我们请求成功，如果我们得到的是200，说明需要进行WiFi 验证。<br>这个方法来自Android4.0.1AOSP源码 WifiWatchdogStateMachine#isWalledGardenConnection()。</p>
 <p>对于个人开发者或者“小厂商”不建议在我们自己的服务器上处理http ://www.xxx.com/generate_204，除非你家的服务器很稳定，基本上不出现问题。这时候我们可以考虑下“大厂商”是否已经有类似的功能。像UC啊什么的。他们都能自动提醒你网络需要登陆，他们也是使用了同样的方式，至于链接地址，就靠大家自己了。</p>
-<p>代码如下：<br>import java.io.IOException;<br>import java.net.HttpURLConnection;<br>import java.net.URL;<br>import android.os.AsyncTask;<br>/**</p>
-<ul>
-<li>检测wifi是否需要登陆</li>
-<li>使用方式：</li>
-<li>NetNeedLoginCheckUtil.needLoginNetworkCheck(new NeedLoginCallBack() {</li>
-<li>@Override</li>
-<li>public void needLogin(boolean needLogin) {</li>
-<li>if (needLogin) {</li>
-<li>wifi 需要登陆</li>
-<li>}</li>
-<li>}</li>
-<li><p>});<br>**/<br>public class NetNeedLoginCheckUtil extends AsyncTask<integer, integer,="" boolean="">{<br> NeedLoginCallBack callBack;<br> public NetNeedLoginCheckUtil(NeedLoginCallBack callBack) {</integer,></p>
-<pre><code>super();
-this.callBack = callBack;
-</code></pre><p> }<br> @Override<br> protected Boolean doInBackground(Integer… params) {</p>
-<pre><code>return isWifiSetPortal();
-</code></pre><p> }<br> @Override<br> protected void onPostExecute(Boolean result) {</p>
-<pre><code>if (callBack != null) {
-    callBack.needLogin(result);
-}
-</code></pre><p> }<br> private boolean isWifiSetPortal() {  </p>
-<pre><code>final String mWalledGardenUrl = &quot;http://connect.rom.miui.com/generate_204&quot;;  
-final int WALLED_GARDEN_SOCKET_TIMEOUT_MS = 10000;  
-HttpURLConnection urlConnection = null;  
-try {  
-    URL url = new URL(mWalledGardenUrl);  
-    urlConnection = (HttpURLConnection) url.openConnection();  
-    urlConnection.setInstanceFollowRedirects(false);  
-    urlConnection.setConnectTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  
-    urlConnection.setReadTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  
-    urlConnection.setUseCaches(false);  
-    urlConnection.getInputStream();  
-    return urlConnection.getResponseCode() != 204;  
-} catch (IOException e) {  
-    return false;  
-} finally {  
-    if (urlConnection != null) {  
-        urlConnection.disconnect();  
-    }  
-}  
-</code></pre><p> }  </p>
-<p> public static void needLoginNetworkCheck(NeedLoginCallBack callBack) {</p>
-<pre><code>new NetNeedLoginCheckUtil(callBack).execute();
-</code></pre><p> }    </p>
-<p> public interface NeedLoginCallBack{</p>
-<pre><code>void needLogin(boolean needLogin);
-</code></pre><p> }<br>}</p>
-</li>
-</ul>
+<p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">import java.io.IOException;</div><div class="line">import java.net.HttpURLConnection;</div><div class="line">import java.net.URL;</div><div class="line">import android.os.AsyncTask;</div><div class="line">/**</div><div class="line"> * 检测wifi是否需要登陆</div><div class="line"> * 使用方式：</div><div class="line"> * NetNeedLoginCheckUtil.needLoginNetworkCheck(new NeedLoginCallBack() &#123;</div><div class="line"> *  @Override</div><div class="line"> *  public void needLogin(boolean needLogin) &#123;</div><div class="line"> *     if (needLogin) &#123;</div><div class="line"> *          wifi 需要登陆</div><div class="line"> *     &#125;</div><div class="line"> *  &#125;</div><div class="line"> * &#125;);</div><div class="line"> **/</div><div class="line"> public class NetNeedLoginCheckUtil extends AsyncTask&lt;Integer, Integer, Boolean&gt;&#123;</div><div class="line">    NeedLoginCallBack callBack;</div><div class="line">    public NetNeedLoginCheckUtil(NeedLoginCallBack callBack) &#123;</div><div class="line">        super();</div><div class="line">        this.callBack = callBack;</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected Boolean doInBackground(Integer... params) &#123;</div><div class="line">        return isWifiSetPortal();</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected void onPostExecute(Boolean result) &#123;</div><div class="line">        if (callBack != null) &#123;</div><div class="line">            callBack.needLogin(result);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    private boolean isWifiSetPortal() &#123;  </div><div class="line">        final String mWalledGardenUrl = &quot;http://connect.rom.miui.com/generate_204&quot;;  </div><div class="line">        final int WALLED_GARDEN_SOCKET_TIMEOUT_MS = 10000;  </div><div class="line">        HttpURLConnection urlConnection = null;  </div><div class="line">        try &#123;  </div><div class="line">            URL url = new URL(mWalledGardenUrl);  </div><div class="line">            urlConnection = (HttpURLConnection) url.openConnection();  </div><div class="line">            urlConnection.setInstanceFollowRedirects(false);  </div><div class="line">            urlConnection.setConnectTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setReadTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setUseCaches(false);  </div><div class="line">            urlConnection.getInputStream();  </div><div class="line">            return urlConnection.getResponseCode() != 204;  </div><div class="line">        &#125; catch (IOException e) &#123;  </div><div class="line">            return false;  </div><div class="line">        &#125; finally &#123;  </div><div class="line">            if (urlConnection != null) &#123;  </div><div class="line">                urlConnection.disconnect();  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    public static void needLoginNetworkCheck(NeedLoginCallBack callBack) &#123;</div><div class="line">        new NetNeedLoginCheckUtil(callBack).execute();</div><div class="line">    &#125;    </div><div class="line"></div><div class="line">    public interface NeedLoginCallBack&#123;</div><div class="line">       void needLogin(boolean needLogin);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>文／李科吐温（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/3187c677bca3" target="_blank" rel="external">http://www.jianshu.com/p/3187c677bca3</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
 
   </div>

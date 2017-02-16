@@ -25,16 +25,18 @@ MessageQueue：消息池，用于存放消息
 
 4.Handler导致内存泄露问题?
 一般我们写Handler:
+```
 Handler mHandler = new Handler() {
 @Override
 public void handleMessage(Message msg) {
   }
 }
-
+```
 当使用内部类（包括匿名类）来创建Handler的时候，Handler对象会隐式地持有一个外部类对象（通常是一个Activity）的引用,而常常在Activity退出后，消息队列还有未被处理完的消息，此时activity依然被handler引用，导致内存无法回收而内存泄露。
 
 解决方法：
 在Handler中增加一个对Activity的弱引用（WeakReference）：
+```
 static class MyHandler extends Handler {
 WeakReference mActivityReference;
 
@@ -49,5 +51,5 @@ if (activity != null) {
     }
   }
 }
-
+```
 对于上面的代码，用户在关闭Activity之后，就算后台线程还没结束，但由于仅有一条来自Handler的弱引用指向Activity，所以GC仍然会在检查的时候把Activity回收掉。这样，内存泄露的问题就不会出现了。

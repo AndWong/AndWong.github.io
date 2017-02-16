@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Wong`s Blog">
 <meta property="og:description" content="1.Handler何用？在实际开发中Handler是为了解决在子线程更新UI的问题。
 2.Handler，Looper，MessageQueue的创建？一个Handler通常和一个Looper和一个MessageQueue绑定在一起。在线程中创建一个Handler时通常会同时创建一个Looper（通过Looper.prepare()为当前线程创建一个Looper,并使用Looper.loop()来">
-<meta property="og:updated_time" content="2017-02-12T14:30:53.319Z">
+<meta property="og:updated_time" content="2017-02-16T11:53:25.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中Handler的简单终结">
 <meta name="twitter:description" content="1.Handler何用？在实际开发中Handler是为了解决在子线程更新UI的问题。
@@ -174,11 +174,9 @@
 <p>3.Looper,Handler,MessageQueue的引用关系?<br>Looper：好比一个泵，循环不断的在MessageQueue中查询消息<br>MessageQueue：消息池，用于存放消息</p>
 <p>一个线程对应只有一个Looper和一个MessageQueue，但可以有多个Handler。</p>
 <p>子线程创建一条MSG通过Handler发送消息到主线程的MessageQueue中，<br>主线程对应的Looper循环不断的在MessageQueue中查询MSG，<br>查询到则主线程通过Hanler处理消息。</p>
-<p>4.Handler导致内存泄露问题?<br>一般我们写Handler:<br>Handler mHandler = new Handler() {<br>@Override<br>public void handleMessage(Message msg) {<br>  }<br>}</p>
+<p>4.Handler导致内存泄露问题?<br>一般我们写Handler:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Handler mHandler = new Handler() &#123;</div><div class="line">@Override</div><div class="line">public void handleMessage(Message msg) &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>当使用内部类（包括匿名类）来创建Handler的时候，Handler对象会隐式地持有一个外部类对象（通常是一个Activity）的引用,而常常在Activity退出后，消息队列还有未被处理完的消息，此时activity依然被handler引用，导致内存无法回收而内存泄露。</p>
-<p>解决方法：<br>在Handler中增加一个对Activity的弱引用（WeakReference）：<br>static class MyHandler extends Handler {<br>WeakReference mActivityReference;</p>
-<p>MyHandler(Activity activity) {<br>mActivityReference= new WeakReference(activity);<br>}</p>
-<p>@Override<br>public void handleMessage(Message msg) {<br>final Activity activity = mActivityReference.get();<br>if (activity != null) {<br>    }<br>  }<br>}</p>
+<p>解决方法：<br>在Handler中增加一个对Activity的弱引用（WeakReference）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">static class MyHandler extends Handler &#123;</div><div class="line">WeakReference mActivityReference;</div><div class="line"></div><div class="line">MyHandler(Activity activity) &#123;</div><div class="line">mActivityReference= new WeakReference(activity);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@Override</div><div class="line">public void handleMessage(Message msg) &#123;</div><div class="line">final Activity activity = mActivityReference.get();</div><div class="line">if (activity != null) &#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>对于上面的代码，用户在关闭Activity之后，就算后台线程还没结束，但由于仅有一条来自Handler的弱引用指向Activity，所以GC仍然会在检查的时候把Activity回收掉。这样，内存泄露的问题就不会出现了。</p>
 
   </div>
