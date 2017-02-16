@@ -16,6 +16,9 @@ Markdown的初级使用
 4.添加图片
   使用 ![](图片链接地址)
   如:![](http://upload-images.jianshu.io/upload_images/259-0ad0d0bfc1c608b6.jpg)
+
+5.引用某段话
+  使用 : >
   ```
 
 原文链接：http://www.jianshu.com/p/q81RER
