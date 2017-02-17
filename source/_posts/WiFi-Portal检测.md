@@ -1,6 +1,6 @@
 ---
 title: WiFi Portal检测
-date: 2017-02-11 21:35:53
+date: 2016-04-11 21:35:53
 tags: Android
 ---
 WiFi连接上一个开放热点，如何判断是否需要登录认证？

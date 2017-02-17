@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="WiFi连接上一个开放热点，如何判断是否需要登录认证？
+首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WiFi Portal检测">
+<meta property="og:url" content="http://yoursite.com/2016/04/11/WiFi-Portal检测/index.html">
+<meta property="og:site_name" content="Wong`s Blog">
+<meta property="og:description" content="WiFi连接上一个开放热点，如何判断是否需要登录认证？
+首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是">
+<meta property="og:updated_time" content="2017-02-17T12:15:45.485Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WiFi Portal检测">
+<meta name="twitter:description" content="WiFi连接上一个开放热点，如何判断是否需要登录认证？
+首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>WiFi Portal检测</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Wong`s Blog</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/05/12/Android中Handler的简单终结/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/03/21/EditText相关/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/04/11/WiFi-Portal检测/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&text=WiFi Portal检测"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&is_video=false&description=WiFi Portal检测"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WiFi Portal检测&body=Check out this article: http://yoursite.com/2016/04/11/WiFi-Portal检测/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&name=WiFi Portal检测&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        WiFi Portal检测
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Wong`s Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-04-11T13:35:53.000Z" itemprop="datePublished">2016-04-11</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>WiFi连接上一个开放热点，如何判断是否需要登录认证？</p>
+<p>首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是 200 。这时，我们与服务器端商定一个请求链接http ://www.xx.com/genera_204，固定返回一个状态码 204。当网络状态发生变化时候，我们就去请求这个链接。如果我们的response携带的状态码是204说明我们请求成功，如果我们得到的是200，说明需要进行WiFi 验证。<br>这个方法来自Android4.0.1AOSP源码 WifiWatchdogStateMachine#isWalledGardenConnection()。</p>
+<p>对于个人开发者或者“小厂商”不建议在我们自己的服务器上处理http ://www.xxx.com/generate_204，除非你家的服务器很稳定，基本上不出现问题。这时候我们可以考虑下“大厂商”是否已经有类似的功能。像UC啊什么的。他们都能自动提醒你网络需要登陆，他们也是使用了同样的方式，至于链接地址，就靠大家自己了。</p>
+<p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">import java.io.IOException;</div><div class="line">import java.net.HttpURLConnection;</div><div class="line">import java.net.URL;</div><div class="line">import android.os.AsyncTask;</div><div class="line">/**</div><div class="line"> * 检测wifi是否需要登陆</div><div class="line"> * 使用方式：</div><div class="line"> * NetNeedLoginCheckUtil.needLoginNetworkCheck(new NeedLoginCallBack() &#123;</div><div class="line"> *  @Override</div><div class="line"> *  public void needLogin(boolean needLogin) &#123;</div><div class="line"> *     if (needLogin) &#123;</div><div class="line"> *          wifi 需要登陆</div><div class="line"> *     &#125;</div><div class="line"> *  &#125;</div><div class="line"> * &#125;);</div><div class="line"> **/</div><div class="line"> public class NetNeedLoginCheckUtil extends AsyncTask&lt;Integer, Integer, Boolean&gt;&#123;</div><div class="line">    NeedLoginCallBack callBack;</div><div class="line">    public NetNeedLoginCheckUtil(NeedLoginCallBack callBack) &#123;</div><div class="line">        super();</div><div class="line">        this.callBack = callBack;</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected Boolean doInBackground(Integer... params) &#123;</div><div class="line">        return isWifiSetPortal();</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected void onPostExecute(Boolean result) &#123;</div><div class="line">        if (callBack != null) &#123;</div><div class="line">            callBack.needLogin(result);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    private boolean isWifiSetPortal() &#123;  </div><div class="line">        final String mWalledGardenUrl = &quot;http://connect.rom.miui.com/generate_204&quot;;  </div><div class="line">        final int WALLED_GARDEN_SOCKET_TIMEOUT_MS = 10000;  </div><div class="line">        HttpURLConnection urlConnection = null;  </div><div class="line">        try &#123;  </div><div class="line">            URL url = new URL(mWalledGardenUrl);  </div><div class="line">            urlConnection = (HttpURLConnection) url.openConnection();  </div><div class="line">            urlConnection.setInstanceFollowRedirects(false);  </div><div class="line">            urlConnection.setConnectTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setReadTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setUseCaches(false);  </div><div class="line">            urlConnection.getInputStream();  </div><div class="line">            return urlConnection.getResponseCode() != 204;  </div><div class="line">        &#125; catch (IOException e) &#123;  </div><div class="line">            return false;  </div><div class="line">        &#125; finally &#123;  </div><div class="line">            if (urlConnection != null) &#123;  </div><div class="line">                urlConnection.disconnect();  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    public static void needLoginNetworkCheck(NeedLoginCallBack callBack) &#123;</div><div class="line">        new NetNeedLoginCheckUtil(callBack).execute();</div><div class="line">    &#125;    </div><div class="line"></div><div class="line">    public interface NeedLoginCallBack&#123;</div><div class="line">       void needLogin(boolean needLogin);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>文／李科吐温（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/3187c677bca3" target="_blank" rel="external">http://www.jianshu.com/p/3187c677bca3</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/04/11/WiFi-Portal检测/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&text=WiFi Portal检测"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&is_video=false&description=WiFi Portal检测"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=WiFi Portal检测&body=Check out this article: http://yoursite.com/2016/04/11/WiFi-Portal检测/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&title=WiFi Portal检测"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/04/11/WiFi-Portal检测/&name=WiFi Portal检测&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Wong
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        
+          <li><a href="/">主页</a></li>
+        
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>

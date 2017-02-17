@@ -1,6 +1,6 @@
 ---
 title: 如何在moudle中引入aar
-date: 2017-02-16 20:32:45
+date: 2017-01-16 20:32:45
 tags: Android Studio
 ---
 app已经引入aar-A,如何在moudle中引入aar-B而不会出现问题?

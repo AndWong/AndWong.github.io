@@ -1,6 +1,6 @@
 ---
 title: Android中Handler的简单终结
-date: 2017-02-12 21:37:59
+date: 2016-05-12 21:37:59
 tags: Android
 ---
 1.Handler何用？

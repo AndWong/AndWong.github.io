@@ -1,6 +1,6 @@
 ---
 title: Android设置全屏的几种方式
-date: 2017-02-10 19:39:20
+date: 2016-06-10 19:39:20
 tags: Android
 ---
 

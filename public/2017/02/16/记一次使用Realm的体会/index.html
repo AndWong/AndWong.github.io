@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/02/16/记一次使用Realm的体会/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
 <meta property="og:description" content="数据库Realm，是用来替代sqlite的一种解决方案，它有一套自己的数据库存储引擎，比sqlite更轻量级，拥有更快的速度，并且具有很多现代数据库的特性，比如支持JSON，流式api，数据变更通知，自动数据同步,简单身份验证，访问控制，事件处理，最重要的是跨平台，目前已有Java，Objective C，Swift，React-Native，Xamarin这五种实现。官网:https://re">
-<meta property="og:updated_time" content="2017-02-16T13:07:14.058Z">
+<meta property="og:updated_time" content="2017-02-17T12:17:38.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次使用Realm的体会">
 <meta name="twitter:description" content="数据库Realm，是用来替代sqlite的一种解决方案，它有一套自己的数据库存储引擎，比sqlite更轻量级，拥有更快的速度，并且具有很多现代数据库的特性，比如支持JSON，流式api，数据变更通知，自动数据同步,简单身份验证，访问控制，事件处理，最重要的是跨平台，目前已有Java，Objective C，Swift，React-Native，Xamarin这五种实现。官网:https://re">
@@ -98,7 +98,7 @@
       <ul>
         
         
-        <li><a class="icon" href="/2017/02/16/如何在moudle中引入aar/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        <li><a class="icon" href="/2017/01/16/如何在moudle中引入aar/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
@@ -165,7 +165,7 @@
 
   <div class="content" itemprop="articleBody">
     <blockquote>
-<p>数据库Realm，是用来替代sqlite的一种解决方案，它有一套自己的数据库存储引擎，比sqlite更轻量级，拥有更快的速度，并且具有很多现代数据库的特性，比如支持JSON，流式api，数据变更通知，自动数据同步,简单身份验证，访问控制，事件处理，最重要的是跨平台，目前已有Java，Objective C，Swift，React-Native，Xamarin这五种实现。<br>官网:<a href="https://realm.io/docs/java/latest/" target="_blank" rel="external">https://realm.io/docs/java/latest/</a></p>
+<p>数据库Realm，是用来替代sqlite的一种解决方案，它有一套自己的数据库存储引擎，比sqlite更轻量级，拥有更快的速度，并且具有很多现代数据库的特性，比如支持JSON，流式api，数据变更通知，自动数据同步,简单身份验证，访问控制，事件处理，最重要的是跨平台，目前已有Java，Objective C，Swift，React-Native，Xamarin这五种实现。<br>官网:<a href="https://realm.io/docs/java/latest" target="_blank" rel="external">https://realm.io/docs/java/latest</a></p>
 </blockquote>
 <p>一.基于Version-0.87.5<br>由于 v0.87.5之后的版本使用的是plugin形式添加引用,<br>使用时会发现包增大好多(可能是自己使用时缺少了某些配置),<br>所以这里介绍一个该版本的使用.<br>1.引入<br>app下的build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;io.realm:realm-android:0.87.5&apos;</div></pre></td></tr></table></figure></p>
 <p>2.初始化<br>Application中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">private void initRealm() &#123;</div><div class="line">      RealmConfiguration config = new RealmConfiguration.Builder(this).name(&quot;guess.realm&quot;).schemaVersion(0).build();</div><div class="line">      Realm.setDefaultConfiguration(config);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -230,14 +230,14 @@
       
       <footer id="footer">
   <div class="footer-left">
-    Copyright &copy; 2017 Wong
+    Copyright &copy; 2016 Wong
   </div>
   <div class="footer-right">
     <nav>
       <ul>
-         
+        
           <li><a href="/">主页</a></li>
-         
+        
           <li><a href="/archives/">文章</a></li>
         
       </ul>

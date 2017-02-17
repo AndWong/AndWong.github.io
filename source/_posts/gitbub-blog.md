@@ -1,6 +1,6 @@
 ---
 title: Ubuntu下使用Hexo创建Gitbub博客
-date: 2017-01-05 14:06:55
+date: 2016-01-05 14:06:55
 tags: github
 ---
 1.环境配置

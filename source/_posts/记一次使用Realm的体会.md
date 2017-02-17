@@ -4,7 +4,7 @@ date: 2017-02-16 20:42:40
 tags: Realm
 ---
 >数据库Realm，是用来替代sqlite的一种解决方案，它有一套自己的数据库存储引擎，比sqlite更轻量级，拥有更快的速度，并且具有很多现代数据库的特性，比如支持JSON，流式api，数据变更通知，自动数据同步,简单身份验证，访问控制，事件处理，最重要的是跨平台，目前已有Java，Objective C，Swift，React-Native，Xamarin这五种实现。
-官网:https://realm.io/docs/java/latest/
+官网:https://realm.io/docs/java/latest
 
 一.基于Version-0.87.5
 由于 v0.87.5之后的版本使用的是plugin形式添加引用,

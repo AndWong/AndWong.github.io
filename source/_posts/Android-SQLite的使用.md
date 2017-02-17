@@ -1,6 +1,6 @@
 ---
 title: Android SQLite的使用
-date: 2017-02-13 20:34:42
+date: 2016-07-13 20:34:42
 tags: Android
 ---
 Android自带的数据库SQLite，是一个轻量级便捷的数据库。
