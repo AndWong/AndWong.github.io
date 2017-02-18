@@ -6,13 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="一.使用LayoutInflater加载视图写法一:1LayoutInflater layoutInflater = LayoutInflater.from(context);
+写法二:1LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);">
+<meta property="og:type" content="article">
 <meta property="og:title" content="自定义View">
 <meta property="og:url" content="http://yoursite.com/2017/02/17/自定义View/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
-<meta property="og:updated_time" content="2017-02-17T13:07:24.640Z">
+<meta property="og:description" content="一.使用LayoutInflater加载视图写法一:1LayoutInflater layoutInflater = LayoutInflater.from(context);
+写法二:1LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);">
+<meta property="og:updated_time" content="2017-02-18T05:49:22.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义View">
+<meta name="twitter:description" content="一.使用LayoutInflater加载视图写法一:1LayoutInflater layoutInflater = LayoutInflater.from(context);
+写法二:1LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);">
     
     
         
@@ -152,13 +158,31 @@
 
 
       
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
 
     </div>
   </header>
   
 
   <div class="content" itemprop="articleBody">
-    
+    <p>一.使用LayoutInflater加载视图<br>写法一:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LayoutInflater layoutInflater = LayoutInflater.from(context);</div></pre></td></tr></table></figure></p>
+<p>写法二:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div></pre></td></tr></table></figure></p>
+<p>加载布局:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layoutInflater.inflate(resourceId, root);</div></pre></td></tr></table></figure></p>
+<p>补充:layout_width,layout_height其实是用于设置View在布局中的大小的,<br>如果控件没有在布局中,这个参数就会不起作用,所以叫layout_width而不是width.<br>setContentView,系统会自动在布局外层嵌套一层FrameLayout.</p>
+<p>二.视图的绘制过程</p>
+<ol>
+<li>onMeasure</li>
+<li>onLayout</li>
+<li>onDraw</li>
+</ol>
+<p>三.自定义View<br>1.自定义属性,编写value/attrs.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line"> &lt;declare-styleable name=&quot;test&quot;&gt;</div><div class="line">     &lt;attr name=&quot;text&quot; format=&quot;string&quot; /&gt;</div><div class="line">     &lt;attr name=&quot;testAttr&quot; format=&quot;integer&quot; /&gt;</div><div class="line"> &lt;/declare-styleable&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
+<p>2.在自定义类中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class MyTextView extends View &#123;</div><div class="line">    public MyTextView(Context context, AttributeSet attrs) &#123;</div><div class="line">        super(context, attrs);</div><div class="line">        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.test);</div><div class="line">        String text = ta.getString(R.styleable.test_testAttr);</div><div class="line">        int textAttr = ta.getInteger(R.styleable.test_text, -1);</div><div class="line">        ta.recycle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.在布局中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:demo=&quot;http://schemas.android.com/apk/res/com.example.test&quot; //自定义命名空间</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot; &gt;</div><div class="line"></div><div class="line">    &lt;com.example.test.MyTextView</div><div class="line">        android:layout_width=&quot;100dp&quot;</div><div class="line">        android:layout_height=&quot;200dp&quot;</div><div class="line">        demo:testAttr=&quot;520&quot;</div><div class="line">        demo:text=&quot;hello world&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure></p>
+
   </div>
 </article>
 

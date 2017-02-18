@@ -6,13 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="一.3种方式获取加载指定的类Class cla = 类名.classClass cla = 对象.getClass();Class cla = Class.forName(“name”);
+Demo demo = (Demo)cla.newInstance(); //加载指定类的对象demo.a(); //调用对象的方法
+12345678910111213141516171819202122232">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Java注解反射">
 <meta property="og:url" content="http://yoursite.com/2017/02/17/Java注解反射/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
-<meta property="og:updated_time" content="2017-02-17T13:10:16.836Z">
+<meta property="og:description" content="一.3种方式获取加载指定的类Class cla = 类名.classClass cla = 对象.getClass();Class cla = Class.forName(“name”);
+Demo demo = (Demo)cla.newInstance(); //加载指定类的对象demo.a(); //调用对象的方法
+12345678910111213141516171819202122232">
+<meta property="og:updated_time" content="2017-02-18T07:37:39.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java注解反射">
+<meta name="twitter:description" content="一.3种方式获取加载指定的类Class cla = 类名.classClass cla = 对象.getClass();Class cla = Class.forName(“name”);
+Demo demo = (Demo)cla.newInstance(); //加载指定类的对象demo.a(); //调用对象的方法
+12345678910111213141516171819202122232">
     
     
         
@@ -152,13 +161,28 @@
 
 
       
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
 
     </div>
   </header>
   
 
   <div class="content" itemprop="articleBody">
-    
+    <p>一.3种方式获取加载指定的类<br>Class cla = 类名.class<br>Class cla = 对象.getClass();<br>Class cla = Class.forName(“name”);</p>
+<p>Demo demo = (Demo)cla.newInstance(); //加载指定类的对象<br>demo.a(); //调用对象的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		try &#123;</div><div class="line">			Class c = MyDemo.class;</div><div class="line"></div><div class="line">			MyDemo demo = (MyDemo) c.newInstance();</div><div class="line">      //如果是在同一个包下,则可以调用protected属性和方法</div><div class="line">      //否则只能操作public</div><div class="line">			System.out.println(&quot;---&gt;c: &quot; + demo.c);</div><div class="line">			demo.f();</div><div class="line">      //能取到所有的属性</div><div class="line">			System.out.println(&quot;成员变量个数 : &quot; + c.getDeclaredFields().length);</div><div class="line">      //能取到公开方法,包括父类的</div><div class="line">			System.out.println(&quot;公开方法个数 : &quot; + c.getMethods().length);</div><div class="line"></div><div class="line">		&#125; catch (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">输出:</div><div class="line">---&gt;c: 0</div><div class="line">---&gt;f</div><div class="line">成员变量个数 : 3</div><div class="line">公开方法个数 : 10</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">package test2;</div><div class="line">public class MyDemo &#123;</div><div class="line">	private int a;</div><div class="line">	protected int b;</div><div class="line">	public int c;</div><div class="line"></div><div class="line">	private void d() &#123;</div><div class="line">		System.out.println(&quot;---&gt;d &quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	protected void e()&#123;</div><div class="line">		System.out.println(&quot;---&gt;e &quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void f() &#123;</div><div class="line">		System.out.println(&quot;---&gt;f &quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>二.Field 成员变量<br>Class c = MyDemo.class;<br>Field[] fieldArray = c.getFields(); //得到Field数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Class c = MyDemo.class;</div><div class="line">MyDemo demo = (MyDemo) c.newInstance();</div><div class="line">Field[] fieldArray = c.getFields();</div><div class="line">for(int i = 0; i&lt;fieldArray.length;i++)&#123;</div><div class="line">		Field field = fieldArray[i];</div><div class="line">		System.out.println(&quot;变量名称 : &quot; + field.getName());</div><div class="line">    System.out.println(&quot;变量值 : &quot; + field.get(demo));</div><div class="line">&#125;</div><div class="line"></div><div class="line">输出:</div><div class="line">变量名称 : c</div><div class="line">变量值 : 0</div><div class="line">(只打印出公开成员)</div></pre></td></tr></table></figure></p>
+<p>修改访问限制:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//获取所有的成员变量,包含private</div><div class="line">Field[] fieldArray = c.getDeclaredFields();</div><div class="line">field[0].setAccessible(true);</div></pre></td></tr></table></figure></p>
+<p>三.Method 方法<br>Class c = MyDemo.class;<br>Method[] ma = c.getMethods();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Method[] mo = c.getMethods();</div><div class="line">for(int i = 0; i&lt;mo.length;i++)&#123;</div><div class="line">  Method method = mo[i];</div><div class="line">  System.out.println(&quot;方法名 : &quot; + method.getName());</div><div class="line">  System.out.println(&quot;方法返回类型 : &quot; + method.getReturnType());</div><div class="line">	//获取参数列表</div><div class="line">	Parameter[] parames = method.getParameters();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>invoke()的使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//getMethod,分别传入方法名,参数类型</div><div class="line">//invoke,分别传入对象,参数,没有则为null</div><div class="line">c.getMethod(&quot;f&quot;, null).invoke(demo, null);</div></pre></td></tr></table></figure></p>
+<p>修改访问限制:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//获取所有的成员变量,包含private</div><div class="line">Method[] mo = c.getDeclaredMethods();</div><div class="line">AccessibleObject.setAccessible(mo, true);</div><div class="line">mo[2].invoke(demo, null);</div></pre></td></tr></table></figure></p>
+<p>四.Constructor 构造器</p>
+
   </div>
 </article>
 
