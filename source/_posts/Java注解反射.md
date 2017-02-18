@@ -1,6 +1,6 @@
 ---
 title: Java注解反射
-date: 2017-02-17 21:10:16
+date: 2016-06-17 21:10:16
 tags: Java
 ---
 一.3种方式获取加载指定的类
@@ -16,28 +16,22 @@ public class Test {
 	public static void main(String[] args) {
 		try {
 			Class c = MyDemo.class;
-
 			MyDemo demo = (MyDemo) c.newInstance();
-      //如果是在同一个包下,则可以调用protected属性和方法
-      //否则只能操作public
-			System.out.println("--->c: " + demo.c);
+			System.out.println("--->c: " + demo.c); //如果是在同一个包下,则可以调用protected属性和方法,否则只能操作public
 			demo.f();
-      //能取到所有的属性
-			System.out.println("成员变量个数 : " + c.getDeclaredFields().length);
-      //能取到公开方法,包括父类的
-			System.out.println("公开方法个数 : " + c.getMethods().length);
-
+			System.out.println("成员变量个数 : " + c.getDeclaredFields().length); //能取到所有的属性
+			System.out.println("公开方法个数 : " + c.getMethods().length);//能取到公开方法,包括父类的
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 }
+```
 输出:
 --->c: 0
 --->f
 成员变量个数 : 3
 公开方法个数 : 10
-```
 ```
 package test2;
 public class MyDemo {
@@ -70,15 +64,15 @@ for(int i = 0; i<fieldArray.length;i++){
 		System.out.println("变量名称 : " + field.getName());
     System.out.println("变量值 : " + field.get(demo));
 }
-
+```
 输出:
 变量名称 : c
 变量值 : 0
 (只打印出公开成员)
-```
+
 修改访问限制:
 ```
-//获取所有的成员变量,包含private
+//获取所有的成员,包含private
 Field[] fieldArray = c.getDeclaredFields();
 field[0].setAccessible(true);
 ```
@@ -91,8 +85,7 @@ for(int i = 0; i<mo.length;i++){
   Method method = mo[i];
   System.out.println("方法名 : " + method.getName());
   System.out.println("方法返回类型 : " + method.getReturnType());
-	//获取参数列表
-	Parameter[] parames = method.getParameters();
+	Parameter[] parames = method.getParameters();//获取参数列表
 }
 ```
 invoke()的使用:
