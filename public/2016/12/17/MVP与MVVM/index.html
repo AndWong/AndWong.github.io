@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一.MVP首先来看MVP各自负责什么：
+Model，负责定义数据（解决什么是数据）Presenter, 负责在Model和View之间，从model里取出数据，格式化后在View上展示（解决如何把数据和用户界面放在一起）View，用于展示数据（解决如何展示数据）
+很显然Presenter作为中间者，它是同时拥有View和Model的引用的.而Model和View必须是完全隔离的，不允许两者之间互相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mvp与mvvm">
+<meta property="og:url" content="http://yoursite.com/2016/12/17/MVP与MVVM/index.html">
+<meta property="og:site_name" content="Wong`s Blog">
+<meta property="og:description" content="一.MVP首先来看MVP各自负责什么：
+Model，负责定义数据（解决什么是数据）Presenter, 负责在Model和View之间，从model里取出数据，格式化后在View上展示（解决如何把数据和用户界面放在一起）View，用于展示数据（解决如何展示数据）
+很显然Presenter作为中间者，它是同时拥有View和Model的引用的.而Model和View必须是完全隔离的，不允许两者之间互相">
+<meta property="og:updated_time" content="2017-02-19T12:16:04.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mvp与mvvm">
+<meta name="twitter:description" content="一.MVP首先来看MVP各自负责什么：
+Model，负责定义数据（解决什么是数据）Presenter, 负责在Model和View之间，从model里取出数据，格式化后在View上展示（解决如何把数据和用户界面放在一起）View，用于展示数据（解决如何展示数据）
+很显然Presenter作为中间者，它是同时拥有View和Model的引用的.而Model和View必须是完全隔离的，不允许两者之间互相">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>mvp与mvvm</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Wong`s Blog</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/01/16/如何在moudle中引入aar/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/10/18/四大组件之BroadcastReceiver/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/12/17/MVP与MVVM/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/12/17/MVP与MVVM/&text=mvp与mvvm"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/12/17/MVP与MVVM/&is_video=false&description=mvp与mvvm"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=mvp与mvvm&body=Check out this article: http://yoursite.com/2016/12/17/MVP与MVVM/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/12/17/MVP与MVVM/&name=mvp与mvvm&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        mvp与mvvm
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Wong`s Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-12-17T13:10:41.000Z" itemprop="datePublished">2016-12-17</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/架构/">架构</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>一.MVP<br>首先来看MVP各自负责什么：</p>
+<p>Model，负责定义数据（解决什么是数据）<br>Presenter, 负责在Model和View之间，从model里取出数据，格式化后在View上展示（解决如何把数据和用户界面放在一起）<br>View，用于展示数据（解决如何展示数据）</p>
+<p>很显然Presenter作为中间者，它是同时拥有View和Model的引用的.<br>而Model和View必须是完全隔离的，不允许两者之间互相通信。</p>
+<p>Model在三者中是独立性最高的，Model不应该拥有对View的引用，而且Model也不需要保存对Presenter的引用，对于Presenter而已，Model只需要提供接口，等着Presenter来调用时返回相应数据即可，这和经典MVC模式中是非常不同的，在MVC中Model在数据发送变化后，是需要发送广播来告之View去更新用户界面的，而在MVP中，Model是不应该去通知View，而是通知Presenter来间接的更新View的。</p>
+<p>而Presenter和Model的关系也应该是基于接口来通信，这样才能把Model和Presenter的耦合度也降到最低，那么在需要改变Model内部实现，甚至彻底替换Model的时候，Presenter则是无需随之改变的。这样做带来的另一个好处就是你可以通过Mock一个Model来对Presenter以及View做模拟测试了，从而提高了可测试性。</p>
+<p>那么View和Presenter的关系呢？View是需要拥有对Presenter的引用，但仅仅是为了将用户的操作和事件立即传递给Presenter，为了让View和Presenter耦合较低，View也只应该通过接口与Presenter通信，从而保证View是完全被动的，一方面它由用户的操作触发来和Presenter通信，另一方面它完全受Presenter控制，唯一需要做的事情就是如何展示数据。</p>
+<p>简要总结三者之间的关系是：View和Model之间没有联系，View通过接口向Presenter来传递用户操作，Model不主动和Presenter联系，被动的等着Presenter来调用其接口，Presenter通过接口和View/Model来联系。</p>
+<p>谷歌官方给的![MVP例子]<a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">https://github.com/googlesamples/android-architecture</a></p>
+<p>为了便于理解，这里提供一些伪代码加注释演示一下如何实现MVP模式：</p>
+<p>View<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">interface IUserView &#123;</div><div class="line"></div><div class="line">  void setPresenter(presenter);</div><div class="line">  void showUsers(users);</div><div class="line">  void showDeleteUserComplete();</div><div class="line">  void showDeleteUserError();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class UserView implements IUserView &#123;</div><div class="line"></div><div class="line">  UserPresenter presenter;</div><div class="line"></div><div class="line">  // 保持对Presenter的引用，用于路由用户操作</div><div class="line">  void setPresenter(presenter) &#123;</div><div class="line">      this.presenter = presenter;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 将Presenter传递来的数据展示出来</div><div class="line">  void showUsers(users) &#123;</div><div class="line">      draw(users);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // Model操作数据成功后，通过Presenter来告之View需要更新用户界面</div><div class="line">  void showDeleteUserComplete() &#123;</div><div class="line">      alert(&quot;Delete User Complete&quot;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // Model操作数据失败后，也是通过Presenter来告之View需要更新用户界面</div><div class="line">  void showDeleteUserError() &#123;</div><div class="line">      alert(&quot;Delete User Fail&quot;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 当用户点击某个按钮时，将用户操作路由给presenter，由presenter去处理</div><div class="line">  void onDeleteButtonClicked(event) &#123;</div><div class="line">      presenter.deleteUser(event);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">interface IUserModel &#123;</div><div class="line"></div><div class="line">  List&lt;User&gt; getUsers();</div><div class="line">  boolean deleteUserById();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class UserModel implements IUserModel &#123;</div><div class="line"></div><div class="line">  // 在数据库里查找数据，并将数据返回给presenter</div><div class="line">  List&lt;User&gt; getUsers() &#123;</div><div class="line">       return getUsersInDatabase(id);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 在数据库里删除数据，并将结果返回给presenter</div><div class="line">  User deleteUserById(id) &#123;</div><div class="line">      return deleteUserByIdInDatabase(id);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Presenter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">interface IUserUserPresenter &#123;</div><div class="line"></div><div class="line">  void deleteUser(event);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class UserUserPresenter implements IUserPresenter &#123;</div><div class="line"></div><div class="line">  // 保持对View的引用</div><div class="line">  IUserView view;</div><div class="line">  // 保持对Model的引用</div><div class="line">  IUserModel model;</div><div class="line"></div><div class="line">  UserUserPresenter(IUserView view, IUserModel model) &#123;</div><div class="line">    this.view = view;    </div><div class="line">    this.model = model;</div><div class="line"></div><div class="line">    this.view.setPresenter(this);   </div><div class="line">  &#125;</div><div class="line"></div><div class="line">  void start() &#123;</div><div class="line">    // 从Model中取出数据</div><div class="line">    List&lt;User&gt; users = model.getUsers();</div><div class="line">    // 将数据发送给View，让其展示到用户界面</div><div class="line">    view.showUsers(users);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  void deleteUser(event) &#123;</div><div class="line">    // View将用户操作路由过来，由Presenter来处理</div><div class="line">    long uid = whichUserNeedToDeleteBy(event);</div><div class="line">    // 将用户操作翻译成命令或消息传递给model，以改变数据</div><div class="line">    boolean success = model.deleteUserById(uid);</div><div class="line">    // 将Model操作数据后的结果通知View来改变用户界面</div><div class="line">    if (success) &#123;</div><div class="line">          view.onDeleteUserSuccess();</div><div class="line">    &#125; else &#123;</div><div class="line">        view.onDeleteUserFail();  </div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>二.MVVP<br>MVVM是由三个核心部分，每个都有它自己的不同而独立的作用：</p>
+<p>Model - 包含业务和验证逻辑的数据模型<br>View – 定义结构,布局和View 在屏幕上的显示<br>ViewModel - 充当 View 和 ViewModel 之间的连接, 处理所有视图逻辑.</p>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/12/17/MVP与MVVM/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/12/17/MVP与MVVM/&text=mvp与mvvm"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/12/17/MVP与MVVM/&is_video=false&description=mvp与mvvm"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=mvp与mvvm&body=Check out this article: http://yoursite.com/2016/12/17/MVP与MVVM/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/12/17/MVP与MVVM/&title=mvp与mvvm"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/12/17/MVP与MVVM/&name=mvp与mvvm&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Wong
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        
+          <li><a href="/">主页</a></li>
+        
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
