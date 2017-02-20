@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="通知栏使用权时API 18,之后引入的一个功能.
+通过设置允许App使用通知栏使用权,开发者可以监听到通知栏的消息状态,以及操作消息等.最重要的是,也是自己在项目中用到的一点,可以使得进程常驻,保证app的存活.
+那么我们该如何使用这个通知栏使用权呢?
+1.创建一个Service继承NotificationListenerService注意:必须写在App包名的目录下.12345678910111">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于通知栏使用权的介绍">
+<meta property="og:url" content="http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/index.html">
+<meta property="og:site_name" content="Wong`s Blog">
+<meta property="og:description" content="通知栏使用权时API 18,之后引入的一个功能.
+通过设置允许App使用通知栏使用权,开发者可以监听到通知栏的消息状态,以及操作消息等.最重要的是,也是自己在项目中用到的一点,可以使得进程常驻,保证app的存活.
+那么我们该如何使用这个通知栏使用权呢?
+1.创建一个Service继承NotificationListenerService注意:必须写在App包名的目录下.12345678910111">
+<meta property="og:updated_time" content="2017-02-20T12:29:16.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于通知栏使用权的介绍">
+<meta name="twitter:description" content="通知栏使用权时API 18,之后引入的一个功能.
+通过设置允许App使用通知栏使用权,开发者可以监听到通知栏的消息状态,以及操作消息等.最重要的是,也是自己在项目中用到的一点,可以使得进程常驻,保证app的存活.
+那么我们该如何使用这个通知栏使用权呢?
+1.创建一个Service继承NotificationListenerService注意:必须写在App包名的目录下.12345678910111">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>关于通知栏使用权的介绍</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="banner">
+<div id="blogtitel" class="blogtitel">Wong`s Blog</div>
+<ul id="wrapper" class="wrapper">
+  <div class="sun">
+    <div class="star"></div>
+  </div>
+  <div class="mercury">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="venus">
+    <div class="planet">
+      <div class="shadow"></div>
+    </div>
+  </div>
+  <div class="earth">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="mars">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+  <div class="jupiter">
+    <div class="planet"><div class="shadow"></div></div>
+  </div>
+</ul>
+</div>
+
+    <div class="background">
+      
+        <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/02/20/Android-App选择器/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&text=关于通知栏使用权的介绍"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&is_video=false&description=关于通知栏使用权的介绍"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于通知栏使用权的介绍&body=Check out this article: http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&name=关于通知栏使用权的介绍&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+      
+      <div class="content index width mx-auto px2 my4">
+          
+          <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        关于通知栏使用权的介绍
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Wong`s Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-02-20T12:16:32.000Z" itemprop="datePublished">2017-02-20</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Android/">Android</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>通知栏使用权时API 18,之后引入的一个功能.</p>
+<p>通过设置允许App使用通知栏使用权,开发者可以监听到通知栏的消息状态,以及操作消息等.<br>最重要的是,也是自己在项目中用到的一点,可以使得进程常驻,保证app的存活.</p>
+<p>那么我们该如何使用这个通知栏使用权呢?</p>
+<p>1.创建一个Service继承NotificationListenerService<br>注意:必须写在App包名的目录下.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">@SuppressLint(&quot;NewApi&quot;)</div><div class="line">public class NotifyMonitorService extends NotificationListenerService &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public IBinder onBind(Intent intent) &#123;</div><div class="line">        //TODO , 可以在此处启动一个本地服务</div><div class="line">        startService(new Intent(App.sContext, LocalPushService.class));</div><div class="line">        return super.onBind(intent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onInterruptionFilterChanged(int interruptionFilter) &#123;</div><div class="line">        super.onInterruptionFilterChanged(interruptionFilter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onListenerConnected() &#123;</div><div class="line">        super.onListenerConnected();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onNotificationRemoved(StatusBarNotification sbn) &#123;</div><div class="line">        Bundle extras = sbn.getNotification().extras;</div><div class="line">        String appName = sbn.getPackageName();</div><div class="line">        String title = extras.getString(Notification.EXTRA_TITLE);</div><div class="line">        String content = extras.getString(Notification.EXTRA_TEXT);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.在AndroidManifest.xml中添加配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 通知栏监听器--&gt;</div><div class="line">&lt;service</div><div class="line">    android:name=&quot;.services.NotifyMonitorService&quot;</div><div class="line">    android:permission=&quot;android.permission.BIND_NOTIFICATION_LISTENER_SERVICE&quot;</div><div class="line">    android:process=&quot;:notify&quot;&gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=&quot;android.service.notification.NotificationListenerService&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/service&gt;</div></pre></td></tr></table></figure></p>
+<p>3.跳转通知栏使用权打开界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent(&quot;android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS&quot;);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>4.判断是否已经开启通知栏使用权<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private boolean isNotifiMonitorOpen() &#123;</div><div class="line">  String pkgName = getPackageName();</div><div class="line">  final String flat = Settings.Secure.getString(getContentResolver(), &quot;enabled_notification_listeners&quot;);</div><div class="line">  if (!TextUtils.isEmpty(flat)) &#123;</div><div class="line">    final String[] names = flat.split(&quot;:&quot;);</div><div class="line">    for (int i = 0; i &lt; names.length; i++) &#123;</div><div class="line">      final ComponentName cn = ComponentName.unflattenFromString(names[i]);</div><div class="line">      if (cn != null) &#123;</div><div class="line">        if (TextUtils.equals(pkgName, cn.getPackageName())) &#123;</div><div class="line">          return true;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+      </div>
+      
+       <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">主页</a></li>
+         
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&text=关于通知栏使用权的介绍"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&is_video=false&description=关于通知栏使用权的介绍"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于通知栏使用权的介绍&body=Check out this article: http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&title=关于通知栏使用权的介绍"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/&name=关于通知栏使用权的介绍&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick='$("#toc-footer").toggle();return false;'><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick='$("#share-footer").toggle();return false;'><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick='$("#nav-footer").toggle();return false;'><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+      
+      <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Wong
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        
+          <li><a href="/">主页</a></li>
+        
+          <li><a href="/archives/">文章</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+      <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+
+    </div>
+</body>
+</html>
