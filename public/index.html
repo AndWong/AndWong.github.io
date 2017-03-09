@@ -1,541 +1,1744 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta property="og:type" content="website">
 <meta property="og:title" content="Wong`s Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wong`s Blog">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>Wong`s Blog</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- rss -->
-    
-    
-    <!-- jquery -->
-    <script src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title> Wong`s Blog </title>
 </head>
 
-<body>
-    <div class="banner">
-<div id="blogtitel" class="blogtitel">Wong`s Blog</div>
-<ul id="wrapper" class="wrapper">
-  <div class="sun">
-    <div class="star"></div>
-  </div>
-  <div class="mercury">
-    <div class="planet">
-      <div class="shadow"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wong`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <div class="venus">
-    <div class="planet">
-      <div class="shadow"></div>
-    </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="earth">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-  <div class="mars">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-  <div class="jupiter">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-</ul>
 </div>
 
-    <div class="background">
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
       
-      <div class="content index width mx-auto px2 my4">
-          
-            <header id="header">
-  <a href="/">
-  
-    
-      <div id="logo" style="background-image: url(/images/logo.png);"></div>
-    
-  
-    <div id="title">
-      <h1>Wong`s Blog</h1>
-    </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
-      </li>
-       
-        <li><a href="/">主页</a></li>
-       
-        <li><a href="/archives/">文章</a></li>
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
       
     </ul>
-  </div>
-</header>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/rx-retrofit-okhttp网络框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/06/rx-retrofit-okhttp网络框架/" itemprop="url">
+                  rx+retrofit+okhttp网络框架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-06T22:30:35+08:00">
+                2017-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
-          <section id="about">
-  
-  <p style="display: inline">
-    
-      Find me on
-      <ul id="sociallinks">
-        
-          <li><a class="icon" target="_blank" href="https://github.com/AndWong" title="github"><i class="fa fa-github"></i></a></li>
-        
-      </ul>.
-    
-  </p>
-</section>
-
-<section id="writing">
-  <span class="h1"><a href="/archives">Writing</a></span>
-  <ul class="post-list">
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-03-06T14:30:35.000Z" itemprop="datePublished">2017-03-06</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/03/06/rx-retrofit-okhttp网络框架/">rx+retrofit+okhttp网络框架</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-03-01T11:52:28.000Z" itemprop="datePublished">2017-03-01</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/03/01/常用网络请求框架OkHttp、Volley、Retrofit对比/">常用网络请求框架OkHttp、Volley、Retrofit,android-async-http对比</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-20T12:16:32.000Z" itemprop="datePublished">2017-02-20</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/20/关于通知栏使用权的介绍/">关于通知栏使用权的介绍</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-20T12:00:10.000Z" itemprop="datePublished">2017-02-20</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/20/Android-App选择器/">Android App选择器</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-17T13:09:00.000Z" itemprop="datePublished">2017-02-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/17/一套临时使用的图片压缩缓存上传方案/">一套临时使用的图片压缩缓存上传方案</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-17T13:07:24.000Z" itemprop="datePublished">2017-02-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/17/自定义View/">自定义View</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-16T12:42:40.000Z" itemprop="datePublished">2017-02-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/16/记一次使用Realm的体会/">记一次使用Realm的体会</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-01-16T12:32:45.000Z" itemprop="datePublished">2017-01-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/01/16/如何在moudle中引入aar/">如何在moudle中引入aar</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-12-17T13:10:41.000Z" itemprop="datePublished">2016-12-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/12/17/MVP与MVVM/">mvp与mvvm</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-10-18T12:51:00.000Z" itemprop="datePublished">2016-10-18</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/10/18/四大组件之BroadcastReceiver/">四大组件之BroadcastReceiver</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-10-16T12:32:13.000Z" itemprop="datePublished">2016-10-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/10/16/四大组件之Service/">四大组件之Service</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-10-15T11:48:09.000Z" itemprop="datePublished">2016-10-15</time>
-    </div>
-
 
-        <span>
-    
-        <a class="" href="/2016/10/15/四大组件之Activity/">四大组件之Activity</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-07-13T12:34:42.000Z" itemprop="datePublished">2016-07-13</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/07/13/Android-SQLite的使用/">Android SQLite的使用</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-17T13:10:16.000Z" itemprop="datePublished">2016-06-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/17/Java注解反射/">Java注解反射</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-17T13:09:27.000Z" itemprop="datePublished">2016-06-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/17/Fragment的管理/">Fragment的管理</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-10T12:05:15.000Z" itemprop="datePublished">2016-06-10</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/10/Android动态修改某个控件大小/">Android动态修改某个控件大小</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-10T11:39:20.000Z" itemprop="datePublished">2016-06-10</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/10/Android设置全屏的几种方式/">Android设置全屏的几种方式</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-05-22T12:52:44.000Z" itemprop="datePublished">2016-05-22</time>
-    </div>
-
+          
+            
+          
 
-        <span>
-    
-        <a class="" href="/2016/05/22/Android事件分发机制的简单解读/">Android事件分发机制的简单解读</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-05-12T13:37:59.000Z" itemprop="datePublished">2016-05-12</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/05/12/Android中Handler的简单终结/">Android中Handler的简单终结</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-04-11T13:35:53.000Z" itemprop="datePublished">2016-04-11</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/04/11/WiFi-Portal检测/">WiFi Portal检测</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-03-21T12:07:11.000Z" itemprop="datePublished">2016-03-21</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/03/21/EditText相关/">EditText相关</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-02-16T12:03:33.000Z" itemprop="datePublished">2016-02-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/02/16/Markdown的初级使用/">Markdown的初级使用</a>
-    
-
+          
+          
 
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-02-10T11:59:27.000Z" itemprop="datePublished">2016-02-10</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/02/10/WebView-获取网页源码/">WebView 获取网页源码</a>
-    
+          
 
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-01-05T06:06:55.000Z" itemprop="datePublished">2016-01-05</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/01/05/gitbub-blog/">Ubuntu下使用Hexo创建Gitbub博客</a>
-    
+          
 
+          
 
-</span>
-      </li>
+        </div>
+      </header>
     
-  </ul>
-</section>
 
 
+    <div class="post-body" itemprop="articleBody">
 
-      </div>
       
-      <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2016 Wong
+      
+
+      
+        
+          
+            <p>首先导入相关的包<br>compile ‘com.google.code.gson:gson:2.5’<br>compile ‘com.squareup.okhttp3:okhttp:3.3.1’<br>compile ‘io.reactivex:rxjava:1.1.9’<br>compile ‘io.reactivex:rxandroid:1.2.1’<br>compile ‘com.squareup.retrofit2:retrofit:2.1.0’<br>compile ‘com.squareup.retrofit2:converter-gson:2.1.0’<br>compile ‘com.squareup.retrofit2:adapter-rxjava:2.1.0’<br>compile ‘com.squareup.retrofit2:retrofit-converters:2.1.0’<br>compile ‘com.squareup.okhttp3:logging-interceptor:3.4.1’</p>
+<p>1.对应的数据模型,采用范型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class BaseModel&lt;T&gt; implements Serializable &#123;</div><div class="line">    public int status;</div><div class="line">    public String message;</div><div class="line">    public T data;</div><div class="line"></div><div class="line">    public BaseModel() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public BaseModel(int status, String message, T data) &#123;</div><div class="line">        this.status = status;</div><div class="line">        this.message = message;</div><div class="line">        this.data = data;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.相关接口,和服务端的接口对应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface DataApi &#123;</div><div class="line">    @GET(URL)</div><div class="line">    Observable&lt;BaseModel&lt;T&gt;&gt; fetchData(@QueryMap Map&lt;String, Object&gt; params);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.网络配置,请求等基础类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">public class BaseService &#123;</div><div class="line">    private static final String TAG = &quot;BaseService&quot;;</div><div class="line">    protected static final String BASE_URL = &quot;baseurl&quot;;</div><div class="line">    protected Retrofit retrofit;</div><div class="line">    protected OkHttpClient client;</div><div class="line">    private HttpLoggingInterceptor logging; //日志类</div><div class="line"></div><div class="line">    public BaseService() &#123;</div><div class="line">        initHttpLoggingInterceptor();</div><div class="line">    &#125;</div><div class="line">    /**</div><div class="line">     * 构建Retrofit</div><div class="line">     **/</div><div class="line">    protected Retrofit getRetrofit() &#123;</div><div class="line">        if (retrofit == null) &#123;</div><div class="line">            retrofit = new Retrofit.Builder()</div><div class="line">                    .baseUrl(BASE_URL)</div><div class="line">                    .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</div><div class="line">                    .client(getOkHttpClient())</div><div class="line">                    .build();</div><div class="line">        &#125;</div><div class="line">        return retrofit;</div><div class="line">    &#125;</div><div class="line">    /**</div><div class="line">     * 构建Okhttp</div><div class="line">     **/</div><div class="line">    protected OkHttpClient getOkHttpClient() &#123;</div><div class="line">        if (client == null) &#123;</div><div class="line">            client = getOkHttpBuilder().build();</div><div class="line">        &#125;</div><div class="line">        return client;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private OkHttpClient.Builder getOkHttpBuilder() &#123;</div><div class="line">        OkHttpClient.Builder builder = new OkHttpClient.Builder()</div><div class="line">                .connectTimeout(30, TimeUnit.SECONDS)</div><div class="line">                .addInterceptor(logging);</div><div class="line">        return builder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 初始化 HTTP日志打印拦截</div><div class="line">     */</div><div class="line">    private void initHttpLoggingInterceptor() &#123;</div><div class="line">        logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() &#123;</div><div class="line">            @Override</div><div class="line">            public void log(String message) &#123;</div><div class="line">                LogUtil.d(TAG, &quot;whd &gt;&gt; MSG : &quot; + message);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        logging.setLevel(HttpLoggingInterceptor.Level.BODY);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 支持使用HTTPS请求</div><div class="line">     *</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public Retrofit getHTTPSRetrofit() &#123;</div><div class="line">        OkHttpClient.Builder builder = getOkHttpClient().newBuilder();</div><div class="line">        setClientSSL(builder);</div><div class="line">        Retrofit retrofit = new Retrofit.Builder()</div><div class="line">                .baseUrl(BASE_URL)</div><div class="line">                .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</div><div class="line">                .client(builder.build())</div><div class="line">                .build();</div><div class="line">        return retrofit;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 支持HTTPS的 SSL</div><div class="line">     *</div><div class="line">     * @param builder</div><div class="line">     */</div><div class="line">    private void setClientSSL(OkHttpClient.Builder builder) &#123;</div><div class="line">        TrustManager[] trustManagers = new TrustManager[]&#123;(TrustManager) new HTTPSTrustManager()&#125;;</div><div class="line">        try &#123;</div><div class="line">            SSLContext sslContext = SSLContext.getInstance(&quot;SSL&quot;);</div><div class="line">            sslContext.init(null, trustManagers, new java.security.SecureRandom());</div><div class="line">            SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();</div><div class="line">            builder.sslSocketFactory(sslSocketFactory);</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            LogUtil.d(TAG, &quot;setClientSSL() :&quot; + e.getMessage());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 使用它跳过HTTPS的SSL认证</div><div class="line"> */</div><div class="line">public class HTTPSTrustManager &#123;</div><div class="line">    private static TrustManager[] trustManagers;</div><div class="line">    private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[0];</div><div class="line"></div><div class="line">    public HTTPSTrustManager() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public boolean isClientTrusted(X509Certificate[] chain) &#123;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public boolean isServerTrusted(X509Certificate[] chain) &#123;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public X509Certificate[] getAcceptedIssuers() &#123;</div><div class="line">        return _AcceptedIssuers;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对应接口的一个请求Service类,继承BaseService<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class DataService extends BaseService &#123;</div><div class="line"></div><div class="line">    public Observable&lt;BaseModel&lt;T&gt;&gt; fetchData() &#123;</div><div class="line">        Map&lt;String, Object&gt; params = new ArrayMap&lt;&gt;(1);</div><div class="line">        params.put(key, value);</div><div class="line">        return getRetrofit().create(DataApi.class).fetchData(params);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   /**</div><div class="line">    * 添加拦截器,</div><div class="line">    * 可以获取请求的数据和返回的数据.</div><div class="line">    * 不进行数据处理的话可以不用重写该方法</div><div class="line">    **/</div><div class="line">    @Override</div><div class="line">    protected OkHttpClient getOkHttpClient() &#123;</div><div class="line">        OkHttpClient client = super.getOkHttpClient();</div><div class="line">        return client.newBuilder().addInterceptor(new DataInterceptor()).build();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.自定义拦截器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">public class DataInterceptor implements Interceptor &#123;</div><div class="line">    private static final String TAG = &quot;DataInterceptor&quot;;</div><div class="line">    private static final Charset UTF8 = Charset.forName(&quot;UTF-8&quot;);</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public Response intercept(Chain chain) throws IOException &#123;</div><div class="line">        Request request = chain.request();</div><div class="line">        Request.Builder builder = request.newBuilder();</div><div class="line">        Request newRequest = builder</div><div class="line">                .addHeader(&quot;Accept&quot;, &quot;application/json&quot;)</div><div class="line">                .addHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;)</div><div class="line">                .addHeader(&quot;x-sdk-version&quot;, VersionUtils.SDK_VERSION)</div><div class="line">                .addHeader(&quot;x-app-version&quot;, VersionUtils.getAppVersionName(App.sContext))</div><div class="line">                .build();</div><div class="line">        Response response = chain.proceed(newRequest);</div><div class="line">        return buildResponse(response);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 重新构造Response</div><div class="line">     *</div><div class="line">     * @param response</div><div class="line">     * @return</div><div class="line">     * @throws IOException</div><div class="line">     */</div><div class="line">    private Response buildResponse(final Response response) throws IOException &#123;</div><div class="line">        String result = decryptionResponse(response);</div><div class="line">        return response.newBuilder().body(ResponseBody.create(response.body().contentType(), result)).build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 解密BODY</div><div class="line">     *</div><div class="line">     * @param response</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    private String decryptionResponse(Response response) throws IOException &#123;</div><div class="line">        String data = null;</div><div class="line">        ResponseBody responseBody = response.body();</div><div class="line">        long contentLength = responseBody.contentLength();</div><div class="line">        BufferedSource source = responseBody.source();</div><div class="line">        source.request(Long.MAX_VALUE); // Buffer the entire body.</div><div class="line">        Buffer buffer = source.buffer();</div><div class="line"></div><div class="line">        Charset charset = UTF8;</div><div class="line">        MediaType contentType = responseBody.contentType();</div><div class="line">        if (contentType != null) &#123;</div><div class="line">            charset = contentType.charset(UTF8);</div><div class="line">        &#125;</div><div class="line">        if (contentLength != 0) &#123;</div><div class="line">            String encrypStr = buffer.clone().readString(charset);</div><div class="line">            BaseModel baseModel = JsonUtil.getInstance().fromJson(encrypStr, BaseModel.class);</div><div class="line">            LogUtil.d(TAG, &quot;加密内容 : &quot; + wiFiBaseModel.data.toString());</div><div class="line">            baseModel.data = JsonUtil.getInstance().fromJson(AesUtils.decrypt(baseModel.data.toString()), Object.class);</div><div class="line">            data = JsonUtil.getInstance().toJson(baseModel);</div><div class="line">            LogUtil.d(TAG, &quot;解密内容 : &quot; + data);</div><div class="line">        &#125;</div><div class="line">        return data;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.json解析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Json工具类</div><div class="line"> * Created by wong on 17-3-6.</div><div class="line"> */</div><div class="line">public class JsonUtil &#123;</div><div class="line">    private static final String TAG = &quot;JsonUtil&quot;;</div><div class="line">    private static Gson gson = null;</div><div class="line">    private static JsonUtil jsonUtil = null;</div><div class="line"></div><div class="line">    private JsonUtil() &#123;</div><div class="line">        gson = new GsonBuilder().serializeNulls().create();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static JsonUtil getInstance() &#123;</div><div class="line">        if (jsonUtil == null) &#123;</div><div class="line">            jsonUtil = new JsonUtil();</div><div class="line">        &#125;</div><div class="line">        return jsonUtil;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 将对象转换为JSON字符串</div><div class="line">     *</div><div class="line">     * @param obj</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public String toJson(Object obj) &#123;</div><div class="line">        return gson.toJson(obj);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 将JSON字符串转化为对象</div><div class="line">     *</div><div class="line">     * @param s</div><div class="line">     * @param cls</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public &lt;T&gt; T fromJson(String s, Type cls) &#123;</div><div class="line">        return gson.fromJson(s.trim(), cls);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>6.获取Service来进行相关操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class HttpManager &#123;</div><div class="line">    public static volatile HttpManager instance;</div><div class="line">    public DataService dataService;</div><div class="line"></div><div class="line">    private HttpManager() &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static HttpManager getInstance() &#123;</div><div class="line">        if (null == instance) &#123;</div><div class="line">            synchronized (HttpManager.class) &#123;</div><div class="line">                if (null == instance) &#123;</div><div class="line">                    instance = new HttpManager();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public DataService getDataService() &#123;</div><div class="line">        if (null == dataService) &#123;</div><div class="line">            dataService = new DataService();</div><div class="line">        &#125;</div><div class="line">        return dataService;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>7.使用示例,创建一个IntentService进行网络请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class DataRequestService extends IntentService &#123;</div><div class="line"></div><div class="line">    public DataRequestService() &#123;</div><div class="line">        super(&quot;DataRequestService&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onHandleIntent(Intent intent) &#123;</div><div class="line">        HttpManager.getInstance().getDataService().fetchData()</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                .subscribe(new Subscriber&lt;BaseModel&lt;T&gt;&gt;() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onCompleted() &#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onError(Throwable e) &#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onNext(BaseModel&lt;T&gt; baseModel) &#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/常用网络请求框架OkHttp、Volley、Retrofit对比/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/01/常用网络请求框架OkHttp、Volley、Retrofit对比/" itemprop="url">
+                  常用网络请求框架OkHttp、Volley、Retrofit,android-async-http对比
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T19:52:28+08:00">
+                2017-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.android-async-http<br>    android-async-http 是基于HttpClient的，目前HttpClient已经被废弃.<br>    貌似android-async-http已经把一整套的HttpClient加入代码中,所以目前还有人在用.</p>
+<p>2.OkHttp<br>    Android 开发中是可以直接使用现成的api进行网络请求的。是Square公司开源的针对Java和Android程序，封装的一个高性能http请求库，它的职责跟HttpUrlConnection 是一样的，支持同步、异步，而且 OkHttp 又封装了线程池，封装了数据转换，封装了参数使用、错误处理等，api使用起来更加方便。可以把它理解成是一个封装之后的类似HttpUrlConnection的东西，但是在使用的时候仍然需要自己再做一层封装，这样才能像使用一个框架一样更加顺手。</p>
+<p>3.Volley<br>   Volley是Google官方出的一套小而巧的异步请求库，该框架封装的扩展性很强，支持HttpClient、HttpUrlConnection， 甚至支持OkHttp，而且Volley里面也封装了ImageLoader，所以如果你愿意你甚至不需要使用图片加载框架，不过这块功能没有一些专门的图片加载框架强大，对于简单的需求可以使用，稍复杂点的需求还是需要用到专门的图片加载框架。Volley也有缺陷，比如不支持post大数据，所以不适合上传文件。不过Volley设计的初衷本身也就是为频繁的、数据量小的网络请求而生。</p>
+<p>4.Retrofit<br>   Retrofit是Square公司出品的默认基于OkHttp封装的一套RESTful网络请求框架，RESTful是目前流行的一套api设计的风格， 并不是标准。Retrofit的封装可以说是很强大，里面涉及到一堆的设计模式,可以通过注解直接配置请求，可以使用不同的http客户端，虽然默认是用http ，可以使用不同Json Converter 来序列化数据，同时提供对RxJava的支持，使用Retrofit + OkHttp + RxJava + Dagger2 可以说是目前比较潮的一套框架，但是需要有比较高的门槛。</p>
+<p>5.Volley VS OkHttp<br>  Volley的优势在于封装的更好，而使用OkHttp你需要有足够的能力再进行一次封装。而OkHttp的优势在于性能更高，因为 OkHttp基于NIO和Okio ，所以性能上要比 Volley更快。IO 和 NIO这两个都是Java中的概念，如果我从硬盘读取数据，第一种方式就是程序一直等，数据读完后才能继续操作这种是最简单的也叫阻塞式IO,还有一种是你读你的,程序接着往下执行，等数据处理完你再来通知我，然后再处理回调。而第二种就是 NIO 的方式，非阻塞式， 所以NIO当然要比IO的性能要好了,而 Okio是 Square 公司基于IO和NIO基础上做的一个更简单、高效处理数据流的一个库。理论上如果Volley和OkHttp对比的话，更倾向于使用 Volley，因为Volley内部同样支持使用OkHttp,这点OkHttp的性能优势就没了，  而且 Volley 本身封装的也更易用，扩展性更好些。</p>
+<p>6.OkHttp VS Retrofit<br>   毫无疑问，Retrofit 默认是基于 OkHttp 而做的封装，这点来说没有可比性，肯定首选 Retrofit。</p>
+<p>7.Volley VS Retrofit<br>  这两个库都做了不错的封装，但Retrofit解耦的更彻底,尤其Retrofit2.0出来，Jake对之前1.0设计不合理的地方做了大量重构， 职责更细分，而且Retrofit默认使用OkHttp,性能上也要比Volley占优势，再有如果你的项目如果采用了RxJava ，那更该使用  Retrofit 。所以这两个库相比，Retrofit更有优势，在能掌握两个框架的前提下该优先使用 Retrofit。但是Retrofit门槛要比Volley稍高些， 要理解他的原理，各种用法，想彻底搞明白还是需要花些功夫的，如果你对它一知半解，那还是建议在商业项目使用Volley吧。</p>
+<p>文章来源 : <a href="http://blog.csdn.net/qq_33342248/article/details/53906842" target="_blank" rel="external">http://blog.csdn.net/qq_33342248/article/details/53906842</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/20/关于通知栏使用权的介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/20/关于通知栏使用权的介绍/" itemprop="url">
+                  关于通知栏使用权的介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T20:16:32+08:00">
+                2017-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>通知栏使用权时API 18,之后引入的一个功能.</p>
+<p>通过设置允许App使用通知栏使用权,开发者可以监听到通知栏的消息状态,以及操作消息等.<br>最重要的是,也是自己在项目中用到的一点,可以使得进程常驻,保证app的存活.</p>
+<p>那么我们该如何使用这个通知栏使用权呢?</p>
+<p>1.创建一个Service继承NotificationListenerService<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">@SuppressLint(&quot;NewApi&quot;)</div><div class="line">public class NotifyMonitorService extends NotificationListenerService &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public IBinder onBind(Intent intent) &#123;</div><div class="line">        //TODO , 可以在此处启动一个本地服务</div><div class="line">        startService(new Intent(App.sContext, LocalPushService.class));</div><div class="line">        return super.onBind(intent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onInterruptionFilterChanged(int interruptionFilter) &#123;</div><div class="line">        super.onInterruptionFilterChanged(interruptionFilter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onListenerConnected() &#123;</div><div class="line">        super.onListenerConnected();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onNotificationRemoved(StatusBarNotification sbn) &#123;</div><div class="line">        Bundle extras = sbn.getNotification().extras;</div><div class="line">        String appName = sbn.getPackageName();</div><div class="line">        String title = extras.getString(Notification.EXTRA_TITLE);</div><div class="line">        String content = extras.getString(Notification.EXTRA_TEXT);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.在AndroidManifest.xml中添加配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 通知栏监听器--&gt;</div><div class="line">&lt;service</div><div class="line">    android:name=&quot;.services.NotifyMonitorService&quot;</div><div class="line">    android:permission=&quot;android.permission.BIND_NOTIFICATION_LISTENER_SERVICE&quot;</div><div class="line">    android:process=&quot;:notify&quot;&gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=&quot;android.service.notification.NotificationListenerService&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/service&gt;</div></pre></td></tr></table></figure></p>
+<p>3.跳转通知栏使用权打开界面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent(&quot;android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS&quot;);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>4.判断是否已经开启通知栏使用权<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private boolean isNotifiMonitorOpen() &#123;</div><div class="line">  String pkgName = getPackageName();</div><div class="line">  final String flat = Settings.Secure.getString(getContentResolver(), &quot;enabled_notification_listeners&quot;);</div><div class="line">  if (!TextUtils.isEmpty(flat)) &#123;</div><div class="line">    final String[] names = flat.split(&quot;:&quot;);</div><div class="line">    for (int i = 0; i &lt; names.length; i++) &#123;</div><div class="line">      final ComponentName cn = ComponentName.unflattenFromString(names[i]);</div><div class="line">      if (cn != null) &#123;</div><div class="line">        if (TextUtils.equals(pkgName, cn.getPackageName())) &#123;</div><div class="line">          return true;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/20/Android-App选择器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/20/Android-App选择器/" itemprop="url">
+                  Android App选择器
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T20:00:10+08:00">
+                2017-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当手机同时装有多个同样功能的软件时,如何让系统弹出App选择界面.</p>
+<p>例如 当用户选择打开WiFi软件时.</p>
+<p>一.先来介绍第一种方式:</p>
+<p>1.在AndroidManifest.xml中为目标Activity添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;intent-filter&gt;</div><div class="line">  &lt;action android:name=&quot;android.settings.WIFI_SETTINGS&quot; /&gt;</div><div class="line">  &lt;action android:name=&quot;android.net.wifi.PICK_WIFI_NETWORK&quot; /&gt;</div><div class="line">  &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</div><div class="line">&lt;/intent-filter&gt;</div></pre></td></tr></table></figure></p>
+<p>2.Java代码中调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">intent.setAction(&quot;android.settings.WIFI_SETTINGS&quot;);</div><div class="line">intent.addCategory(&quot;android.intent.category.DEFAULT&quot;);</div><div class="line">//弹出设置默认APP选择器</div><div class="line">intent.setComponent(new ComponentName(&quot;android&quot;,&quot;com.android.internal.app.ResolverActivity&quot;));</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></p>
+<p>通过上述方式,虽然可以成功启动APP选择器,<br>但是会有一个问题,<br>如果用户已经设置其他app为默认应用,那么此次的设置就会无效.</p>
+<p>接下来我将介绍的第二种方式可以解决上述的问题.<br>通过在AndroidManifest.xml中为多个activity配置intent-filter,<br>在调用startActivity时系统不知道要匹配哪个intent-filter便会弹出选择器.</p>
+<p>代码如下:<br>1.这个Activity什么都不用做连布局都不需要,只需要在xml中配置intent-filter<br>以及enabled=false和exported=false<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public class DefaultSetting extends Activity&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>AndroidManifest.xml中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!--　enabled和exported很重要　--&gt;</div><div class="line">&lt;activity</div><div class="line">    android:name=&quot;com.wifibanlv.wifipartner.usu.activity.DefaultSetting&quot;</div><div class="line">    android:enabled=&quot;false&quot;</div><div class="line">    android:exported=&quot;false&quot;&gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">      &lt;action android:name=&quot;android.settings.WIFI_SETTINGS&quot; /&gt;</div><div class="line">      &lt;action android:name=&quot;android.net.wifi.PICK_WIFI_NETWORK&quot; /&gt;</div><div class="line">      &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
+<p>2.这个Activity为调用startActivity时匹配的目标Activity,<br>也可将它作为一个中转界面,监听设置是否成功.<br>同样不需要布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class DefaultSettingTransfer extends Activity&#123;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        ToastUtil.showMessage(&quot;设置成功~&quot;);</div><div class="line">        startActivity(new Intent(this, MainActivity.class));</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在AndroidManifest.xml中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 设置默认wifi工具中转界面 --&gt;</div><div class="line">&lt;activity</div><div class="line">  android:name=&quot;com.wifibanlv.wifipartner.activity.DefaultSettingTransfer&quot;</div><div class="line">  android:icon=&quot;@drawable/ic_launcher&quot;</div><div class="line">  android:label=&quot;@string/app_name&quot;</div><div class="line">  android:screenOrientation=&quot;portrait&quot;</div><div class="line">  android:theme=&quot;@style/AppTheme&quot;&gt;</div><div class="line">  &lt;intent-filter&gt;</div><div class="line">    &lt;action android:name=&quot;android.settings.WIFI_SETTINGS&quot; /&gt;</div><div class="line">    &lt;action android:name=&quot;android.net.wifi.PICK_WIFI_NETWORK&quot; /&gt;</div><div class="line">    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;</div><div class="line">  &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
+<p>3.在Java代码中调用启动App选择器的方法,如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">PackageManager packageManager = context.getPackageManager();</div><div class="line">//设置activity的enable=true,会出现多个匹配项系统就会弹出选择器</div><div class="line">ComponentName componentName = new ComponentName(App.getInstance().getPackageName(), &quot;com.wifibanlv.wifipartner.usu.activity.DefaultSetting&quot;);</div><div class="line">packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);</div><div class="line">Intent intent = new Intent();</div><div class="line">intent.setAction(&quot;android.settings.WIFI_SETTINGS&quot;);</div><div class="line">intent.addCategory(&quot;android.intent.category.DEFAULT&quot;);</div><div class="line">startActivity(intent);</div><div class="line">//设置activity的enable=false;系统会选择enable=true的activity作为目标activity</div><div class="line">packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DEFAULT, PackageManager.DONT_KILL_APP);</div></pre></td></tr></table></figure></p>
+<p>这个设置之后,即使用户已经设置其他app为默认app,我们也同样能重新设置.</p>
+<p>二.判断是否已经设置了默认app<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* 是否已经设置了默认App</div><div class="line">*</div><div class="line">* @param context</div><div class="line">* @return</div><div class="line">*/</div><div class="line">public static boolean isSetDefaultApp(Context context) &#123;</div><div class="line">  Intent intent = new Intent();</div><div class="line">  intent.setAction(&quot;android.settings.WIFI_SETTINGS&quot;);</div><div class="line">  intent.addCategory(&quot;android.intent.category.DEFAULT&quot;);</div><div class="line">  return hasPreferredApplication(context, intent);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line">* 若info.activityInfo.packageName返回&quot;android&quot;表示未设置默认应用</div><div class="line">* 返回哪个应用的包名表示设置哪个应用为默认应用</div><div class="line">* @param context</div><div class="line">* @param intent</div><div class="line">* @return</div><div class="line">*/</div><div class="line">private static boolean hasPreferredApplication(final Context context, final Intent intent) &#123;</div><div class="line">  PackageManager pm = context.getPackageManager();</div><div class="line">  ResolveInfo info = pm.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);</div><div class="line">  return App.getInstance().getPackageName().equals(info.activityInfo.packageName);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/17/一套临时使用的图片压缩缓存上传方案/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/17/一套临时使用的图片压缩缓存上传方案/" itemprop="url">
+                  一套临时使用的图片压缩缓存上传方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T21:09:00+08:00">
+                2017-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近项目在做一个类似于微信发送朋友圈的功能.</p>
+<p>其中涉及图片的压缩缓存,接口上传图片资源,所有这里记录一下自己使用的方案.</p>
+<p>1.图片的压缩缓存,见代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 图片压缩大小并缓存工具类</div><div class="line"> * Created by wong on 16-8-25.</div><div class="line"> */</div><div class="line">public class ResizePicCacheHelper &#123;</div><div class="line">    private static final int MAXMEMONRY = (int) (Runtime.getRuntime().maxMemory() / 1024);</div><div class="line">    private static volatile ResizePicCacheHelper instance = null;</div><div class="line">    //采用内存缓存</div><div class="line">    private LruCache&lt;Uri, Bitmap&gt; mMemoryCache;</div><div class="line"></div><div class="line">    private ResizePicCacheHelper() &#123;</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static ResizePicCacheHelper getInstance() &#123;</div><div class="line">        if (null == instance) &#123;</div><div class="line">            synchronized (ResizePicCacheHelper.class) &#123;</div><div class="line">                if (null == instance) &#123;</div><div class="line">                    instance = new ResizePicCacheHelper();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void init() &#123;</div><div class="line">        if (mMemoryCache == null) &#123;</div><div class="line">            mMemoryCache = new LruCache&lt;Uri, Bitmap&gt;(MAXMEMONRY / 8) &#123;</div><div class="line">                @Override</div><div class="line">                protected int sizeOf(Uri key, Bitmap bitmap) &#123;</div><div class="line">                    // 重写此方法来衡量每张图片的大小，默认返回图片数量。</div><div class="line">                    return bitmap.getRowBytes() * bitmap.getHeight() / 1024;</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 添加图片缓存</div><div class="line">     *</div><div class="line">     * @param key</div><div class="line">     * @param bitmap</div><div class="line">     */</div><div class="line">    public void putBitmapToMemoryCache(Uri key, Bitmap bitmap) &#123;</div><div class="line">        if (mMemoryCache.get(key) == null) &#123;</div><div class="line">            if (key != null &amp;&amp; bitmap != null) &#123;</div><div class="line">                Bitmap resizeBmp = bitmap;</div><div class="line">                int height = bitmap.getHeight();</div><div class="line">                int width = bitmap.getWidth();</div><div class="line">                //按规格压缩图片</div><div class="line">                if (width &gt; 640) &#123;</div><div class="line">                    float scale = width / 640.0f;</div><div class="line">                    int resizeHeight = (int) (height / scale);</div><div class="line">                    resizeBmp = ThumbnailUtils.extractThumbnail(bitmap, 640, resizeHeight);</div><div class="line">                &#125;</div><div class="line">                mMemoryCache.put(key, resizeBmp);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 压缩后的图像字节</div><div class="line">     *</div><div class="line">     * @param key</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public byte[] getResizeBmpFromMemoryCache(Uri key) &#123;</div><div class="line">        Bitmap bmp = mMemoryCache.get(key);</div><div class="line">        if (null == bmp) &#123;</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line">        ByteArrayOutputStream output = new ByteArrayOutputStream();//初始化一个流对象</div><div class="line">        bmp.compress(Bitmap.CompressFormat.PNG, 100, output);//把bitmap100%高质量压缩 到 output对象里</div><div class="line">        byte[] result = output.toByteArray();//转换成功了</div><div class="line">        try &#123;</div><div class="line">            output.close();</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 清空缓存</div><div class="line">     */</div><div class="line">    public void clearCache() &#123;</div><div class="line">        if (mMemoryCache != null) &#123;</div><div class="line">            if (mMemoryCache.size() &gt; 0) &#123;</div><div class="line">                mMemoryCache.evictAll();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.调用接口,上传图片.<br>(注意Request的写法)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public Map&lt;String, RequestBody&gt; getParams(File file, byte[] fileBytes)&#123;</div><div class="line">  Map&lt;String, RequestBody&gt; params = new HashMap&lt;&gt;();</div><div class="line">  RequestBody uid_body = RequestBody.create(MediaType.parse(&quot;text/plain&quot;), CommUtil.getUid());</div><div class="line">  RequestBody token_body = RequestBody.create(MediaType.parse(&quot;text/plain&quot;), CommUtil.getToken());</div><div class="line">  RequestBody file_body = (null == fileBytes) ? RequestBody.create(MediaType.parse(&quot;image/*&quot;), file)</div><div class="line">   :RequestBody.create(MediaType.parse(&quot;image/*&quot;), fileBytes);</div><div class="line">  params.put(&quot;uid&quot;, uid_body);</div><div class="line">  params.put(&quot;token&quot;, token_body);</div><div class="line">  params.put(&quot;file\&quot;;filename=\&quot;&quot; + file.getName() + &quot;&quot;, file_body);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/17/自定义View/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/17/自定义View/" itemprop="url">
+                  自定义View
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T21:07:24+08:00">
+                2017-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一.使用LayoutInflater加载视图<br>写法一:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LayoutInflater layoutInflater = LayoutInflater.from(context);</div></pre></td></tr></table></figure></p>
+<p>写法二:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div></pre></td></tr></table></figure></p>
+<p>加载布局:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layoutInflater.inflate(resourceId, root);</div></pre></td></tr></table></figure></p>
+<p>补充:layout_width,layout_height其实是用于设置View在布局中的大小的,<br>如果控件没有在布局中,这个参数就会不起作用,所以叫layout_width而不是width.<br>setContentView,系统会自动在布局外层嵌套一层FrameLayout.</p>
+<p>二.视图的绘制过程</p>
+<ol>
+<li>onMeasure</li>
+<li>onLayout</li>
+<li>onDraw</li>
+</ol>
+<p>三.自定义View<br>1.自定义属性,编写value/attrs.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line"> &lt;declare-styleable name=&quot;test&quot;&gt;</div><div class="line">     &lt;attr name=&quot;text&quot; format=&quot;string&quot; /&gt;</div><div class="line">     &lt;attr name=&quot;testAttr&quot; format=&quot;integer&quot; /&gt;</div><div class="line"> &lt;/declare-styleable&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure></p>
+<p>2.在自定义类中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class MyTextView extends View &#123;</div><div class="line">    public MyTextView(Context context, AttributeSet attrs) &#123;</div><div class="line">        super(context, attrs);</div><div class="line">        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.test);</div><div class="line">        String text = ta.getString(R.styleable.test_testAttr);</div><div class="line">        int textAttr = ta.getInteger(R.styleable.test_text, -1);</div><div class="line">        ta.recycle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.在布局中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:demo=&quot;http://schemas.android.com/apk/res/com.example.test&quot; //自定义命名空间</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot; &gt;</div><div class="line"></div><div class="line">    &lt;com.example.test.MyTextView</div><div class="line">        android:layout_width=&quot;100dp&quot;</div><div class="line">        android:layout_height=&quot;200dp&quot;</div><div class="line">        demo:testAttr=&quot;520&quot;</div><div class="line">        demo:text=&quot;hello world&quot; /&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/16/记一次使用Realm的体会/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/16/记一次使用Realm的体会/" itemprop="url">
+                  记一次使用Realm的体会
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T20:42:40+08:00">
+                2017-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>数据库Realm，是用来替代sqlite的一种解决方案，它有一套自己的数据库存储引擎，比sqlite更轻量级，拥有更快的速度，并且具有很多现代数据库的特性，比如支持JSON，流式api，数据变更通知，自动数据同步,简单身份验证，访问控制，事件处理，最重要的是跨平台，目前已有Java，Objective C，Swift，React-Native，Xamarin这五种实现。<br>官网:<a href="https://realm.io/docs/java/latest" target="_blank" rel="external">https://realm.io/docs/java/latest</a></p>
+</blockquote>
+<p>一.基于Version-0.87.5<br>由于 v0.87.5之后的版本使用的是plugin形式添加引用,<br>使用时会发现包增大好多(可能是自己使用时缺少了某些配置),<br>所以这里介绍一个该版本的使用.<br>1.引入<br>app下的build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;io.realm:realm-android:0.87.5&apos;</div></pre></td></tr></table></figure></p>
+<p>2.初始化<br>Application中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">private void initRealm() &#123;</div><div class="line">      RealmConfiguration config = new RealmConfiguration.Builder(this).name(&quot;guess.realm&quot;).schemaVersion(0).build();</div><div class="line">      Realm.setDefaultConfiguration(config);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.使用<br>新建对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">public class PskBean extends RealmObject &#123;</div><div class="line">    @PrimaryKey</div><div class="line">    private String ssid;</div><div class="line">    private String bssid;</div><div class="line">    private String psk;</div><div class="line"></div><div class="line">    public PskBean() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public PskBean(String ssid, String bssid, String psk) &#123;</div><div class="line">        this.ssid = ssid;</div><div class="line">        this.bssid = bssid;</div><div class="line">        this.psk = psk;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getSsid() &#123;</div><div class="line">        return ssid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setSsid(String ssid) &#123;</div><div class="line">        this.ssid = ssid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getBssid() &#123;</div><div class="line">        return bssid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setBssid(String bssid) &#123;</div><div class="line">        this.bssid = bssid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getPsk() &#123;</div><div class="line">        return psk;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setPsk(String psk) &#123;</div><div class="line">        this.psk = psk;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>数据库帮助类(只示例异步操作)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div></pre></td><td class="code"><pre><div class="line">public class RealmDBHelper &#123;</div><div class="line">  private Realm mRealm;</div><div class="line"></div><div class="line">  public RealmDBHelper(Context context) &#123;</div><div class="line">      mRealm = Realm.getInstance(context);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public Realm getRealm() &#123;</div><div class="line">      return mRealm;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * add （增）</div><div class="line">   */</div><div class="line">  public RealmAsyncTask addBean(final PskBean bean, final RealmCallback callback) &#123;</div><div class="line">      RealmAsyncTask addTask = mRealm.executeTransaction(new Realm.Transaction() &#123;</div><div class="line">          @Override</div><div class="line">          public void execute(Realm realm) &#123;</div><div class="line">              realm.copyToRealmOrUpdate(bean);</div><div class="line">          &#125;</div><div class="line">      &#125;, new Realm.Transaction.Callback() &#123;</div><div class="line">          @Override</div><div class="line">          public void onSuccess() &#123;</div><div class="line">              super.onSuccess();</div><div class="line">              callback.success(null);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          @Override</div><div class="line">          public void onError(Exception e) &#123;</div><div class="line">              super.onError(e);</div><div class="line">              callback.failure(e.getMessage());</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line">      return addTask;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * delete （删）</div><div class="line">   */</div><div class="line">  public RealmAsyncTask deleteBean(final String ssid, final String bssid, final RealmCallback callback) &#123;</div><div class="line">      RealmAsyncTask deleteTask = mRealm.executeTransaction(new Realm.Transaction() &#123;</div><div class="line">          @Override</div><div class="line">          public void execute(Realm realm) &#123;</div><div class="line">              PskBean bean = realm.where(PskBean.class).equalTo(&quot;ssid&quot;, ssid).equalTo(&quot;bssid&quot;, bssid).findFirst();</div><div class="line">              bean.removeFromRealm();</div><div class="line">          &#125;</div><div class="line">      &#125;, new Realm.Transaction.Callback() &#123;</div><div class="line">          @Override</div><div class="line">          public void onSuccess() &#123;</div><div class="line">              super.onSuccess();</div><div class="line">              callback.success(null);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          @Override</div><div class="line">          public void onError(Exception e) &#123;</div><div class="line">              super.onError(e);</div><div class="line">              callback.failure(e.getMessage());</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line">      return deleteTask;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * update （改）</div><div class="line">   */</div><div class="line">  public RealmAsyncTask updateBean(final String ssid, final String bssid, final String psk, final RealmCallback callback) &#123;</div><div class="line">      RealmAsyncTask updateTask = mRealm.executeTransaction(new Realm.Transaction() &#123;</div><div class="line">          @Override</div><div class="line">          public void execute(Realm realm) &#123;</div><div class="line">              PskBean bean = realm.where(PskBean.class).equalTo(&quot;ssid&quot;, ssid).equalTo(&quot;bssid&quot;, bssid).findFirst();</div><div class="line">              bean.setPsk(psk);</div><div class="line">          &#125;</div><div class="line">      &#125;,new Realm.Transaction.Callback()&#123;</div><div class="line">          @Override</div><div class="line">          public void onSuccess() &#123;</div><div class="line">              super.onSuccess();</div><div class="line">              callback.success(null);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          @Override</div><div class="line">          public void onError(Exception e) &#123;</div><div class="line">              super.onError(e);</div><div class="line">              callback.failure(e.getMessage());</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line">      return updateTask;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * query （查询所有）</div><div class="line">   */</div><div class="line">  private void queryAllBean(RealmCallback callback) &#123;</div><div class="line">      RealmResults&lt;PskBean&gt; beans = mRealm.where(PskBean.class).findAllAsync();</div><div class="line">      callback.success(beans.load() ? beans : null);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  /**</div><div class="line">   * query (单条)</div><div class="line">   */</div><div class="line">  private void querySingleBean(String ssid, String bssid, RealmCallback callback) &#123;</div><div class="line">      RealmResults&lt;PskBean&gt; beans = mRealm.where(PskBean.class).equalTo(&quot;ssid&quot;, ssid).equalTo(&quot;bssid&quot;, bssid).findAllAsync();</div><div class="line">      callback.success(beans.load() ? beans : null);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public void close() &#123;</div><div class="line">      if (mRealm != null) &#123;</div><div class="line">          mRealm.close();</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public interface RealmCallback &#123;</div><div class="line">      void success(RealmResults&lt;PskBean&gt; element);</div><div class="line"></div><div class="line">      void failure(String msg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.混淆<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># Realm #</div><div class="line">-keep class io.realm.annotations.RealmModule</div><div class="line">-keep @io.realm.annotations.RealmModule class *</div><div class="line">-keep class io.realm.internal.Keep</div><div class="line">-keep @io.realm.internal.Keep class * &#123; *; &#125;</div><div class="line">-dontwarn javax.**</div><div class="line">-dontwarn io.realm.**</div></pre></td></tr></table></figure></p>
+<p>此时打包会发现 包增大好多,大约4M左右.<br>原因是默认情况下,Realm会引人所有规格的.so库<br>如何处理?<br>app下build.gradle,导出你需要的规格.so库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">splits &#123;</div><div class="line">      abi &#123;</div><div class="line">          enable true</div><div class="line">          reset()</div><div class="line">          include &apos;armeabi&apos;, &apos;armeabi-v7a&apos;, &apos;arm64-v8a&apos;, &apos;mips&apos;, &apos;x86&apos;, &apos;x86_64&apos;</div><div class="line">          universalApk true</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>5.最后,数据并不是保存在 data/data/pagekageName/databases/目录下<br>  而是在data/data/files/name.realm中</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/16/如何在moudle中引入aar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/16/如何在moudle中引入aar/" itemprop="url">
+                  如何在moudle中引入aar
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-16T20:32:45+08:00">
+                2017-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>app已经引入aar-A,如何在moudle中引入aar-B而不会出现问题?</p>
+<p>1.在moudle目录下的build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">android&#123;</div><div class="line">  repositories &#123;</div><div class="line">    flatDir &#123;</div><div class="line">        dirs &apos;libs&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">  compile(name: &apos;aar-B&apos;, ext: &apos;aar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> 2.在app目录下的build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    flatDir &#123;</div><div class="line">        dirs(&apos;libs&apos;,&apos;../moudle/libs&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/17/MVP与MVVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/17/MVP与MVVM/" itemprop="url">
+                  mvp与mvvm
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-17T21:10:41+08:00">
+                2016-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一.MVP<br>首先来看MVP各自负责什么：</p>
+<p>Model，负责定义数据（解决什么是数据）<br>Presenter, 负责在Model和View之间，从model里取出数据，格式化后在View上展示（解决如何把数据和用户界面放在一起）<br>View，用于展示数据（解决如何展示数据）</p>
+<p>很显然Presenter作为中间者，它是同时拥有View和Model的引用的.<br>而Model和View必须是完全隔离的，不允许两者之间互相通信。</p>
+<p>Model在三者中是独立性最高的，Model不应该拥有对View的引用，而且Model也不需要保存对Presenter的引用，对于Presenter而已，Model只需要提供接口，等着Presenter来调用时返回相应数据即可，这和经典MVC模式中是非常不同的，在MVC中Model在数据发送变化后，是需要发送广播来告之View去更新用户界面的，而在MVP中，Model是不应该去通知View，而是通知Presenter来间接的更新View的。</p>
+<p>而Presenter和Model的关系也应该是基于接口来通信，这样才能把Model和Presenter的耦合度也降到最低，那么在需要改变Model内部实现，甚至彻底替换Model的时候，Presenter则是无需随之改变的。这样做带来的另一个好处就是你可以通过Mock一个Model来对Presenter以及View做模拟测试了，从而提高了可测试性。</p>
+<p>那么View和Presenter的关系呢？View是需要拥有对Presenter的引用，但仅仅是为了将用户的操作和事件立即传递给Presenter，为了让View和Presenter耦合较低，View也只应该通过接口与Presenter通信，从而保证View是完全被动的，一方面它由用户的操作触发来和Presenter通信，另一方面它完全受Presenter控制，唯一需要做的事情就是如何展示数据。</p>
+<p>简要总结三者之间的关系是：View和Model之间没有联系，View通过接口向Presenter来传递用户操作，Model不主动和Presenter联系，被动的等着Presenter来调用其接口，Presenter通过接口和View/Model来联系。</p>
+<p>谷歌官方给的![MVP例子]<a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">https://github.com/googlesamples/android-architecture</a></p>
+<p>为了便于理解，这里提供一些伪代码加注释演示一下如何实现MVP模式：</p>
+<p>View<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">interface IUserView &#123;</div><div class="line"></div><div class="line">  void setPresenter(presenter);</div><div class="line">  void showUsers(users);</div><div class="line">  void showDeleteUserComplete();</div><div class="line">  void showDeleteUserError();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class UserView implements IUserView &#123;</div><div class="line"></div><div class="line">  UserPresenter presenter;</div><div class="line"></div><div class="line">  // 保持对Presenter的引用，用于路由用户操作</div><div class="line">  void setPresenter(presenter) &#123;</div><div class="line">      this.presenter = presenter;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 将Presenter传递来的数据展示出来</div><div class="line">  void showUsers(users) &#123;</div><div class="line">      draw(users);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // Model操作数据成功后，通过Presenter来告之View需要更新用户界面</div><div class="line">  void showDeleteUserComplete() &#123;</div><div class="line">      alert(&quot;Delete User Complete&quot;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // Model操作数据失败后，也是通过Presenter来告之View需要更新用户界面</div><div class="line">  void showDeleteUserError() &#123;</div><div class="line">      alert(&quot;Delete User Fail&quot;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 当用户点击某个按钮时，将用户操作路由给presenter，由presenter去处理</div><div class="line">  void onDeleteButtonClicked(event) &#123;</div><div class="line">      presenter.deleteUser(event);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">interface IUserModel &#123;</div><div class="line"></div><div class="line">  List&lt;User&gt; getUsers();</div><div class="line">  boolean deleteUserById();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class UserModel implements IUserModel &#123;</div><div class="line"></div><div class="line">  // 在数据库里查找数据，并将数据返回给presenter</div><div class="line">  List&lt;User&gt; getUsers() &#123;</div><div class="line">       return getUsersInDatabase(id);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // 在数据库里删除数据，并将结果返回给presenter</div><div class="line">  User deleteUserById(id) &#123;</div><div class="line">      return deleteUserByIdInDatabase(id);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Presenter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">interface IUserUserPresenter &#123;</div><div class="line"></div><div class="line">  void deleteUser(event);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class UserUserPresenter implements IUserPresenter &#123;</div><div class="line"></div><div class="line">  // 保持对View的引用</div><div class="line">  IUserView view;</div><div class="line">  // 保持对Model的引用</div><div class="line">  IUserModel model;</div><div class="line"></div><div class="line">  UserUserPresenter(IUserView view, IUserModel model) &#123;</div><div class="line">    this.view = view;    </div><div class="line">    this.model = model;</div><div class="line"></div><div class="line">    this.view.setPresenter(this);   </div><div class="line">  &#125;</div><div class="line"></div><div class="line">  void start() &#123;</div><div class="line">    // 从Model中取出数据</div><div class="line">    List&lt;User&gt; users = model.getUsers();</div><div class="line">    // 将数据发送给View，让其展示到用户界面</div><div class="line">    view.showUsers(users);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  void deleteUser(event) &#123;</div><div class="line">    // View将用户操作路由过来，由Presenter来处理</div><div class="line">    long uid = whichUserNeedToDeleteBy(event);</div><div class="line">    // 将用户操作翻译成命令或消息传递给model，以改变数据</div><div class="line">    boolean success = model.deleteUserById(uid);</div><div class="line">    // 将Model操作数据后的结果通知View来改变用户界面</div><div class="line">    if (success) &#123;</div><div class="line">          view.onDeleteUserSuccess();</div><div class="line">    &#125; else &#123;</div><div class="line">        view.onDeleteUserFail();  </div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>二.MVVP<br>MVVM是由三个核心部分，每个都有它自己的不同而独立的作用：</p>
+<p>Model - 包含业务和验证逻辑的数据模型<br>View – 定义结构,布局和View 在屏幕上的显示<br>ViewModel - 充当 View 和 ViewModel 之间的连接, 处理所有视图逻辑.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/18/四大组件之BroadcastReceiver/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/18/四大组件之BroadcastReceiver/" itemprop="url">
+                  四大组件之BroadcastReceiver
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-18T20:51:00+08:00">
+                2016-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>BroadcastReceiver的作用有些类似全局的事件监听器，当整个手机的某一个APP或者手机自身触发事件，BroadcastReceiver接受并且处理，而且这种信号程序自身也可以创建。</p>
+</blockquote>
+<p>一.启动方式<br>1.静态注册<br>在AndroidManifest.xml中注册,需要填写action即广播地址.<br>是常驻型,即使应用退出依旧可以接收到广播.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;receiver android:name=&quot;.MyBroadcastReceiver&quot;&gt;  </div><div class="line">    &lt;intent-filter&gt;  </div><div class="line">        &lt;action android:name=&quot;android.intent.action.MyBroadcastReceiver&quot;&gt;&lt;/action&gt;  </div><div class="line">    &lt;/intent-filter&gt;  </div><div class="line">&lt;/receiver&gt;</div></pre></td></tr></table></figure></p>
+<p>2.动态注册<br>在代码中注册,非”常驻型”,不用时需调用unregisterReceiver否则会报错.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">注册:</div><div class="line">MyBroadcastReceiver receiver=new MyBroadcastReceiver();</div><div class="line">IntentFilter filter=new IntentFilter();  </div><div class="line">filter.addAction(&quot;android.intent.action.MyBroadcastReceiver&quot;);  </div><div class="line">registerReceiver(receiver, filter);  </div><div class="line"></div><div class="line">解除注册:</div><div class="line">unregisterReceiver(receiver);</div></pre></td></tr></table></figure></p>
+<p>二.广播类型<br>1.无序广播<br>各个广播直接的接收是异步的,彼此无影响<br>sendBroadcast() 发送广播<br>abortBroadcast() 终止广播</p>
+<p>2.有序广播<br>按优先级获取, priority(-1000到1000),<br>sendOrderedBroadcast() 发送广播<br>abortBroadcast() 终止广播<br>1)setResultExtras 传递给下一个<br>2)getResultExtras 获取上一个</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+          
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
   </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        
-          <li><a href="/">主页</a></li>
-        
-          <li><a href="/archives/">文章</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-</footer>
 
-      <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- Google Analytics -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-<!-- Disqus Comments -->
+      
 
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Wong" />
+          <p class="site-author-name" itemprop="name">Wong</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
 
     </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wong</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
 </body>
 </html>

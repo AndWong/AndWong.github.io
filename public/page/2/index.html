@@ -1,541 +1,1740 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta property="og:type" content="website">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta property="og:type" content="website">
 <meta property="og:title" content="Wong`s Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Wong`s Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wong`s Blog">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>Wong`s Blog</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- rss -->
-    
-    
-    <!-- jquery -->
-    <script src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+
+
+
+
+
+  <title> Wong`s Blog </title>
 </head>
 
-<body>
-    <div class="banner">
-<div id="blogtitel" class="blogtitel">Wong`s Blog</div>
-<ul id="wrapper" class="wrapper">
-  <div class="sun">
-    <div class="star"></div>
-  </div>
-  <div class="mercury">
-    <div class="planet">
-      <div class="shadow"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wong`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
-  <div class="venus">
-    <div class="planet">
-      <div class="shadow"></div>
-    </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="earth">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-  <div class="mars">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-  <div class="jupiter">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-</ul>
 </div>
 
-    <div class="background">
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
       
-      <div class="content index width mx-auto px2 my4">
-          
-            <header id="header">
-  <a href="/">
-  
-    
-      <div id="logo" style="background-image: url(/images/logo.png);"></div>
-    
-  
-    <div id="title">
-      <h1>Wong`s Blog</h1>
-    </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
-      </li>
-       
-        <li><a href="/">主页</a></li>
-       
-        <li><a href="/archives/">文章</a></li>
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
       
     </ul>
-  </div>
-</header>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/16/四大组件之Service/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/16/四大组件之Service/" itemprop="url">
+                  四大组件之Service
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-16T20:32:13+08:00">
+                2016-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
-          <section id="about">
-  
-  <p style="display: inline">
-    
-      Find me on
-      <ul id="sociallinks">
-        
-          <li><a class="icon" target="_blank" href="https://github.com/AndWong" title="github"><i class="fa fa-github"></i></a></li>
-        
-      </ul>.
-    
-  </p>
-</section>
-
-<section id="writing">
-  <span class="h1"><a href="/archives">Writing</a></span>
-  <ul class="post-list">
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-03-06T14:30:35.000Z" itemprop="datePublished">2017-03-06</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/03/06/rx-retrofit-okhttp网络框架/">rx+retrofit+okhttp网络框架</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-03-01T11:52:28.000Z" itemprop="datePublished">2017-03-01</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/03/01/常用网络请求框架OkHttp、Volley、Retrofit对比/">常用网络请求框架OkHttp、Volley、Retrofit,android-async-http对比</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-20T12:16:32.000Z" itemprop="datePublished">2017-02-20</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/20/关于通知栏使用权的介绍/">关于通知栏使用权的介绍</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-20T12:00:10.000Z" itemprop="datePublished">2017-02-20</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/20/Android-App选择器/">Android App选择器</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-17T13:09:00.000Z" itemprop="datePublished">2017-02-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/17/一套临时使用的图片压缩缓存上传方案/">一套临时使用的图片压缩缓存上传方案</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-17T13:07:24.000Z" itemprop="datePublished">2017-02-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/17/自定义View/">自定义View</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-02-16T12:42:40.000Z" itemprop="datePublished">2017-02-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/02/16/记一次使用Realm的体会/">记一次使用Realm的体会</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2017-01-16T12:32:45.000Z" itemprop="datePublished">2017-01-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2017/01/16/如何在moudle中引入aar/">如何在moudle中引入aar</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-12-17T13:10:41.000Z" itemprop="datePublished">2016-12-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/12/17/MVP与MVVM/">mvp与mvvm</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-10-18T12:51:00.000Z" itemprop="datePublished">2016-10-18</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/10/18/四大组件之BroadcastReceiver/">四大组件之BroadcastReceiver</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-10-16T12:32:13.000Z" itemprop="datePublished">2016-10-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/10/16/四大组件之Service/">四大组件之Service</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-10-15T11:48:09.000Z" itemprop="datePublished">2016-10-15</time>
-    </div>
-
 
-        <span>
-    
-        <a class="" href="/2016/10/15/四大组件之Activity/">四大组件之Activity</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-07-13T12:34:42.000Z" itemprop="datePublished">2016-07-13</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/07/13/Android-SQLite的使用/">Android SQLite的使用</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-17T13:10:16.000Z" itemprop="datePublished">2016-06-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/17/Java注解反射/">Java注解反射</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-17T13:09:27.000Z" itemprop="datePublished">2016-06-17</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/17/Fragment的管理/">Fragment的管理</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-10T12:05:15.000Z" itemprop="datePublished">2016-06-10</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/10/Android动态修改某个控件大小/">Android动态修改某个控件大小</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-06-10T11:39:20.000Z" itemprop="datePublished">2016-06-10</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/06/10/Android设置全屏的几种方式/">Android设置全屏的几种方式</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-05-22T12:52:44.000Z" itemprop="datePublished">2016-05-22</time>
-    </div>
-
+          
+            
+          
 
-        <span>
-    
-        <a class="" href="/2016/05/22/Android事件分发机制的简单解读/">Android事件分发机制的简单解读</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-05-12T13:37:59.000Z" itemprop="datePublished">2016-05-12</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/05/12/Android中Handler的简单终结/">Android中Handler的简单终结</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-04-11T13:35:53.000Z" itemprop="datePublished">2016-04-11</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/04/11/WiFi-Portal检测/">WiFi Portal检测</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-03-21T12:07:11.000Z" itemprop="datePublished">2016-03-21</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/03/21/EditText相关/">EditText相关</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-02-16T12:03:33.000Z" itemprop="datePublished">2016-02-16</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/02/16/Markdown的初级使用/">Markdown的初级使用</a>
-    
-
+          
+          
 
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-02-10T11:59:27.000Z" itemprop="datePublished">2016-02-10</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/02/10/WebView-获取网页源码/">WebView 获取网页源码</a>
-    
+          
 
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2016-01-05T06:06:55.000Z" itemprop="datePublished">2016-01-05</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2016/01/05/gitbub-blog/">Ubuntu下使用Hexo创建Gitbub博客</a>
-    
+          
 
+          
 
-</span>
-      </li>
+        </div>
+      </header>
     
-  </ul>
-</section>
 
 
+    <div class="post-body" itemprop="articleBody">
 
-      </div>
       
-      <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2016 Wong
+      
+
+      
+        
+          
+            <p>Service是运行在主线程,在后台运行的一个组件.<br>这里的后台指的是它的运行是完全不依赖UI的,即即使Activity销毁了,只要进程还在Service就在.<br>处理耗时操作需开子线程,否则会ANR.<br>需要在AndroidManifest.xml中注册.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;service</div><div class="line">    android:name=&quot;.MyService&quot;</div><div class="line">    android:exported=&quot;true&quot; //是否需要对其他App开放,有intent-filter时默认值就是true</div><div class="line">    android:process=&quot;:MyProcess&quot; &gt; //指明此进程名称,可以单独运行在新的进程中</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=&quot;com.example.androidtest.myservice&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/service&gt;</div></pre></td></tr></table></figure></p>
+<p>1.Service类型<br>1)普通Service<br>运行在后台,优先级比较低.</p>
+<p>2)前台Service<br>有一个正在运行的图标在系统的状态栏显示,类似于通知栏.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MyService extends Service &#123;  </div><div class="line">    public static final String TAG = &quot;MyService&quot;;  </div><div class="line">    private MyBinder mBinder = new MyBinder();  </div><div class="line">    @Override  </div><div class="line">    public void onCreate() &#123;  </div><div class="line">        super.onCreate();  </div><div class="line">        Notification notification = new Notification(R.drawable.ic_launcher,  </div><div class="line">                &quot;有通知到来&quot;, System.currentTimeMillis());  </div><div class="line">        Intent notificationIntent = new Intent(this, MainActivity.class);  </div><div class="line">        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,  </div><div class="line">                notificationIntent, 0);  </div><div class="line">        notification.setLatestEventInfo(this, &quot;这是通知的标题&quot;, &quot;这是通知的内容&quot;,  </div><div class="line">                pendingIntent);  </div><div class="line">        startForeground(1, notification);  </div><div class="line">        Log.d(TAG, &quot;onCreate() executed&quot;);  </div><div class="line">    &#125;  </div><div class="line">    .........  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3)IntentService<br>Service的一个子类,实现onHandlerIntent()方法,用于处理长期任务,并且是在新的线程中,<br>处理完后会自动关闭.</p>
+<p>2.Service的生命周期<br>两种启动方式<br>1)startService (stopService结束)<br>onCreate -&gt; onStartCommand -&gt; onDestory</p>
+<p>2)bindService (unbindService结束)<br>onCreate -&gt; onBind -&gt; onUnBind -&gt; onDestory</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/15/四大组件之Activity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/15/四大组件之Activity/" itemprop="url">
+                  四大组件之Activity
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-15T19:48:09+08:00">
+                2016-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Activity乃Andoid四大组件中的一个，主要负责用户界面的展示和用户交互处理。</p>
+<p>1.生命周期<br>正常的一次启动到结束 ：onCreate -&gt; onStart -&gt; onResume -&gt; onPause -&gt; onStop -&gt; onDestory</p>
+<p>切换到后台 : onPause -&gt; onStop<br>从后台回来 : onRestart -&gt;onStart -&gt; onResume</p>
+<p>从A切到B ： A-onPause -&gt; B-onCreate -&gt; B-onStart -&gt; B-onResume -&gt; A-onStop<br>从B返回A ： B-onPause -&gt; A-onRestart -&gt; A-onStart -&gt; A-onResume -&gt; B-onStop -&gt; B-onDestroy</p>
+<p>横竖屏切换 ： onSaveInstanceState -&gt; onPause -&gt; onStop -&gt; onDestory -&gt; onCreate -&gt; onStart -&gt; onRestoreInstanceState -&gt; onResume</p>
+<p>2.启动模式<br>（在AndroidManifest.xml中的android:launchMode=”singleTask”配置）<br> (1)standard : 默认的标准模式，每次启动Activity都会创建Activity并放人Task栈中<br> (2)singleTop ：当要启动的Activity刚好在Task栈的栈顶时使用这个，否则重新创建一个<br> (3)singleTask ： 只要Task栈中存在就使用，并把该Activity以上的其他Actitity弹出栈中<br> (4)singleInstance ： 只要在该Activity存在Task栈中，如何应用启动都可以直接调用</p>
+<p>3.闪屏页的快速启动<br>  通常闪屏页是一张产品的Logo图，所以可以通过为闪屏页设置theme，<br>  让app启动时activity为展示时先显示theme中的背景图，<br>  以此达到闪屏页的“快速启动”，否则闪屏页显示的app-theme中背景色。</p>
+<p>  1)在AndroidManifest中为闪屏页设置Theme：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:theme=&quot;@style/AppSplash&quot;</div></pre></td></tr></table></figure></p>
+<p>  2)AppSplash如下：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;AppSplash&quot;&gt;</div><div class="line">  &lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/layer_logo_page&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<p>  3)layer_logo_page如下：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;layer-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">  &lt;item&gt;</div><div class="line">      &lt;color android:color=&quot;@color/C15_white&quot; /&gt;</div><div class="line">  &lt;/item&gt;</div><div class="line">  &lt;item android:bottom=&quot;35dp&quot;&gt;</div><div class="line">      &lt;bitmap</div><div class="line">          android:gravity=&quot;center_horizontal|bottom&quot;</div><div class="line">          android:src=&quot;@drawable/icon_logo&quot; /&gt;</div><div class="line">  &lt;/item&gt;</div><div class="line">&lt;/layer-list&gt;</div></pre></td></tr></table></figure></p>
+<p>4.横竖屏<br>  1)如何禁止横竖屏切换时生命周期变换<br>  AndroidManifest中为Activity添加配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;</div></pre></td></tr></table></figure></p>
+<p>  2)如何禁止横屏：<br>  AndroidManifest中为Activity添加配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:screenOrientation=&quot;portrait&quot;</div></pre></td></tr></table></figure></p>
+<p>  3)Java代码中设置横竖屏：<br>  // 如果是竖屏则转为横屏<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (activity.getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) &#123;</div><div class="line">  activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>  4)横竖屏变换时通常会有回调：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void onConfigurationChanged(Configuration newConfig) &#123;</div><div class="line">  super.onConfigurationChanged(newConfig);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.Activity设置为首页<br>  为Activity配置如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;intent-filter&gt;</div><div class="line">  &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</div><div class="line">  &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</div><div class="line">&lt;/intent-filter&gt;</div></pre></td></tr></table></figure></p>
+<p>6.启动Actitiy的几种方式</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/13/Android-SQLite的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/13/Android-SQLite的使用/" itemprop="url">
+                  Android SQLite的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-13T20:34:42+08:00">
+                2016-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Android自带的数据库SQLite，是一个轻量级便捷的数据库。</p>
+<p>1.创建<br>Android SDK有一个抽象类SQLiteOpenHelper用于创建和升级数据库，<br>所以继承SQLiteOpenHelper并实现其中的onCreate()和onUpgrade()即可创建和升级数据库。</p>
+<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class PskDBHelper extends SQLiteOpenHelper &#123;</div><div class="line">    /**</div><div class="line">     * 构造方法，通常用这个就可以了</div><div class="line">     *</div><div class="line">     * @param context</div><div class="line">     * @param name    数据库名称 如： psk.db</div><div class="line">     * @param factory 数据库游标工厂 通常传入 null</div><div class="line">     * @param version 版本号 如：1</div><div class="line">     */</div><div class="line">    public PskDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) &#123;</div><div class="line">        super(context, name, factory, version);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate(SQLiteDatabase db) &#123;</div><div class="line">        //创建表SQL语句</div><div class="line">        //integer 表示整型，real 表示浮点型，text 表示文本类型，blob 表示二进制类型。</div><div class="line">        // 另外，primary key表示将id列设为主键，并用autoincrement关键字表示id列是自增长的。</div><div class="line">        String pskTable = &quot;create table psktable(_id integer primary key autoincrement,ssid text,bssid text,psk text)&quot;;</div><div class="line">        db.execSQL(pskTable);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.使用<br>通过调用 pskDBHelper.getReadableDatabase() 和 pskDBHelper.getWritableDatabase()来获取 SQLiteDatabase 对象。<br>其中如果getReadableDatabase()的数据库不存在则自动创建，存在则返回相应的对象，<br>如果调用getWritableDatabase()的数据库不存在则会报错。</p>
+<p>3、增删改查<br>这里只简单示例用SQL语句操作的方法。</p>
+<p>(1)插入数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public void insert(SQLiteDatabase db) &#123;</div><div class="line">    //插入数据SQL语句</div><div class="line">    String insertSQL = &quot;insert into psktable(ssid,bssid,psk) values(&apos;wong&apos;,&apos;20:6a:8a:68:81:ce&apos;,&apos;12345678&apos;)&quot;;</div><div class="line">    //执行SQL语句</div><div class="line">    db.execSQL(insertSQL);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(2)删除数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public void del(SQLiteDatabase db) &#123;</div><div class="line">    //删除SQL语句</div><div class="line">    String sql = &quot;delete from psktable where _id = 1&quot;;</div><div class="line">    //执行SQL语句</div><div class="line">    db.execSQL(sql);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>(3)更新数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public void update(SQLiteDatabase db) &#123;</div><div class="line">    //修改SQL语句</div><div class="line">    String sql = &quot;update psktable set ssid = &apos;wong&apos; where _id = 1&quot;;</div><div class="line">    //执行SQL</div><div class="line">    db.execSQL(sql);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>//在Android中查询数据是通过Cursor类来实现的，<br>// 当我们使用SQLiteDatabase.query()方法时，<br>// 会得到一个Cursor对象，Cursor指向的就是每一条数据<br>(4)查询数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public void search(SQLiteDatabase db) &#123;</div><div class="line">    //查询获得游标</div><div class="line">    Cursor cursor = db.query(&quot;psktable&quot;, null, null, null, null, null, null);</div><div class="line">    //判断游标是否为空</div><div class="line">    if (cursor.moveToFirst()) &#123;</div><div class="line">        //遍历游标</div><div class="line">        for (int i = 0; i &lt; cursor.getCount(); i++) &#123;</div><div class="line">            cursor.move(i);</div><div class="line">            //获得ID</div><div class="line">            int id = cursor.getInt(0);</div><div class="line">            //获得ssid</div><div class="line">            String ssid = cursor.getString(1);</div><div class="line">            //获得bssid</div><div class="line">            String bssid = cursor.getString(2);</div><div class="line">            //获取psk</div><div class="line">            String psk = cursor.getString(3);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/17/Java注解反射/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/17/Java注解反射/" itemprop="url">
+                  Java注解反射
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-17T21:10:16+08:00">
+                2016-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一.3种方式获取加载指定的类<br>Class cla = 类名.class<br>Class cla = 对象.getClass();<br>Class cla = Class.forName(“name”);</p>
+<p>Demo demo = (Demo)cla.newInstance(); //加载指定类的对象<br>demo.a(); //调用对象的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		try &#123;</div><div class="line">			Class c = MyDemo.class;</div><div class="line">			MyDemo demo = (MyDemo) c.newInstance();</div><div class="line">			System.out.println(&quot;---&gt;c: &quot; + demo.c); //如果是在同一个包下,则可以调用protected属性和方法,否则只能操作public</div><div class="line">			demo.f();</div><div class="line">			System.out.println(&quot;成员变量个数 : &quot; + c.getDeclaredFields().length); //能取到所有的属性</div><div class="line">			System.out.println(&quot;公开方法个数 : &quot; + c.getMethods().length);//能取到公开方法,包括父类的</div><div class="line">		&#125; catch (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出:<br>—&gt;c: 0<br>—&gt;f<br>成员变量个数 : 3<br>公开方法个数 : 10<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">package test2;</div><div class="line">public class MyDemo &#123;</div><div class="line">	private int a;</div><div class="line">	protected int b;</div><div class="line">	public int c;</div><div class="line"></div><div class="line">	private void d() &#123;</div><div class="line">		System.out.println(&quot;---&gt;d &quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	protected void e()&#123;</div><div class="line">		System.out.println(&quot;---&gt;e &quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void f() &#123;</div><div class="line">		System.out.println(&quot;---&gt;f &quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>二.Field 成员变量<br>Class c = MyDemo.class;<br>Field[] fieldArray = c.getFields(); //得到Field数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Class c = MyDemo.class;</div><div class="line">MyDemo demo = (MyDemo) c.newInstance();</div><div class="line">Field[] fieldArray = c.getFields();</div><div class="line">for(int i = 0; i&lt;fieldArray.length;i++)&#123;</div><div class="line">		Field field = fieldArray[i];</div><div class="line">		System.out.println(&quot;变量名称 : &quot; + field.getName());</div><div class="line">    System.out.println(&quot;变量值 : &quot; + field.get(demo));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出:<br>变量名称 : c<br>变量值 : 0<br>(只打印出公开成员)</p>
+<p>修改访问限制:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//获取所有的成员,包含private</div><div class="line">Field[] fieldArray = c.getDeclaredFields();</div><div class="line">field[0].setAccessible(true);</div></pre></td></tr></table></figure></p>
+<p>三.Method 方法<br>Class c = MyDemo.class;<br>Method[] ma = c.getMethods();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Method[] mo = c.getMethods();</div><div class="line">for(int i = 0; i&lt;mo.length;i++)&#123;</div><div class="line">  Method method = mo[i];</div><div class="line">  System.out.println(&quot;方法名 : &quot; + method.getName());</div><div class="line">  System.out.println(&quot;方法返回类型 : &quot; + method.getReturnType());</div><div class="line">	Parameter[] parames = method.getParameters();//获取参数列表</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>invoke()的使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//getMethod,分别传入方法名,参数类型</div><div class="line">//invoke,分别传入对象,参数,没有则为null</div><div class="line">c.getMethod(&quot;f&quot;, null).invoke(demo, null);</div></pre></td></tr></table></figure></p>
+<p>修改访问限制:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//获取所有的成员变量,包含private</div><div class="line">Method[] mo = c.getDeclaredMethods();</div><div class="line">AccessibleObject.setAccessible(mo, true);</div><div class="line">mo[2].invoke(demo, null);</div></pre></td></tr></table></figure></p>
+<p>四.Constructor 构造器</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/17/Fragment的管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/17/Fragment的管理/" itemprop="url">
+                  Fragment的管理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-17T21:09:27+08:00">
+                2016-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一.生命周期<br>Fragment的生命周期方法主要有<br>onAttach()<br>onCreate()<br>onCreateView()<br>onActivityCreated()<br>onstart()<br>onResume()<br>onPause()<br>onStop()<br>onDestroyView()<br>onDestroy()<br>onDetach()等11个方法。</p>
+<p>切换到该Fragment，分别执行onAttach()、onCreate()、onCreateView()、onActivityCreated()、onstart()、onResume()方法。<br>锁屏，分别执行onPause()、onStop()方法。<br>亮屏，分别执行onstart()、onResume()方法。<br>覆盖，切换到其他Fragment，分别执行onPause()、onStop()、onDestroyView()方法。<br>从其他Fragment回到之前Fragment，分别执行onCreateView()、onActivityCreated()、onstart()、onResume()方法。</p>
+<p>二.Fragment与activity如何传值和交互？<br>Fragment对象有一个getActivity的方法，通过该方法与activity交互.<br>使用framentmentManager.findFragmentByXX可以获取fragment对象，在activity中直接操作fragment对象</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/10/Android动态修改某个控件大小/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/10/Android动态修改某个控件大小/" itemprop="url">
+                  Android动态修改某个控件大小
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-10T20:05:15+08:00">
+                2016-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>动态修改Margin 和 大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ViewGroup.LayoutParams layoutParams = (ViewGroup.LayoutParams)view.getLayoutParams();</div><div class="line">layoutParams.topMargin= top; //像素px</div><div class="line">parlayoutParamsams.width = width;</div><div class="line">layoutParams.height = height;</div><div class="line">view.setLayoutParams(layoutParams);</div></pre></td></tr></table></figure>
+</li>
+<li><p>动态修改Padding</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">view.setPadding(left,top,right,bottom);</div></pre></td></tr></table></figure>
+</li>
+<li><p>动态修改TextView的drawable</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Drawable icon = getResources().getDrawable(R.mipmap.img);</div><div class="line">icon.setBounds(0,0,iconUp.getMinimumWidth(),iconUp.getMinimumHeight());</div><div class="line">tv.setCompoundDrawables(icon, null, null, null);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/10/Android设置全屏的几种方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/10/Android设置全屏的几种方式/" itemprop="url">
+                  Android设置全屏的几种方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-10T19:39:20+08:00">
+                2016-06-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>将状态栏导航栏透明化，API19以上有效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line">    //透明状态栏</div><div class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">    //透明导航栏</div><div class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置全屏参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);</div></pre></td></tr></table></figure>
+</li>
+<li><p>沉浸式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">View decorView = getWindow().getDecorView();</div><div class="line">int option = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;</div><div class="line">decorView.setSystemUiVisibility(option);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>具体参照 ： <a href="http://blog.csdn.net/sinyu890807/article/details/51763825" target="_blank" rel="external">http://blog.csdn.net/sinyu890807/article/details/51763825</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/22/Android事件分发机制的简单解读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/22/Android事件分发机制的简单解读/" itemprop="url">
+                  Android事件分发机制的简单解读
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-22T20:52:44+08:00">
+                2016-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本篇文章只是简单的终结Android中事件的分发机制便于记忆</p>
+<p>首先ViewGroup有onInterceptTouchEvent，dispatchTouchEvent和onTouchEvent方法<br>而View有dispatchTouchEvent和onTouchEvent方法。</p>
+<p>每一个事件都是从ViewGroup开始，<br>1.父控件ViewGroup先执行onInterceptTouchEvent（拦截），<br>  onInterceptTouchEvent若返回true表示拦截则由该ViewGroup的onTouchEvent处理，<br>  （其中onTouchEvent若返回true表示自身消费该事件，若onTouchEvent返回false则执行dispatchTouchEvent（向上反馈）给ViewGroup的父控件处理该onTouchEvent）<br>  onInterceptTouchEvent若返回false表示不拦截则由该ViewGroup的dispatchTouchEvent（向下传递）给子控件（ViewGroup或View）处理。</p>
+<p>2.当事件传递到View控件时，先执行onTouchEvent事件，<br>  其中onTouchEvent若返回true表示自身消费该事件，<br>  若onTouchEvent返回false则执行dispatchTouchEvent（向上反馈）给父控件处理该onTouchEvent。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/12/Android中Handler的简单终结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/12/Android中Handler的简单终结/" itemprop="url">
+                  Android中Handler的简单终结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-12T21:37:59+08:00">
+                2016-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.Handler何用？<br>在实际开发中Handler是为了解决在子线程更新UI的问题。</p>
+<p>2.Handler，Looper，MessageQueue的创建？<br>一个Handler通常和一个Looper和一个MessageQueue绑定在一起。<br>在线程中创建一个Handler时通常会同时创建一个Looper（通过Looper.prepare()为当前线程创建一个Looper,<br>并使用Looper.loop()来开启消息的读取）及MessageQueue（创建Looper的同时创建），<br>而平时我们在主线程中创建Handler却可以省略该步骤主要是由于主线程在开启时就已自动Looper，<br>可以通过getMainLooper()来获取主线程的Looper。</p>
+<p>3.Looper,Handler,MessageQueue的引用关系?<br>Looper：好比一个泵，循环不断的在MessageQueue中查询消息<br>MessageQueue：消息池，用于存放消息</p>
+<p>一个线程对应只有一个Looper和一个MessageQueue，但可以有多个Handler。</p>
+<p>子线程创建一条MSG通过Handler发送消息到主线程的MessageQueue中，<br>主线程对应的Looper循环不断的在MessageQueue中查询MSG，<br>查询到则主线程通过Hanler处理消息。</p>
+<p>4.Handler导致内存泄露问题?<br>一般我们写Handler:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Handler mHandler = new Handler() &#123;</div><div class="line">@Override</div><div class="line">public void handleMessage(Message msg) &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当使用内部类（包括匿名类）来创建Handler的时候，Handler对象会隐式地持有一个外部类对象（通常是一个Activity）的引用,而常常在Activity退出后，消息队列还有未被处理完的消息，此时activity依然被handler引用，导致内存无法回收而内存泄露。</p>
+<p>解决方法：<br>在Handler中增加一个对Activity的弱引用（WeakReference）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">static class MyHandler extends Handler &#123;</div><div class="line">WeakReference mActivityReference;</div><div class="line"></div><div class="line">MyHandler(Activity activity) &#123;</div><div class="line">mActivityReference= new WeakReference(activity);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@Override</div><div class="line">public void handleMessage(Message msg) &#123;</div><div class="line">final Activity activity = mActivityReference.get();</div><div class="line">if (activity != null) &#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对于上面的代码，用户在关闭Activity之后，就算后台线程还没结束，但由于仅有一条来自Handler的弱引用指向Activity，所以GC仍然会在检查的时候把Activity回收掉。这样，内存泄露的问题就不会出现了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/11/WiFi-Portal检测/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/11/WiFi-Portal检测/" itemprop="url">
+                  WiFi Portal检测
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-11T21:35:53+08:00">
+                2016-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>WiFi连接上一个开放热点，如何判断是否需要登录认证？</p>
+<p>首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是 200 。这时，我们与服务器端商定一个请求链接http ://www.xx.com/genera_204，固定返回一个状态码 204。当网络状态发生变化时候，我们就去请求这个链接。如果我们的response携带的状态码是204说明我们请求成功，如果我们得到的是200，说明需要进行WiFi 验证。<br>这个方法来自Android4.0.1AOSP源码 WifiWatchdogStateMachine#isWalledGardenConnection()。</p>
+<p>对于个人开发者或者“小厂商”不建议在我们自己的服务器上处理http ://www.xxx.com/generate_204，除非你家的服务器很稳定，基本上不出现问题。这时候我们可以考虑下“大厂商”是否已经有类似的功能。像UC啊什么的。他们都能自动提醒你网络需要登陆，他们也是使用了同样的方式，至于链接地址，就靠大家自己了。</p>
+<p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">import java.io.IOException;</div><div class="line">import java.net.HttpURLConnection;</div><div class="line">import java.net.URL;</div><div class="line">import android.os.AsyncTask;</div><div class="line">/**</div><div class="line"> * 检测wifi是否需要登陆</div><div class="line"> * 使用方式：</div><div class="line"> * NetNeedLoginCheckUtil.needLoginNetworkCheck(new NeedLoginCallBack() &#123;</div><div class="line"> *  @Override</div><div class="line"> *  public void needLogin(boolean needLogin) &#123;</div><div class="line"> *     if (needLogin) &#123;</div><div class="line"> *          wifi 需要登陆</div><div class="line"> *     &#125;</div><div class="line"> *  &#125;</div><div class="line"> * &#125;);</div><div class="line"> **/</div><div class="line"> public class NetNeedLoginCheckUtil extends AsyncTask&lt;Integer, Integer, Boolean&gt;&#123;</div><div class="line">    NeedLoginCallBack callBack;</div><div class="line">    public NetNeedLoginCheckUtil(NeedLoginCallBack callBack) &#123;</div><div class="line">        super();</div><div class="line">        this.callBack = callBack;</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected Boolean doInBackground(Integer... params) &#123;</div><div class="line">        return isWifiSetPortal();</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected void onPostExecute(Boolean result) &#123;</div><div class="line">        if (callBack != null) &#123;</div><div class="line">            callBack.needLogin(result);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    private boolean isWifiSetPortal() &#123;  </div><div class="line">        final String mWalledGardenUrl = &quot;http://connect.rom.miui.com/generate_204&quot;;  </div><div class="line">        final int WALLED_GARDEN_SOCKET_TIMEOUT_MS = 10000;  </div><div class="line">        HttpURLConnection urlConnection = null;  </div><div class="line">        try &#123;  </div><div class="line">            URL url = new URL(mWalledGardenUrl);  </div><div class="line">            urlConnection = (HttpURLConnection) url.openConnection();  </div><div class="line">            urlConnection.setInstanceFollowRedirects(false);  </div><div class="line">            urlConnection.setConnectTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setReadTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setUseCaches(false);  </div><div class="line">            urlConnection.getInputStream();  </div><div class="line">            return urlConnection.getResponseCode() != 204;  </div><div class="line">        &#125; catch (IOException e) &#123;  </div><div class="line">            return false;  </div><div class="line">        &#125; finally &#123;  </div><div class="line">            if (urlConnection != null) &#123;  </div><div class="line">                urlConnection.disconnect();  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    public static void needLoginNetworkCheck(NeedLoginCallBack callBack) &#123;</div><div class="line">        new NetNeedLoginCheckUtil(callBack).execute();</div><div class="line">    &#125;    </div><div class="line"></div><div class="line">    public interface NeedLoginCallBack&#123;</div><div class="line">       void needLogin(boolean needLogin);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>文／李科吐温（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/3187c677bca3" target="_blank" rel="external">http://www.jianshu.com/p/3187c677bca3</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+          
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
   </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        
-          <li><a href="/">主页</a></li>
-        
-          <li><a href="/archives/">文章</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-</footer>
 
-      <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- Google Analytics -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
 
-<!-- Disqus Comments -->
+      
 
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Wong" />
+          <p class="site-author-name" itemprop="name">Wong</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
 
     </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wong</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
 </body>
 </html>
