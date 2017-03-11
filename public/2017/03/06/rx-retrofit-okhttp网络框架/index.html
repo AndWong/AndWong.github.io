@@ -1,0 +1,669 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="首先导入相关的包compile ‘com.google.code.gson:gson:2.5’compile ‘com.squareup.okhttp3:okhttp:3.3.1’compile ‘io.reactivex:rxjava:1.1.9’compile ‘io.reactivex:rxandroid:1.2.1’compile ‘com.squareup.retrofit2:retro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rx+retrofit+okhttp网络框架">
+<meta property="og:url" content="http://yoursite.com/2017/03/06/rx-retrofit-okhttp网络框架/index.html">
+<meta property="og:site_name" content="Wong`s Blog">
+<meta property="og:description" content="首先导入相关的包compile ‘com.google.code.gson:gson:2.5’compile ‘com.squareup.okhttp3:okhttp:3.3.1’compile ‘io.reactivex:rxjava:1.1.9’compile ‘io.reactivex:rxandroid:1.2.1’compile ‘com.squareup.retrofit2:retro">
+<meta property="og:updated_time" content="2017-03-11T02:44:32.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rx+retrofit+okhttp网络框架">
+<meta name="twitter:description" content="首先导入相关的包compile ‘com.google.code.gson:gson:2.5’compile ‘com.squareup.okhttp3:okhttp:3.3.1’compile ‘io.reactivex:rxjava:1.1.9’compile ‘io.reactivex:rxandroid:1.2.1’compile ‘com.squareup.retrofit2:retro">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/06/rx-retrofit-okhttp网络框架/"/>
+
+
+
+
+
+  <title> rx+retrofit+okhttp网络框架 | Wong`s Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a000b4bcc363784b527c24246b09f046";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wong`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="https://andwong.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/rx-retrofit-okhttp网络框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i1.piimg.com/587822/5a34bcd57d7cf421s.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                rx+retrofit+okhttp网络框架
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T22:30:35+08:00">
+                2017-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/06/rx-retrofit-okhttp网络框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/06/rx-retrofit-okhttp网络框架/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先导入相关的包<br>compile ‘com.google.code.gson:gson:2.5’<br>compile ‘com.squareup.okhttp3:okhttp:3.3.1’<br>compile ‘io.reactivex:rxjava:1.1.9’<br>compile ‘io.reactivex:rxandroid:1.2.1’<br>compile ‘com.squareup.retrofit2:retrofit:2.1.0’<br>compile ‘com.squareup.retrofit2:converter-gson:2.1.0’<br>compile ‘com.squareup.retrofit2:adapter-rxjava:2.1.0’<br>compile ‘com.squareup.retrofit2:retrofit-converters:2.1.0’<br>compile ‘com.squareup.okhttp3:logging-interceptor:3.4.1’<br><a id="more"></a><br>1.对应的数据模型,采用范型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class BaseModel&lt;T&gt; implements Serializable &#123;</div><div class="line">    public int status;</div><div class="line">    public String message;</div><div class="line">    public T data;</div><div class="line"></div><div class="line">    public BaseModel() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public BaseModel(int status, String message, T data) &#123;</div><div class="line">        this.status = status;</div><div class="line">        this.message = message;</div><div class="line">        this.data = data;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.相关接口,和服务端的接口对应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public interface DataApi &#123;</div><div class="line">    @GET(URL)</div><div class="line">    Observable&lt;BaseModel&lt;T&gt;&gt; fetchData(@QueryMap Map&lt;String, Object&gt; params);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.网络配置,请求等基础类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">public class BaseService &#123;</div><div class="line">    private static final String TAG = &quot;BaseService&quot;;</div><div class="line">    protected static final String BASE_URL = &quot;baseurl&quot;;</div><div class="line">    protected Retrofit retrofit;</div><div class="line">    protected OkHttpClient client;</div><div class="line">    private HttpLoggingInterceptor logging; //日志类</div><div class="line"></div><div class="line">    public BaseService() &#123;</div><div class="line">        initHttpLoggingInterceptor();</div><div class="line">    &#125;</div><div class="line">    /**</div><div class="line">     * 构建Retrofit</div><div class="line">     **/</div><div class="line">    protected Retrofit getRetrofit() &#123;</div><div class="line">        if (retrofit == null) &#123;</div><div class="line">            retrofit = new Retrofit.Builder()</div><div class="line">                    .baseUrl(BASE_URL)</div><div class="line">                    .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</div><div class="line">                    .client(getOkHttpClient())</div><div class="line">                    .build();</div><div class="line">        &#125;</div><div class="line">        return retrofit;</div><div class="line">    &#125;</div><div class="line">    /**</div><div class="line">     * 构建Okhttp</div><div class="line">     **/</div><div class="line">    protected OkHttpClient getOkHttpClient() &#123;</div><div class="line">        if (client == null) &#123;</div><div class="line">            client = getOkHttpBuilder().build();</div><div class="line">        &#125;</div><div class="line">        return client;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private OkHttpClient.Builder getOkHttpBuilder() &#123;</div><div class="line">        OkHttpClient.Builder builder = new OkHttpClient.Builder()</div><div class="line">                .connectTimeout(30, TimeUnit.SECONDS)</div><div class="line">                .addInterceptor(logging);</div><div class="line">        return builder;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 初始化 HTTP日志打印拦截</div><div class="line">     */</div><div class="line">    private void initHttpLoggingInterceptor() &#123;</div><div class="line">        logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() &#123;</div><div class="line">            @Override</div><div class="line">            public void log(String message) &#123;</div><div class="line">                LogUtil.d(TAG, &quot;whd &gt;&gt; MSG : &quot; + message);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        logging.setLevel(HttpLoggingInterceptor.Level.BODY);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 支持使用HTTPS请求</div><div class="line">     *</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public Retrofit getHTTPSRetrofit() &#123;</div><div class="line">        OkHttpClient.Builder builder = getOkHttpClient().newBuilder();</div><div class="line">        setClientSSL(builder);</div><div class="line">        Retrofit retrofit = new Retrofit.Builder()</div><div class="line">                .baseUrl(BASE_URL)</div><div class="line">                .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</div><div class="line">                .client(builder.build())</div><div class="line">                .build();</div><div class="line">        return retrofit;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 支持HTTPS的 SSL</div><div class="line">     *</div><div class="line">     * @param builder</div><div class="line">     */</div><div class="line">    private void setClientSSL(OkHttpClient.Builder builder) &#123;</div><div class="line">        TrustManager[] trustManagers = new TrustManager[]&#123;(TrustManager) new HTTPSTrustManager()&#125;;</div><div class="line">        try &#123;</div><div class="line">            SSLContext sslContext = SSLContext.getInstance(&quot;SSL&quot;);</div><div class="line">            sslContext.init(null, trustManagers, new java.security.SecureRandom());</div><div class="line">            SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();</div><div class="line">            builder.sslSocketFactory(sslSocketFactory);</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            LogUtil.d(TAG, &quot;setClientSSL() :&quot; + e.getMessage());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 使用它跳过HTTPS的SSL认证</div><div class="line"> */</div><div class="line">public class HTTPSTrustManager &#123;</div><div class="line">    private static TrustManager[] trustManagers;</div><div class="line">    private static final X509Certificate[] _AcceptedIssuers = new X509Certificate[0];</div><div class="line"></div><div class="line">    public HTTPSTrustManager() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public boolean isClientTrusted(X509Certificate[] chain) &#123;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public boolean isServerTrusted(X509Certificate[] chain) &#123;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public X509Certificate[] getAcceptedIssuers() &#123;</div><div class="line">        return _AcceptedIssuers;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对应接口的一个请求Service类,继承BaseService<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class DataService extends BaseService &#123;</div><div class="line"></div><div class="line">    public Observable&lt;BaseModel&lt;T&gt;&gt; fetchData() &#123;</div><div class="line">        Map&lt;String, Object&gt; params = new ArrayMap&lt;&gt;(1);</div><div class="line">        params.put(key, value);</div><div class="line">        return getRetrofit().create(DataApi.class).fetchData(params);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   /**</div><div class="line">    * 添加拦截器,</div><div class="line">    * 可以获取请求的数据和返回的数据.</div><div class="line">    * 不进行数据处理的话可以不用重写该方法</div><div class="line">    **/</div><div class="line">    @Override</div><div class="line">    protected OkHttpClient getOkHttpClient() &#123;</div><div class="line">        OkHttpClient client = super.getOkHttpClient();</div><div class="line">        return client.newBuilder().addInterceptor(new DataInterceptor()).build();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.自定义拦截器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">public class DataInterceptor implements Interceptor &#123;</div><div class="line">    private static final String TAG = &quot;DataInterceptor&quot;;</div><div class="line">    private static final Charset UTF8 = Charset.forName(&quot;UTF-8&quot;);</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public Response intercept(Chain chain) throws IOException &#123;</div><div class="line">        Request request = chain.request();</div><div class="line">        Request.Builder builder = request.newBuilder();</div><div class="line">        Request newRequest = builder</div><div class="line">                .addHeader(&quot;Accept&quot;, &quot;application/json&quot;)</div><div class="line">                .addHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;)</div><div class="line">                .addHeader(&quot;x-sdk-version&quot;, VersionUtils.SDK_VERSION)</div><div class="line">                .addHeader(&quot;x-app-version&quot;, VersionUtils.getAppVersionName(App.sContext))</div><div class="line">                .build();</div><div class="line">        Response response = chain.proceed(newRequest);</div><div class="line">        return buildResponse(response);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 重新构造Response</div><div class="line">     *</div><div class="line">     * @param response</div><div class="line">     * @return</div><div class="line">     * @throws IOException</div><div class="line">     */</div><div class="line">    private Response buildResponse(final Response response) throws IOException &#123;</div><div class="line">        String result = decryptionResponse(response);</div><div class="line">        return response.newBuilder().body(ResponseBody.create(response.body().contentType(), result)).build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 解密BODY</div><div class="line">     *</div><div class="line">     * @param response</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    private String decryptionResponse(Response response) throws IOException &#123;</div><div class="line">        String data = null;</div><div class="line">        ResponseBody responseBody = response.body();</div><div class="line">        long contentLength = responseBody.contentLength();</div><div class="line">        BufferedSource source = responseBody.source();</div><div class="line">        source.request(Long.MAX_VALUE); // Buffer the entire body.</div><div class="line">        Buffer buffer = source.buffer();</div><div class="line"></div><div class="line">        Charset charset = UTF8;</div><div class="line">        MediaType contentType = responseBody.contentType();</div><div class="line">        if (contentType != null) &#123;</div><div class="line">            charset = contentType.charset(UTF8);</div><div class="line">        &#125;</div><div class="line">        if (contentLength != 0) &#123;</div><div class="line">            String encrypStr = buffer.clone().readString(charset);</div><div class="line">            BaseModel baseModel = JsonUtil.getInstance().fromJson(encrypStr, BaseModel.class);</div><div class="line">            LogUtil.d(TAG, &quot;加密内容 : &quot; + wiFiBaseModel.data.toString());</div><div class="line">            baseModel.data = JsonUtil.getInstance().fromJson(AesUtils.decrypt(baseModel.data.toString()), Object.class);</div><div class="line">            data = JsonUtil.getInstance().toJson(baseModel);</div><div class="line">            LogUtil.d(TAG, &quot;解密内容 : &quot; + data);</div><div class="line">        &#125;</div><div class="line">        return data;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.json解析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Json工具类</div><div class="line"> * Created by wong on 17-3-6.</div><div class="line"> */</div><div class="line">public class JsonUtil &#123;</div><div class="line">    private static final String TAG = &quot;JsonUtil&quot;;</div><div class="line">    private static Gson gson = null;</div><div class="line">    private static JsonUtil jsonUtil = null;</div><div class="line"></div><div class="line">    private JsonUtil() &#123;</div><div class="line">        gson = new GsonBuilder().serializeNulls().create();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static JsonUtil getInstance() &#123;</div><div class="line">        if (jsonUtil == null) &#123;</div><div class="line">            jsonUtil = new JsonUtil();</div><div class="line">        &#125;</div><div class="line">        return jsonUtil;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 将对象转换为JSON字符串</div><div class="line">     *</div><div class="line">     * @param obj</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public String toJson(Object obj) &#123;</div><div class="line">        return gson.toJson(obj);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 将JSON字符串转化为对象</div><div class="line">     *</div><div class="line">     * @param s</div><div class="line">     * @param cls</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public &lt;T&gt; T fromJson(String s, Type cls) &#123;</div><div class="line">        return gson.fromJson(s.trim(), cls);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>6.获取Service来进行相关操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class HttpManager &#123;</div><div class="line">    public static volatile HttpManager instance;</div><div class="line">    public DataService dataService;</div><div class="line"></div><div class="line">    private HttpManager() &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static HttpManager getInstance() &#123;</div><div class="line">        if (null == instance) &#123;</div><div class="line">            synchronized (HttpManager.class) &#123;</div><div class="line">                if (null == instance) &#123;</div><div class="line">                    instance = new HttpManager();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public DataService getDataService() &#123;</div><div class="line">        if (null == dataService) &#123;</div><div class="line">            dataService = new DataService();</div><div class="line">        &#125;</div><div class="line">        return dataService;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>7.使用示例,创建一个IntentService进行网络请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class DataRequestService extends IntentService &#123;</div><div class="line"></div><div class="line">    public DataRequestService() &#123;</div><div class="line">        super(&quot;DataRequestService&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onHandleIntent(Intent intent) &#123;</div><div class="line">        HttpManager.getInstance().getDataService().fetchData()</div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line">                .subscribe(new Subscriber&lt;BaseModel&lt;T&gt;&gt;() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onCompleted() &#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onError(Throwable e) &#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onNext(BaseModel&lt;T&gt; baseModel) &#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/01/常用网络请求框架OkHttp、Volley、Retrofit对比/" rel="next" title="常用网络请求框架OkHttp、Volley、Retrofit,android-async-http对比">
+                <i class="fa fa-chevron-left"></i> 常用网络请求框架OkHttp、Volley、Retrofit,android-async-http对比
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/06/rx-retrofit-okhttp网络框架/"
+           data-title="rx+retrofit+okhttp网络框架" data-url="http://yoursite.com/2017/03/06/rx-retrofit-okhttp网络框架/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i1.piimg.com/587822/5a34bcd57d7cf421s.png"
+               alt="Wong" />
+          <p class="site-author-name" itemprop="name">Wong</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程写代码 必成高富帅</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="https://andwong.github.io/archives/">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wong</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"andwong"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
