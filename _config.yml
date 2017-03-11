@@ -5,10 +5,11 @@
 # Site
 title: Wong`s Blog
 subtitle:
-description:
+description: 编程写代码 必成高富帅
 author: Wong
-language:
+language: zh-Hans
 timezone:
+avatar: http://i1.piimg.com/587822/5a34bcd57d7cf421s.png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
