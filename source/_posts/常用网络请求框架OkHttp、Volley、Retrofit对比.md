@@ -9,7 +9,7 @@ tags: Android
 
 2.OkHttp
     Android 开发中是可以直接使用现成的api进行网络请求的。是Square公司开源的针对Java和Android程序，封装的一个高性能http请求库，它的职责跟HttpUrlConnection 是一样的，支持同步、异步，而且 OkHttp 又封装了线程池，封装了数据转换，封装了参数使用、错误处理等，api使用起来更加方便。可以把它理解成是一个封装之后的类似HttpUrlConnection的东西，但是在使用的时候仍然需要自己再做一层封装，这样才能像使用一个框架一样更加顺手。
-
+<!--more-->
 3.Volley
    Volley是Google官方出的一套小而巧的异步请求库，该框架封装的扩展性很强，支持HttpClient、HttpUrlConnection， 甚至支持OkHttp，而且Volley里面也封装了ImageLoader，所以如果你愿意你甚至不需要使用图片加载框架，不过这块功能没有一些专门的图片加载框架强大，对于简单的需求可以使用，稍复杂点的需求还是需要用到专门的图片加载框架。Volley也有缺陷，比如不支持post大数据，所以不适合上传文件。不过Volley设计的初衷本身也就是为频繁的、数据量小的网络请求而生。
 

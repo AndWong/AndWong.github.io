@@ -97,7 +97,7 @@
 <meta property="og:description" content="Activity乃Andoid四大组件中的一个，主要负责用户界面的展示和用户交互处理。
 1.生命周期正常的一次启动到结束 ：onCreate -&amp;gt; onStart -&amp;gt; onResume -&amp;gt; onPause -&amp;gt; onStop -&amp;gt; onDestory
 切换到后台 : onPause -&amp;gt; onStop从后台回来 : onRestart -&amp;gt;onStar">
-<meta property="og:updated_time" content="2017-02-17T12:16:45.960Z">
+<meta property="og:updated_time" content="2017-03-11T02:46:04.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="四大组件之Activity">
 <meta name="twitter:description" content="Activity乃Andoid四大组件中的一个，主要负责用户界面的展示和用户交互处理。
@@ -341,8 +341,7 @@
 <p>1.生命周期<br>正常的一次启动到结束 ：onCreate -&gt; onStart -&gt; onResume -&gt; onPause -&gt; onStop -&gt; onDestory</p>
 <p>切换到后台 : onPause -&gt; onStop<br>从后台回来 : onRestart -&gt;onStart -&gt; onResume</p>
 <p>从A切到B ： A-onPause -&gt; B-onCreate -&gt; B-onStart -&gt; B-onResume -&gt; A-onStop<br>从B返回A ： B-onPause -&gt; A-onRestart -&gt; A-onStart -&gt; A-onResume -&gt; B-onStop -&gt; B-onDestroy</p>
-<p>横竖屏切换 ： onSaveInstanceState -&gt; onPause -&gt; onStop -&gt; onDestory -&gt; onCreate -&gt; onStart -&gt; onRestoreInstanceState -&gt; onResume</p>
-<p>2.启动模式<br>（在AndroidManifest.xml中的android:launchMode=”singleTask”配置）<br> (1)standard : 默认的标准模式，每次启动Activity都会创建Activity并放人Task栈中<br> (2)singleTop ：当要启动的Activity刚好在Task栈的栈顶时使用这个，否则重新创建一个<br> (3)singleTask ： 只要Task栈中存在就使用，并把该Activity以上的其他Actitity弹出栈中<br> (4)singleInstance ： 只要在该Activity存在Task栈中，如何应用启动都可以直接调用</p>
+<p>横竖屏切换 ： onSaveInstanceState -&gt; onPause -&gt; onStop -&gt; onDestory -&gt; onCreate -&gt; onStart -&gt; onRestoreInstanceState -&gt; onResume<br><a id="more"></a><br>2.启动模式<br>（在AndroidManifest.xml中的android:launchMode=”singleTask”配置）<br> (1)standard : 默认的标准模式，每次启动Activity都会创建Activity并放人Task栈中<br> (2)singleTop ：当要启动的Activity刚好在Task栈的栈顶时使用这个，否则重新创建一个<br> (3)singleTask ： 只要Task栈中存在就使用，并把该Activity以上的其他Actitity弹出栈中<br> (4)singleInstance ： 只要在该Activity存在Task栈中，如何应用启动都可以直接调用</p>
 <p>3.闪屏页的快速启动<br>  通常闪屏页是一张产品的Logo图，所以可以通过为闪屏页设置theme，<br>  让app启动时activity为展示时先显示theme中的背景图，<br>  以此达到闪屏页的“快速启动”，否则闪屏页显示的app-theme中背景色。</p>
 <p>  1)在AndroidManifest中为闪屏页设置Theme：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:theme=&quot;@style/AppSplash&quot;</div></pre></td></tr></table></figure></p>
 <p>  2)AppSplash如下：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;AppSplash&quot;&gt;</div><div class="line">  &lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/layer_logo_page&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>

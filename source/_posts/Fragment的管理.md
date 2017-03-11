@@ -16,6 +16,7 @@ onStop()
 onDestroyView()
 onDestroy()
 onDetach()等11个方法。
+<!--more-->
 
 切换到该Fragment，分别执行onAttach()、onCreate()、onCreateView()、onActivityCreated()、onstart()、onResume()方法。
 锁屏，分别执行onPause()、onStop()方法。

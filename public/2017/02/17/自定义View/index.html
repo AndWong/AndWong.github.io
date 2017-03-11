@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Wong`s Blog">
 <meta property="og:description" content="一.使用LayoutInflater加载视图写法一:1LayoutInflater layoutInflater = LayoutInflater.from(context);
 写法二:1LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);">
-<meta property="og:updated_time" content="2017-02-18T05:49:22.295Z">
+<meta property="og:updated_time" content="2017-03-11T02:46:34.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义View">
 <meta name="twitter:description" content="一.使用LayoutInflater加载视图写法一:1LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -337,6 +337,7 @@
         <p>一.使用LayoutInflater加载视图<br>写法一:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LayoutInflater layoutInflater = LayoutInflater.from(context);</div></pre></td></tr></table></figure></p>
 <p>写法二:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);</div></pre></td></tr></table></figure></p>
 <p>加载布局:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layoutInflater.inflate(resourceId, root);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>补充:layout_width,layout_height其实是用于设置View在布局中的大小的,<br>如果控件没有在布局中,这个参数就会不起作用,所以叫layout_width而不是width.<br>setContentView,系统会自动在布局外层嵌套一层FrameLayout.</p>
 <p>二.视图的绘制过程</p>
 <ol>

@@ -16,6 +16,7 @@ LayoutInflater layoutInflater =(LayoutInflater) context.getSystemService(Context
 ```
 layoutInflater.inflate(resourceId, root);
 ```
+<!--more-->
 补充:layout_width,layout_height其实是用于设置View在布局中的大小的,
 如果控件没有在布局中,这个参数就会不起作用,所以叫layout_width而不是width.
 setContentView,系统会自动在布局外层嵌套一层FrameLayout.

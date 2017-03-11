@@ -333,15 +333,14 @@
 
       
         
-          
-            <p>Service是运行在主线程,在后台运行的一个组件.<br>这里的后台指的是它的运行是完全不依赖UI的,即即使Activity销毁了,只要进程还在Service就在.<br>处理耗时操作需开子线程,否则会ANR.<br>需要在AndroidManifest.xml中注册.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;service</div><div class="line">    android:name=&quot;.MyService&quot;</div><div class="line">    android:exported=&quot;true&quot; //是否需要对其他App开放,有intent-filter时默认值就是true</div><div class="line">    android:process=&quot;:MyProcess&quot; &gt; //指明此进程名称,可以单独运行在新的进程中</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=&quot;com.example.androidtest.myservice&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/service&gt;</div></pre></td></tr></table></figure></p>
-<p>1.Service类型<br>1)普通Service<br>运行在后台,优先级比较低.</p>
-<p>2)前台Service<br>有一个正在运行的图标在系统的状态栏显示,类似于通知栏.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MyService extends Service &#123;  </div><div class="line">    public static final String TAG = &quot;MyService&quot;;  </div><div class="line">    private MyBinder mBinder = new MyBinder();  </div><div class="line">    @Override  </div><div class="line">    public void onCreate() &#123;  </div><div class="line">        super.onCreate();  </div><div class="line">        Notification notification = new Notification(R.drawable.ic_launcher,  </div><div class="line">                &quot;有通知到来&quot;, System.currentTimeMillis());  </div><div class="line">        Intent notificationIntent = new Intent(this, MainActivity.class);  </div><div class="line">        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,  </div><div class="line">                notificationIntent, 0);  </div><div class="line">        notification.setLatestEventInfo(this, &quot;这是通知的标题&quot;, &quot;这是通知的内容&quot;,  </div><div class="line">                pendingIntent);  </div><div class="line">        startForeground(1, notification);  </div><div class="line">        Log.d(TAG, &quot;onCreate() executed&quot;);  </div><div class="line">    &#125;  </div><div class="line">    .........  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>3)IntentService<br>Service的一个子类,实现onHandlerIntent()方法,用于处理长期任务,并且是在新的线程中,<br>处理完后会自动关闭.</p>
-<p>2.Service的生命周期<br>两种启动方式<br>1)startService (stopService结束)<br>onCreate -&gt; onStartCommand -&gt; onDestory</p>
-<p>2)bindService (unbindService结束)<br>onCreate -&gt; onBind -&gt; onUnBind -&gt; onDestory</p>
-
-          
+          <p>Service是运行在主线程,在后台运行的一个组件.<br>这里的后台指的是它的运行是完全不依赖UI的,即即使Activity销毁了,只要进程还在Service就在.<br>处理耗时操作需开子线程,否则会ANR.<br>需要在AndroidManifest.xml中注册.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;service</div><div class="line">    android:name=&quot;.MyService&quot;</div><div class="line">    android:exported=&quot;true&quot; //是否需要对其他App开放,有intent-filter时默认值就是true</div><div class="line">    android:process=&quot;:MyProcess&quot; &gt; //指明此进程名称,可以单独运行在新的进程中</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=&quot;com.example.androidtest.myservice&quot; /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/service&gt;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/16/四大组件之Service/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -466,25 +465,18 @@
 
       
         
-          
-            <p>Activity乃Andoid四大组件中的一个，主要负责用户界面的展示和用户交互处理。</p>
+          <p>Activity乃Andoid四大组件中的一个，主要负责用户界面的展示和用户交互处理。</p>
 <p>1.生命周期<br>正常的一次启动到结束 ：onCreate -&gt; onStart -&gt; onResume -&gt; onPause -&gt; onStop -&gt; onDestory</p>
 <p>切换到后台 : onPause -&gt; onStop<br>从后台回来 : onRestart -&gt;onStart -&gt; onResume</p>
 <p>从A切到B ： A-onPause -&gt; B-onCreate -&gt; B-onStart -&gt; B-onResume -&gt; A-onStop<br>从B返回A ： B-onPause -&gt; A-onRestart -&gt; A-onStart -&gt; A-onResume -&gt; B-onStop -&gt; B-onDestroy</p>
-<p>横竖屏切换 ： onSaveInstanceState -&gt; onPause -&gt; onStop -&gt; onDestory -&gt; onCreate -&gt; onStart -&gt; onRestoreInstanceState -&gt; onResume</p>
-<p>2.启动模式<br>（在AndroidManifest.xml中的android:launchMode=”singleTask”配置）<br> (1)standard : 默认的标准模式，每次启动Activity都会创建Activity并放人Task栈中<br> (2)singleTop ：当要启动的Activity刚好在Task栈的栈顶时使用这个，否则重新创建一个<br> (3)singleTask ： 只要Task栈中存在就使用，并把该Activity以上的其他Actitity弹出栈中<br> (4)singleInstance ： 只要在该Activity存在Task栈中，如何应用启动都可以直接调用</p>
-<p>3.闪屏页的快速启动<br>  通常闪屏页是一张产品的Logo图，所以可以通过为闪屏页设置theme，<br>  让app启动时activity为展示时先显示theme中的背景图，<br>  以此达到闪屏页的“快速启动”，否则闪屏页显示的app-theme中背景色。</p>
-<p>  1)在AndroidManifest中为闪屏页设置Theme：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:theme=&quot;@style/AppSplash&quot;</div></pre></td></tr></table></figure></p>
-<p>  2)AppSplash如下：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style name=&quot;AppSplash&quot;&gt;</div><div class="line">  &lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/layer_logo_page&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
-<p>  3)layer_logo_page如下：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;layer-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">  &lt;item&gt;</div><div class="line">      &lt;color android:color=&quot;@color/C15_white&quot; /&gt;</div><div class="line">  &lt;/item&gt;</div><div class="line">  &lt;item android:bottom=&quot;35dp&quot;&gt;</div><div class="line">      &lt;bitmap</div><div class="line">          android:gravity=&quot;center_horizontal|bottom&quot;</div><div class="line">          android:src=&quot;@drawable/icon_logo&quot; /&gt;</div><div class="line">  &lt;/item&gt;</div><div class="line">&lt;/layer-list&gt;</div></pre></td></tr></table></figure></p>
-<p>4.横竖屏<br>  1)如何禁止横竖屏切换时生命周期变换<br>  AndroidManifest中为Activity添加配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;</div></pre></td></tr></table></figure></p>
-<p>  2)如何禁止横屏：<br>  AndroidManifest中为Activity添加配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:screenOrientation=&quot;portrait&quot;</div></pre></td></tr></table></figure></p>
-<p>  3)Java代码中设置横竖屏：<br>  // 如果是竖屏则转为横屏<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if (activity.getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) &#123;</div><div class="line">  activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>  4)横竖屏变换时通常会有回调：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public void onConfigurationChanged(Configuration newConfig) &#123;</div><div class="line">  super.onConfigurationChanged(newConfig);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>5.Activity设置为首页<br>  为Activity配置如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;intent-filter&gt;</div><div class="line">  &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</div><div class="line">  &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</div><div class="line">&lt;/intent-filter&gt;</div></pre></td></tr></table></figure></p>
-<p>6.启动Actitiy的几种方式</p>
-
-          
+<p>横竖屏切换 ： onSaveInstanceState -&gt; onPause -&gt; onStop -&gt; onDestory -&gt; onCreate -&gt; onStart -&gt; onRestoreInstanceState -&gt; onResume<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/15/四大组件之Activity/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -609,18 +601,15 @@
 
       
         
-          
-            <p>Android自带的数据库SQLite，是一个轻量级便捷的数据库。</p>
-<p>1.创建<br>Android SDK有一个抽象类SQLiteOpenHelper用于创建和升级数据库，<br>所以继承SQLiteOpenHelper并实现其中的onCreate()和onUpgrade()即可创建和升级数据库。</p>
-<p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class PskDBHelper extends SQLiteOpenHelper &#123;</div><div class="line">    /**</div><div class="line">     * 构造方法，通常用这个就可以了</div><div class="line">     *</div><div class="line">     * @param context</div><div class="line">     * @param name    数据库名称 如： psk.db</div><div class="line">     * @param factory 数据库游标工厂 通常传入 null</div><div class="line">     * @param version 版本号 如：1</div><div class="line">     */</div><div class="line">    public PskDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) &#123;</div><div class="line">        super(context, name, factory, version);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCreate(SQLiteDatabase db) &#123;</div><div class="line">        //创建表SQL语句</div><div class="line">        //integer 表示整型，real 表示浮点型，text 表示文本类型，blob 表示二进制类型。</div><div class="line">        // 另外，primary key表示将id列设为主键，并用autoincrement关键字表示id列是自增长的。</div><div class="line">        String pskTable = &quot;create table psktable(_id integer primary key autoincrement,ssid text,bssid text,psk text)&quot;;</div><div class="line">        db.execSQL(pskTable);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2.使用<br>通过调用 pskDBHelper.getReadableDatabase() 和 pskDBHelper.getWritableDatabase()来获取 SQLiteDatabase 对象。<br>其中如果getReadableDatabase()的数据库不存在则自动创建，存在则返回相应的对象，<br>如果调用getWritableDatabase()的数据库不存在则会报错。</p>
-<p>3、增删改查<br>这里只简单示例用SQL语句操作的方法。</p>
-<p>(1)插入数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public void insert(SQLiteDatabase db) &#123;</div><div class="line">    //插入数据SQL语句</div><div class="line">    String insertSQL = &quot;insert into psktable(ssid,bssid,psk) values(&apos;wong&apos;,&apos;20:6a:8a:68:81:ce&apos;,&apos;12345678&apos;)&quot;;</div><div class="line">    //执行SQL语句</div><div class="line">    db.execSQL(insertSQL);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>(2)删除数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public void del(SQLiteDatabase db) &#123;</div><div class="line">    //删除SQL语句</div><div class="line">    String sql = &quot;delete from psktable where _id = 1&quot;;</div><div class="line">    //执行SQL语句</div><div class="line">    db.execSQL(sql);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>(3)更新数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public void update(SQLiteDatabase db) &#123;</div><div class="line">    //修改SQL语句</div><div class="line">    String sql = &quot;update psktable set ssid = &apos;wong&apos; where _id = 1&quot;;</div><div class="line">    //执行SQL</div><div class="line">    db.execSQL(sql);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>//在Android中查询数据是通过Cursor类来实现的，<br>// 当我们使用SQLiteDatabase.query()方法时，<br>// 会得到一个Cursor对象，Cursor指向的就是每一条数据<br>(4)查询数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public void search(SQLiteDatabase db) &#123;</div><div class="line">    //查询获得游标</div><div class="line">    Cursor cursor = db.query(&quot;psktable&quot;, null, null, null, null, null, null);</div><div class="line">    //判断游标是否为空</div><div class="line">    if (cursor.moveToFirst()) &#123;</div><div class="line">        //遍历游标</div><div class="line">        for (int i = 0; i &lt; cursor.getCount(); i++) &#123;</div><div class="line">            cursor.move(i);</div><div class="line">            //获得ID</div><div class="line">            int id = cursor.getInt(0);</div><div class="line">            //获得ssid</div><div class="line">            String ssid = cursor.getString(1);</div><div class="line">            //获得bssid</div><div class="line">            String bssid = cursor.getString(2);</div><div class="line">            //获取psk</div><div class="line">            String psk = cursor.getString(3);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
+          <p>Android自带的数据库SQLite，是一个轻量级便捷的数据库。</p>
+<p>1.创建<br>Android SDK有一个抽象类SQLiteOpenHelper用于创建和升级数据库，<br>所以继承SQLiteOpenHelper并实现其中的onCreate()和onUpgrade()即可创建和升级数据库。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/07/13/Android-SQLite的使用/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -745,20 +734,15 @@
 
       
         
-          
-            <p>一.3种方式获取加载指定的类<br>Class cla = 类名.class<br>Class cla = 对象.getClass();<br>Class cla = Class.forName(“name”);</p>
-<p>Demo demo = (Demo)cla.newInstance(); //加载指定类的对象<br>demo.a(); //调用对象的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		try &#123;</div><div class="line">			Class c = MyDemo.class;</div><div class="line">			MyDemo demo = (MyDemo) c.newInstance();</div><div class="line">			System.out.println(&quot;---&gt;c: &quot; + demo.c); //如果是在同一个包下,则可以调用protected属性和方法,否则只能操作public</div><div class="line">			demo.f();</div><div class="line">			System.out.println(&quot;成员变量个数 : &quot; + c.getDeclaredFields().length); //能取到所有的属性</div><div class="line">			System.out.println(&quot;公开方法个数 : &quot; + c.getMethods().length);//能取到公开方法,包括父类的</div><div class="line">		&#125; catch (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出:<br>—&gt;c: 0<br>—&gt;f<br>成员变量个数 : 3<br>公开方法个数 : 10<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">package test2;</div><div class="line">public class MyDemo &#123;</div><div class="line">	private int a;</div><div class="line">	protected int b;</div><div class="line">	public int c;</div><div class="line"></div><div class="line">	private void d() &#123;</div><div class="line">		System.out.println(&quot;---&gt;d &quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	protected void e()&#123;</div><div class="line">		System.out.println(&quot;---&gt;e &quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void f() &#123;</div><div class="line">		System.out.println(&quot;---&gt;f &quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>二.Field 成员变量<br>Class c = MyDemo.class;<br>Field[] fieldArray = c.getFields(); //得到Field数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Class c = MyDemo.class;</div><div class="line">MyDemo demo = (MyDemo) c.newInstance();</div><div class="line">Field[] fieldArray = c.getFields();</div><div class="line">for(int i = 0; i&lt;fieldArray.length;i++)&#123;</div><div class="line">		Field field = fieldArray[i];</div><div class="line">		System.out.println(&quot;变量名称 : &quot; + field.getName());</div><div class="line">    System.out.println(&quot;变量值 : &quot; + field.get(demo));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>输出:<br>变量名称 : c<br>变量值 : 0<br>(只打印出公开成员)</p>
-<p>修改访问限制:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//获取所有的成员,包含private</div><div class="line">Field[] fieldArray = c.getDeclaredFields();</div><div class="line">field[0].setAccessible(true);</div></pre></td></tr></table></figure></p>
-<p>三.Method 方法<br>Class c = MyDemo.class;<br>Method[] ma = c.getMethods();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Method[] mo = c.getMethods();</div><div class="line">for(int i = 0; i&lt;mo.length;i++)&#123;</div><div class="line">  Method method = mo[i];</div><div class="line">  System.out.println(&quot;方法名 : &quot; + method.getName());</div><div class="line">  System.out.println(&quot;方法返回类型 : &quot; + method.getReturnType());</div><div class="line">	Parameter[] parames = method.getParameters();//获取参数列表</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>invoke()的使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//getMethod,分别传入方法名,参数类型</div><div class="line">//invoke,分别传入对象,参数,没有则为null</div><div class="line">c.getMethod(&quot;f&quot;, null).invoke(demo, null);</div></pre></td></tr></table></figure></p>
-<p>修改访问限制:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//获取所有的成员变量,包含private</div><div class="line">Method[] mo = c.getDeclaredMethods();</div><div class="line">AccessibleObject.setAccessible(mo, true);</div><div class="line">mo[2].invoke(demo, null);</div></pre></td></tr></table></figure></p>
-<p>四.Constructor 构造器</p>
-
-          
+          <p>一.3种方式获取加载指定的类<br>Class cla = 类名.class<br>Class cla = 对象.getClass();<br>Class cla = Class.forName(“name”);</p>
+<p>Demo demo = (Demo)cla.newInstance(); //加载指定类的对象<br>demo.a(); //调用对象的方法<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/17/Java注解反射/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -883,12 +867,14 @@
 
       
         
-          
-            <p>一.生命周期<br>Fragment的生命周期方法主要有<br>onAttach()<br>onCreate()<br>onCreateView()<br>onActivityCreated()<br>onstart()<br>onResume()<br>onPause()<br>onStop()<br>onDestroyView()<br>onDestroy()<br>onDetach()等11个方法。</p>
-<p>切换到该Fragment，分别执行onAttach()、onCreate()、onCreateView()、onActivityCreated()、onstart()、onResume()方法。<br>锁屏，分别执行onPause()、onStop()方法。<br>亮屏，分别执行onstart()、onResume()方法。<br>覆盖，切换到其他Fragment，分别执行onPause()、onStop()、onDestroyView()方法。<br>从其他Fragment回到之前Fragment，分别执行onCreateView()、onActivityCreated()、onstart()、onResume()方法。</p>
-<p>二.Fragment与activity如何传值和交互？<br>Fragment对象有一个getActivity的方法，通过该方法与activity交互.<br>使用framentmentManager.findFragmentByXX可以获取fragment对象，在activity中直接操作fragment对象</p>
-
-          
+          <p>一.生命周期<br>Fragment的生命周期方法主要有<br>onAttach()<br>onCreate()<br>onCreateView()<br>onActivityCreated()<br>onstart()<br>onResume()<br>onPause()<br>onStop()<br>onDestroyView()<br>onDestroy()<br>onDetach()等11个方法。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/17/Fragment的管理/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1421,18 +1407,15 @@
 
       
         
-          
-            <p>1.Handler何用？<br>在实际开发中Handler是为了解决在子线程更新UI的问题。</p>
-<p>2.Handler，Looper，MessageQueue的创建？<br>一个Handler通常和一个Looper和一个MessageQueue绑定在一起。<br>在线程中创建一个Handler时通常会同时创建一个Looper（通过Looper.prepare()为当前线程创建一个Looper,<br>并使用Looper.loop()来开启消息的读取）及MessageQueue（创建Looper的同时创建），<br>而平时我们在主线程中创建Handler却可以省略该步骤主要是由于主线程在开启时就已自动Looper，<br>可以通过getMainLooper()来获取主线程的Looper。</p>
-<p>3.Looper,Handler,MessageQueue的引用关系?<br>Looper：好比一个泵，循环不断的在MessageQueue中查询消息<br>MessageQueue：消息池，用于存放消息</p>
-<p>一个线程对应只有一个Looper和一个MessageQueue，但可以有多个Handler。</p>
-<p>子线程创建一条MSG通过Handler发送消息到主线程的MessageQueue中，<br>主线程对应的Looper循环不断的在MessageQueue中查询MSG，<br>查询到则主线程通过Hanler处理消息。</p>
-<p>4.Handler导致内存泄露问题?<br>一般我们写Handler:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Handler mHandler = new Handler() &#123;</div><div class="line">@Override</div><div class="line">public void handleMessage(Message msg) &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当使用内部类（包括匿名类）来创建Handler的时候，Handler对象会隐式地持有一个外部类对象（通常是一个Activity）的引用,而常常在Activity退出后，消息队列还有未被处理完的消息，此时activity依然被handler引用，导致内存无法回收而内存泄露。</p>
-<p>解决方法：<br>在Handler中增加一个对Activity的弱引用（WeakReference）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">static class MyHandler extends Handler &#123;</div><div class="line">WeakReference mActivityReference;</div><div class="line"></div><div class="line">MyHandler(Activity activity) &#123;</div><div class="line">mActivityReference= new WeakReference(activity);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@Override</div><div class="line">public void handleMessage(Message msg) &#123;</div><div class="line">final Activity activity = mActivityReference.get();</div><div class="line">if (activity != null) &#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>对于上面的代码，用户在关闭Activity之后，就算后台线程还没结束，但由于仅有一条来自Handler的弱引用指向Activity，所以GC仍然会在检查的时候把Activity回收掉。这样，内存泄露的问题就不会出现了。</p>
-
-          
+          <p>1.Handler何用？<br>在实际开发中Handler是为了解决在子线程更新UI的问题。</p>
+<p>2.Handler，Looper，MessageQueue的创建？<br>一个Handler通常和一个Looper和一个MessageQueue绑定在一起。<br>在线程中创建一个Handler时通常会同时创建一个Looper（通过Looper.prepare()为当前线程创建一个Looper,<br>并使用Looper.loop()来开启消息的读取）及MessageQueue（创建Looper的同时创建），<br>而平时我们在主线程中创建Handler却可以省略该步骤主要是由于主线程在开启时就已自动Looper，<br>可以通过getMainLooper()来获取主线程的Looper。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/05/12/Android中Handler的简单终结/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1557,14 +1540,16 @@
 
       
         
-          
-            <p>WiFi连接上一个开放热点，如何判断是否需要登录认证？</p>
+          <p>WiFi连接上一个开放热点，如何判断是否需要登录认证？</p>
 <p>首先当我们发送一个request请求时，我们得到的response总是会携带一个HTTP状态码（除非请求超时）。WiFi portal同样也要遵循这样的规则，WiFi portal拦截网络请求时，返回给我们一个response（内容是登陆页面）。我们的这次请求虽然被拦截了，但是无疑他是一个成功的请求，也就是说response携带的状态码应该是 200 。这时，我们与服务器端商定一个请求链接http ://www.xx.com/genera_204，固定返回一个状态码 204。当网络状态发生变化时候，我们就去请求这个链接。如果我们的response携带的状态码是204说明我们请求成功，如果我们得到的是200，说明需要进行WiFi 验证。<br>这个方法来自Android4.0.1AOSP源码 WifiWatchdogStateMachine#isWalledGardenConnection()。</p>
-<p>对于个人开发者或者“小厂商”不建议在我们自己的服务器上处理http ://www.xxx.com/generate_204，除非你家的服务器很稳定，基本上不出现问题。这时候我们可以考虑下“大厂商”是否已经有类似的功能。像UC啊什么的。他们都能自动提醒你网络需要登陆，他们也是使用了同样的方式，至于链接地址，就靠大家自己了。</p>
-<p>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">import java.io.IOException;</div><div class="line">import java.net.HttpURLConnection;</div><div class="line">import java.net.URL;</div><div class="line">import android.os.AsyncTask;</div><div class="line">/**</div><div class="line"> * 检测wifi是否需要登陆</div><div class="line"> * 使用方式：</div><div class="line"> * NetNeedLoginCheckUtil.needLoginNetworkCheck(new NeedLoginCallBack() &#123;</div><div class="line"> *  @Override</div><div class="line"> *  public void needLogin(boolean needLogin) &#123;</div><div class="line"> *     if (needLogin) &#123;</div><div class="line"> *          wifi 需要登陆</div><div class="line"> *     &#125;</div><div class="line"> *  &#125;</div><div class="line"> * &#125;);</div><div class="line"> **/</div><div class="line"> public class NetNeedLoginCheckUtil extends AsyncTask&lt;Integer, Integer, Boolean&gt;&#123;</div><div class="line">    NeedLoginCallBack callBack;</div><div class="line">    public NetNeedLoginCheckUtil(NeedLoginCallBack callBack) &#123;</div><div class="line">        super();</div><div class="line">        this.callBack = callBack;</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected Boolean doInBackground(Integer... params) &#123;</div><div class="line">        return isWifiSetPortal();</div><div class="line">    &#125;    </div><div class="line">    @Override</div><div class="line">    protected void onPostExecute(Boolean result) &#123;</div><div class="line">        if (callBack != null) &#123;</div><div class="line">            callBack.needLogin(result);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    private boolean isWifiSetPortal() &#123;  </div><div class="line">        final String mWalledGardenUrl = &quot;http://connect.rom.miui.com/generate_204&quot;;  </div><div class="line">        final int WALLED_GARDEN_SOCKET_TIMEOUT_MS = 10000;  </div><div class="line">        HttpURLConnection urlConnection = null;  </div><div class="line">        try &#123;  </div><div class="line">            URL url = new URL(mWalledGardenUrl);  </div><div class="line">            urlConnection = (HttpURLConnection) url.openConnection();  </div><div class="line">            urlConnection.setInstanceFollowRedirects(false);  </div><div class="line">            urlConnection.setConnectTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setReadTimeout(WALLED_GARDEN_SOCKET_TIMEOUT_MS);  </div><div class="line">            urlConnection.setUseCaches(false);  </div><div class="line">            urlConnection.getInputStream();  </div><div class="line">            return urlConnection.getResponseCode() != 204;  </div><div class="line">        &#125; catch (IOException e) &#123;  </div><div class="line">            return false;  </div><div class="line">        &#125; finally &#123;  </div><div class="line">            if (urlConnection != null) &#123;  </div><div class="line">                urlConnection.disconnect();  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    public static void needLoginNetworkCheck(NeedLoginCallBack callBack) &#123;</div><div class="line">        new NetNeedLoginCheckUtil(callBack).execute();</div><div class="line">    &#125;    </div><div class="line"></div><div class="line">    public interface NeedLoginCallBack&#123;</div><div class="line">       void needLogin(boolean needLogin);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>文／李科吐温（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/3187c677bca3" target="_blank" rel="external">http://www.jianshu.com/p/3187c677bca3</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
-
-          
+<p>对于个人开发者或者“小厂商”不建议在我们自己的服务器上处理http ://www.xxx.com/generate_204，除非你家的服务器很稳定，基本上不出现问题。这时候我们可以考虑下“大厂商”是否已经有类似的功能。像UC啊什么的。他们都能自动提醒你网络需要登陆，他们也是使用了同样的方式，至于链接地址，就靠大家自己了。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/04/11/WiFi-Portal检测/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

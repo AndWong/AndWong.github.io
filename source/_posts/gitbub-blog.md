@@ -10,7 +10,7 @@ tags: github
 安装 git : $sudo apt-get install git
 安装 hexo ： $sudo npm install hexo -g
 ```
-
+<!--more-->
 2.注册github帐号，并创建仓库（注意仓库必须以 “用户名.github.io”）
 
 3.初始化博客，命令行输入下列命令：

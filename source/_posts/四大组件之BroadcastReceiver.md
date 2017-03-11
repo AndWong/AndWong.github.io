@@ -16,6 +16,7 @@ tags: Android
     </intent-filter>  
 </receiver>
 ```
+<!--more-->
 2.动态注册
 在代码中注册,非"常驻型",不用时需调用unregisterReceiver否则会报错.
 ```

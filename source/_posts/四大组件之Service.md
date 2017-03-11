@@ -17,6 +17,7 @@ Service是运行在主线程,在后台运行的一个组件.
     </intent-filter>
 </service>
 ```
+<!--more-->
 1.Service类型
 1)普通Service
 运行在后台,优先级比较低.

@@ -12,7 +12,7 @@ View，用于展示数据（解决如何展示数据）
 
 很显然Presenter作为中间者，它是同时拥有View和Model的引用的.
 而Model和View必须是完全隔离的，不允许两者之间互相通信。
-
+<!--more-->
 Model在三者中是独立性最高的，Model不应该拥有对View的引用，而且Model也不需要保存对Presenter的引用，对于Presenter而已，Model只需要提供接口，等着Presenter来调用时返回相应数据即可，这和经典MVC模式中是非常不同的，在MVC中Model在数据发送变化后，是需要发送广播来告之View去更新用户界面的，而在MVP中，Model是不应该去通知View，而是通知Presenter来间接的更新View的。
 
 而Presenter和Model的关系也应该是基于接口来通信，这样才能把Model和Presenter的耦合度也降到最低，那么在需要改变Model内部实现，甚至彻底替换Model的时候，Presenter则是无需随之改变的。这样做带来的另一个好处就是你可以通过Mock一个Model来对Presenter以及View做模拟测试了，从而提高了可测试性。

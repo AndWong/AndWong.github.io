@@ -17,6 +17,7 @@ tags: Android
   <category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
 ```
+<!--more-->
 2.Java代码中调用
 ```
 Intent intent = new Intent();

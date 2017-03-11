@@ -13,7 +13,7 @@ compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 compile 'com.squareup.retrofit2:retrofit-converters:2.1.0'
 compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-
+<!--more-->
 1.对应的数据模型,采用范型
 ```
 public class BaseModel<T> implements Serializable {

@@ -16,7 +16,7 @@ Activity乃Andoid四大组件中的一个，主要负责用户界面的展示和
 从B返回A ： B-onPause -> A-onRestart -> A-onStart -> A-onResume -> B-onStop -> B-onDestroy
 
 横竖屏切换 ： onSaveInstanceState -> onPause -> onStop -> onDestory -> onCreate -> onStart -> onRestoreInstanceState -> onResume
-
+<!--more-->
 2.启动模式
 （在AndroidManifest.xml中的android:launchMode="singleTask"配置）
  (1)standard : 默认的标准模式，每次启动Activity都会创建Activity并放人Task栈中

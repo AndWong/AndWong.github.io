@@ -15,6 +15,7 @@ app下的build.gradle
 ```
 compile 'io.realm:realm-android:0.87.5'
 ```
+<!--more-->
 2.初始化
 Application中
 ```

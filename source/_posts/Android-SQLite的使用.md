@@ -8,7 +8,7 @@ Android自带的数据库SQLite，是一个轻量级便捷的数据库。
 1.创建
 Android SDK有一个抽象类SQLiteOpenHelper用于创建和升级数据库，
 所以继承SQLiteOpenHelper并实现其中的onCreate()和onUpgrade()即可创建和升级数据库。
-
+<!--more-->
 示例：
 ```
 public class PskDBHelper extends SQLiteOpenHelper {

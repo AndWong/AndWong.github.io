@@ -10,7 +10,7 @@ Class cla = Class.forName("name");
 
 Demo demo = (Demo)cla.newInstance(); //加载指定类的对象
 demo.a(); //调用对象的方法
-
+<!--more-->
 ```
 public class Test {
 	public static void main(String[] args) {

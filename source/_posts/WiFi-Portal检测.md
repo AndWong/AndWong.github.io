@@ -9,7 +9,7 @@ WiFi连接上一个开放热点，如何判断是否需要登录认证？
 这个方法来自Android4.0.1AOSP源码 WifiWatchdogStateMachine#isWalledGardenConnection()。
 
 对于个人开发者或者“小厂商”不建议在我们自己的服务器上处理http ://www.xxx.com/generate_204，除非你家的服务器很稳定，基本上不出现问题。这时候我们可以考虑下“大厂商”是否已经有类似的功能。像UC啊什么的。他们都能自动提醒你网络需要登陆，他们也是使用了同样的方式，至于链接地址，就靠大家自己了。
-
+<!--more-->
 代码如下：
 ```
 import java.io.IOException;

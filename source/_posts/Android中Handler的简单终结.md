@@ -12,7 +12,7 @@ tags: Android
 并使用Looper.loop()来开启消息的读取）及MessageQueue（创建Looper的同时创建），
 而平时我们在主线程中创建Handler却可以省略该步骤主要是由于主线程在开启时就已自动Looper，
 可以通过getMainLooper()来获取主线程的Looper。
-
+<!--more-->
 3.Looper,Handler,MessageQueue的引用关系?
 Looper：好比一个泵，循环不断的在MessageQueue中查询消息
 MessageQueue：消息池，用于存放消息
