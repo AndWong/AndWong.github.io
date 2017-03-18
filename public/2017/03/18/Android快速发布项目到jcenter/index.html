@@ -1,0 +1,699 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android Jcenter," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.新建Bintray帐号  注意:邮箱不能使用qq邮箱和163邮箱
+2.新建Repositories, name:maven type:Maven">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android快速发布项目到jcenter">
+<meta property="og:url" content="http://yoursite.com/2017/03/18/Android快速发布项目到jcenter/index.html">
+<meta property="og:site_name" content="Wong`s Blog">
+<meta property="og:description" content="1.新建Bintray帐号  注意:邮箱不能使用qq邮箱和163邮箱
+2.新建Repositories, name:maven type:Maven">
+<meta property="og:image" content="http://p1.bqimg.com/587822/5dd605e1162a4043s.png">
+<meta property="og:image" content="http://p1.bpimg.com/587822/3b7057888acb55ffs.png">
+<meta property="og:image" content="http://p1.bpimg.com/587822/197c85eeaf18de6ds.png">
+<meta property="og:image" content="http://p1.bpimg.com/587822/8988ce7808992257s.png">
+<meta property="og:updated_time" content="2017-03-18T06:02:34.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android快速发布项目到jcenter">
+<meta name="twitter:description" content="1.新建Bintray帐号  注意:邮箱不能使用qq邮箱和163邮箱
+2.新建Repositories, name:maven type:Maven">
+<meta name="twitter:image" content="http://p1.bqimg.com/587822/5dd605e1162a4043s.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/18/Android快速发布项目到jcenter/"/>
+
+
+
+
+
+  <title> Android快速发布项目到jcenter | Wong`s Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a000b4bcc363784b527c24246b09f046";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wong`s Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="https://andwong.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/Android快速发布项目到jcenter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/reward/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wong`s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android快速发布项目到jcenter
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T13:36:01+08:00">
+                2017-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/18/Android快速发布项目到jcenter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/18/Android快速发布项目到jcenter/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.新建<a href="https://bintray.com/signup/oss" target="_blank" rel="external">Bintray帐号</a><br>  注意:邮箱不能使用qq邮箱和163邮箱</p>
+<p>2.新建Repositories, name:maven type:Maven<br><a id="more"></a><br><img src="http://p1.bqimg.com/587822/5dd605e1162a4043s.png" alt="Markdown"></p>
+<p>3.local.properties中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bintray.user=andwong001 //bintray用户名</div><div class="line">bintray.apikey=xxxxxxxxxxxxxxxx //apikey</div></pre></td></tr></table></figure></p>
+<p>apikey的获取 : edit profile -&gt; api key<br><img src="http://p1.bpimg.com/587822/3b7057888acb55ffs.png" alt="Markdown"></p>
+<p>4.项目根目录build.gradle中添加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">classpath &apos;com.github.dcendents:android-maven-gradle-plugin:1.5&apos;</div><div class="line">classpath &apos;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2&apos;</div></pre></td></tr></table></figure></p>
+<p>完整代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.2.2&apos;</div><div class="line">        //添加,后期版本号可能会过期,注意修改</div><div class="line">        classpath &apos;com.github.dcendents:android-maven-gradle-plugin:1.5&apos;</div><div class="line">        classpath &apos;com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2&apos;</div><div class="line">        // NOTE: Do not place your application dependencies here; they belong</div><div class="line">        // in the individual module build.gradle files</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">task clean(type: Delete) &#123;</div><div class="line">    delete rootProject.buildDir</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>5.moudle目录下build.gradle中添加 :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;com.android.library&apos;</div><div class="line">android &#123;</div><div class="line">    compileSdkVersion 23</div><div class="line">    buildToolsVersion &quot;23.0.2&quot;</div><div class="line">    resourcePrefix &quot;badger&quot;	//这个随便填</div><div class="line">    defaultConfig &#123;</div><div class="line">        minSdkVersion 14</div><div class="line">        targetSdkVersion 23</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line">    compile &apos;com.android.support:appcompat-v7:23.2.0&apos;</div><div class="line">&#125;</div><div class="line">//添加如下代码</div><div class="line">apply plugin: &apos;com.github.dcendents.android-maven&apos;</div><div class="line">apply plugin: &apos;com.jfrog.bintray&apos;</div><div class="line">version = &quot;1.0.0&quot; //版本号</div><div class="line">def siteUrl = &apos;https://github.com/AndWong/BadgerHelper&apos;      // 项目的主页</div><div class="line">def gitUrl = &apos;https://github.com/AndWong/BadgerHelper.git&apos;   // Git仓库的url</div><div class="line">group = &quot;com.tool.badger&quot;  //一般填你唯一的包名</div><div class="line">install &#123;</div><div class="line">    repositories.mavenInstaller &#123;</div><div class="line">        // This generates POM.xml with proper parameters</div><div class="line">        pom &#123;</div><div class="line">            project &#123;</div><div class="line">                packaging &apos;aar&apos;</div><div class="line">                // Add your description here</div><div class="line">                name &apos;Android Util For Badger&apos; 	//项目描述</div><div class="line">                url siteUrl</div><div class="line">                // Set your license</div><div class="line">                licenses &#123;</div><div class="line">                    license &#123;</div><div class="line">                        name &apos;The Apache Software License, Version 2.0&apos;</div><div class="line">                        url &apos;http://www.apache.org/licenses/LICENSE-2.0.txt&apos;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                developers &#123;</div><div class="line">                    developer &#123;</div><div class="line">                        id &apos;wong&apos; //填写的一些基本信息</div><div class="line">                        name &apos;andwong001&apos;</div><div class="line">                        email &apos;wonglife@yahoo.com&apos;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                scm &#123;</div><div class="line">                    connection gitUrl</div><div class="line">                    developerConnection gitUrl</div><div class="line">                    url siteUrl</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">task sourcesJar(type: Jar) &#123;</div><div class="line">    from android.sourceSets.main.java.srcDirs</div><div class="line">    classifier = &apos;sources&apos;</div><div class="line">&#125;</div><div class="line">task javadoc(type: Javadoc) &#123;</div><div class="line">    source = android.sourceSets.main.java.srcDirs</div><div class="line">    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))</div><div class="line">&#125;</div><div class="line">task javadocJar(type: Jar, dependsOn: javadoc) &#123;</div><div class="line">    classifier = &apos;javadoc&apos;</div><div class="line">    from javadoc.destinationDir</div><div class="line">&#125;</div><div class="line">//这个很重要</div><div class="line">artifacts &#123;</div><div class="line">    archives javadocJar</div><div class="line">    archives sourcesJar</div><div class="line">&#125;</div><div class="line">Properties properties = new Properties()</div><div class="line">properties.load(project.rootProject.file(&apos;local.properties&apos;).newDataInputStream())</div><div class="line">bintray &#123;</div><div class="line">    user = properties.getProperty(&quot;bintray.user&quot;)</div><div class="line">    key = properties.getProperty(&quot;bintray.apikey&quot;)</div><div class="line">    configurations = [&apos;archives&apos;]</div><div class="line">    pkg &#123;</div><div class="line">        repo = &quot;maven&quot;  //</div><div class="line">        name = &quot;Badger&quot;	//发布到JCenter上的项目名字</div><div class="line">        websiteUrl = siteUrl</div><div class="line">        vcsUrl = gitUrl</div><div class="line">        licenses = [&quot;Apache-2.0&quot;]</div><div class="line">        publish = true</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>6.Rebuild项目<br>并在项目根目录下执行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$./gradlew install</div><div class="line">$./gradlew bintrayUpload</div></pre></td></tr></table></figure></p>
+<p>7.完成后到Bintray网站的该项目点击 add to jCenter,等待审核<br>选择上传的项目<br><img src="http://p1.bpimg.com/587822/197c85eeaf18de6ds.png" alt="Markdown"><br>打开后,会有一个 [Add to Jcenter]按钮,点击提交等待审核(一般1~2天就行)<br>下图是审核过的项目<br><img src="http://p1.bpimg.com/587822/8988ce7808992257s.png" alt="Markdown"></p>
+<p>项目地址 : <a href="https://github.com/AndWong/BadgerHelper" target="_blank" rel="external">https://github.com/AndWong/BadgerHelper</a><br>请多多指教,多多start!</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果问题解决了, 可以点这里!</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/reward/wxpay.png" alt="Wong WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/reward/alipay.png" alt="Wong Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-Jcenter/" rel="tag"># Android Jcenter</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/13/开发中经常用到的网站/" rel="next" title="开发中经常用到的网站">
+                <i class="fa fa-chevron-left"></i> 开发中经常用到的网站
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/18/Android快速发布项目到jcenter/"
+           data-title="Android快速发布项目到jcenter" data-url="http://yoursite.com/2017/03/18/Android快速发布项目到jcenter/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/reward/logo.jpg"
+               alt="Wong" />
+          <p class="site-author-name" itemprop="name">Wong</p>
+           
+              <p class="site-description motion-element" itemprop="description">编程写代码 必成高富帅</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="https://andwong.github.io/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wong</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"andwong"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
